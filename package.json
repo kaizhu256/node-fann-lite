@@ -1,0 +1,25 @@
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "pure javascript version of fann (fast artificial neural net library) with zero npm-dependencies (compiled from emscripten)",
+    "devDependencies": {
+        "phantomjs-lite": "^1.9.8-2015.6.1-b",
+        "utility2": "2015.6.1-b"
+    },
+    "keywords": [
+        "ann",
+        "fann",
+        "neural-net", "nn"
+    ],
+    "license": "MIT",
+    "name": "fann-lite",
+    "os": ["darwin", "linux"],
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/kaizhu256/node-fann-lite.git"
+    },
+    "scripts": {
+        "build-ci": "node_modules/.bin/utility2 shRun shReadmeBuild",
+        "test": "node_modules/.bin/utility2 shRun shReadmeExportPackageJson"
+    },
+    "version": "2015.6.1-a"
+}

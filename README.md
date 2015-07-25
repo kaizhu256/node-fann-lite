@@ -6,15 +6,24 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 
 
 
-# documentation (written for c but applies to this javascript library)
+# documentation (written for c but applies)
 [http://leenissen.dk/fann/html/files2/gettingstarted-txt.html](http://leenissen.dk/fann/html/files2/gettingstarted-txt.html)
+
+
+
+# live test-server
+[![heroku.com test-server](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.herokuDeploy.slimerjs..png)](https://hrku01-fann-lite-beta.herokuapp.com)
 
 
 
 # build-status [![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-fann-lite.svg)](https://travis-ci.org/kaizhu256/node-fann-lite)
 
+[![build commit status](https://kaizhu256.github.io/node-fann-lite/build/build.badge.svg)](https://travis-ci.org/kaizhu256/node-fann-lite)
+
 | git-branch : | [master](https://github.com/kaizhu256/node-fann-lite/tree/master) | [beta](https://github.com/kaizhu256/node-fann-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-fann-lite/tree/alpha)|
 |--:|:--|:--|:--|
+| test-server : | [![heroku.com test-server](https://kaizhu256.github.io/node-fann-lite/heroku-logo.75x25.png)](https://hrku01-fann-lite-master.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-fann-lite/heroku-logo.75x25.png)](https://hrku01-fann-lite-beta.herokuapp.com) | [![heroku.com test-server](https://kaizhu256.github.io/node-fann-lite/heroku-logo.75x25.png)](https://hrku01-fann-lite-alpha.herokuapp.com)|
+| coverage : | [![istanbul-lite coverage](https://kaizhu256.github.io/node-fann-lite/build..master..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-fann-lite/build..master..travis-ci.org/coverage.html/index.html) | [![istanbul-lite coverage](https://kaizhu256.github.io/node-fann-lite/build..beta..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-fann-lite/build..beta..travis-ci.org/coverage.html/index.html) | [![istanbul-lite coverage](https://kaizhu256.github.io/node-fann-lite/build..alpha..travis-ci.org/coverage.badge.svg)](https://kaizhu256.github.io/node-fann-lite/build..alpha..travis-ci.org/coverage.html/index.html)|
 | build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-fann-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-fann-lite/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-fann-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-fann-lite/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-fann-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-fann-lite/tree/gh-pages/build..alpha..travis-ci.org)|
 
 #### master branch
@@ -62,15 +71,12 @@ instruction
 
 (function (local) {
     'use strict';
-    switch (local.modeJs) {
-
-
-
     // run node js-env code
-    case 'node':
+    (function () {
         // require modules
         local.fs = require('fs');
         local.http = require('http');
+        local.path = require('path');
         local.url = require('url');
         // init assets
         local['/'] = (String() +
@@ -194,6 +200,9 @@ instruction
                 response.end('404 Not Found');
             }
         });
+        if (process.env.npm_config_server_port) {
+            return;
+        }
         // start server
         local.serverPort = 1337;
         console.log('server starting on port ' + local.serverPort);
@@ -209,8 +218,7 @@ instruction
                 }, process.exit);
             }
         });
-        break;
-    }
+    }());
 }((function () {
     'use strict';
     var local;
@@ -240,9 +248,15 @@ instruction
         // init fann-lite
         local.fann = local.modeJs === 'browser'
             ? window.fann
-            : require('fann-lite');
+            : (function () {
+                try {
+                    return require('fann-lite');
+                } catch (errorCaught) {
+                    return require('./fann.js');
+                }
+            }());
         // export local
-        local.global.local = local;
+        module.exports = local;
     }());
     return local;
 }())));
@@ -273,7 +287,7 @@ instruction
 (compiled from emscripten)",
     "devDependencies": {
         "phantomjs-lite": "^2015.6.1",
-        "utility2": "~2015.7.5"
+        "utility2": "~2015.7.7"
     },
     "keywords": [
         "ann",
@@ -292,9 +306,10 @@ instruction
         "build-ci": "node_modules/.bin/utility2 shRun shReadmeBuild",
         "start": "npm_config_mode_auto_restart=1 \
 node_modules/.bin/utility2 shRun node test.js",
-        "test": "node_modules/.bin/utility2 shRun shReadmeExportPackageJson"
+        "test": "node_modules/.bin/utility2 shRun shReadmeExportPackageJson && \
+node_modules/.bin/utility2 test test.js"
     },
-    "version": "2015.7.1"
+    "version": "2015.7.2"
 }
 ```
 
@@ -306,10 +321,9 @@ node_modules/.bin/utility2 shRun node test.js",
 
 
 
-# change since 313ebc18
-- npm publish 2015.7.1
-- add simple xor training and test example
-- fix ci-build
+# change since c57a2d50
+- npm publish 2015.7.2
+- deploy heroku test-server
 - none
 
 
@@ -330,6 +344,7 @@ node_modules/.bin/utility2 shRun node test.js",
 shBuild() {
     # this function will run the main build
     # init env
+    export npm_config_mode_no_phantomjs=1 || return $?
     export npm_config_mode_slimerjs=1 || return $?
     . node_modules/.bin/utility2 && shInit || return $?
 
@@ -344,6 +359,12 @@ shBuild() {
 
     # run npm-test
     MODE_BUILD=npmTest shRunScreenCapture npm test || return $?
+
+    # if running legacy-node, then do not continue
+    [ "$(node --version)" \< "v0.12" ] && return
+
+    # deploy app to heroku
+    shRun shHerokuDeploy hrku01-$npm_package_name-$CI_BRANCH || return $?
 }
 shBuild
 

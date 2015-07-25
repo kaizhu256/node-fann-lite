@@ -26,21 +26,8 @@
     case 'node':
         // init assets
         local.utility2.cacheDict.assets['/'] =
-            local.utility2.cacheDict.assets['/test/test.html'] =
-            local.utility2.stringFormat(local.fs
-                .readFileSync(__dirname + '/README.md', 'utf8')
-                // extract html
-                .replace((/[\S\s]+?(<!DOCTYPE html>[\S\s]+?<\/html>)[\S\s]+/), '$1')
-                // parse '\' line-continuation
-                .replace((/\\\n/g), '')
-                // remove "\\n' +" and "'"
-                .replace((/\\n' \+(\s*?)'/g), '$1'), { envDict: local.utility2.envDict }, '');
-        local.utility2.cacheDict.assets['/assets/fann-lite.js'] =
-            local.utility2.istanbul_lite.instrumentInPackage(
-                local.fann['/assets/fann-lite.js'],
-                __dirname + '/fann.js',
-                'fann-lite'
-            );
+            local.utility2.cacheDict.assets['/test/test.html'] = local['/'];
+        local.utility2.cacheDict.assets['/assets/fann.js'] = local['/assets/fann.js'];
         local.utility2.cacheDict.assets['/test/test.js'] =
             local.utility2.istanbul_lite.instrumentInPackage(
                 local.fs.readFileSync(__filename, 'utf8'),
@@ -76,20 +63,6 @@
         });
         // init repl debugger
         local.utility2.replStart();
-
-        //!! // test
-        //!! local.ann = local.fann.create_standard(3, 2, 3, 1);
-        //!! local.data = local.fann
-            //!! .create_train_from_array(4, 2, 1, [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]);
-        //!! //!! local.fann.randomize_weights(local.ann, 0, 0.1);
-        //!! local.fann
-            //!! .set_activation_function_hidden(local.ann, local.fann.ACTIVATION_SIGMOID_SYMMETRIC);
-        //!! local.fann.set_activation_function_output(local.ann, 5);
-        //!! local.fann.train_on_data(local.ann, local.data, 5000, 1000, 0.001);
-        //!! debugPrint(local.fann.run(local.ann, [1, 1]));
-        //!! debugPrint(local.fann.run(local.ann, [1, -1]));
-        //!! debugPrint(local.fann.run(local.ann, [-1, 1]));
-
         break;
     }
 }((function () {
@@ -114,26 +87,37 @@
                     'browser';
             }
         }());
+        // init example.js
+        if (local.modeJs === 'node') {
+            require('fs').writeFileSync(
+                './example.js',
+                require('fs').readFileSync('./README.md', 'utf8')
+                    // support syntax-highlighting
+                    .replace((/[\S\s]+?\n.*?example.js\s*?```\w*?\n/), function (match0) {
+                        // preserve lineno
+                        return match0.replace((/.+/g), '');
+                    })
+                    .replace((/\n```[\S\s]+/), '')
+            );
+            // init example.js
+            local = require('./example.js');
+        }
         // init global
         local.global = local.modeJs === 'browser'
             ? window
             : global;
-        // export local
-        local.global.local = local;
         // init utility2
         local.utility2 = local.modeJs === 'browser'
             ? window.utility2
             : require('utility2');
         // init onReady
         local.utility2.onReadyInit();
-        // init fann
+        // init fann-lite
         local.fann = local.modeJs === 'browser'
             ? window.fann
             : require('./fann.js');
-        // import fann.local
-        Object.keys(local.fann.local).forEach(function (key) {
-            local[key] = local[key] || local.fann.local[key];
-        });
+        // export local
+        local.global.local = local;
     }());
     return local;
 }())));

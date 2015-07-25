@@ -172,13 +172,13 @@
             console.log = function () {
                 fannOutputPre.textContent = fannOutputPre.textContent +
                     Array.prototype.slice.call(arguments).join(' ') + '\n';
-                fannOutputPre, fannOutputPre.textContent;
                 local.consoleLog.apply(console, arguments);
-            }
+            };
             // init fannOutputPre
             fannOutputPre = document.querySelector('.fannOutputPre') || {};
             fannOutputPre.textContent = '';
             // eval .fannInputTextarea
+            /*jslint evil: true*/
             eval((document.querySelector('.fannInputTextarea') || {}).value || '');
         };
         break;

@@ -6,8 +6,9 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 
 
 
-# documentation (written for c but applies)
+# documentation (original c-api)
 [http://leenissen.dk/fann/html/files2/gettingstarted-txt.html](http://leenissen.dk/fann/html/files2/gettingstarted-txt.html)
+- currently only tested to work in chrome browser
 
 
 
@@ -50,14 +51,14 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 /*
 example.js
 
-this node script will serve a web-page with interactive jslint
+this node script will serve a web-page with an interactive neural net
 
 instruction
     1. save this script as example.js
     2. run the shell command:
           $ npm install fann-lite && node example.js
     3. open a browser to http://localhost:1337
-    4. edit or paste script in browser to interactively jslint
+    4. edit or paste script in browser to interact with the neural net
 */
 
 /*jslint
@@ -287,7 +288,7 @@ instruction
 (compiled from emscripten)",
     "devDependencies": {
         "phantomjs-lite": "^2015.6.1",
-        "utility2": "~2015.7.7"
+        "utility2": "~2015.7.8"
     },
     "keywords": [
         "ann",
@@ -309,7 +310,7 @@ node_modules/.bin/utility2 shRun node test.js",
         "test": "node_modules/.bin/utility2 shRun shReadmeExportPackageJson && \
 node_modules/.bin/utility2 test test.js"
     },
-    "version": "2015.7.2"
+    "version": "2015.7.3"
 }
 ```
 
@@ -317,13 +318,14 @@ node_modules/.bin/utility2 test test.js"
 
 # todo
 - add meaningful tests
+- fix demo failure in firefox
 - none
 
 
 
-# change since c57a2d50
-- npm publish 2015.7.2
-- deploy heroku test-server
+# change since c0c5c03a
+- npm publish 2015.7.3
+- update README.md
 - none
 
 
@@ -344,7 +346,7 @@ node_modules/.bin/utility2 test test.js"
 shBuild() {
     # this function will run the main build
     # init env
-    export npm_config_mode_no_phantomjs=1 || return $?
+    export npm_config_mode_phantomjs=0 || return $?
     export npm_config_mode_slimerjs=1 || return $?
     . node_modules/.bin/utility2 && shInit || return $?
 

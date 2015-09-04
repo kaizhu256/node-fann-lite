@@ -2,7 +2,7 @@ fann-lite
 =========
 pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial neural net library) with zero npm-dependencies (compiled from emscripten)
 
-[![NPM](https://img.shields.io/npm/v/fann-lite.svg?style=flat-square)](https://www.npmjs.org/package/fann-lite)
+[![NPM](https://img.shields.io/npm/v/fann-lite.svg?style=flat-square)](https://www.npmjs.org/package/fann-lite) [![NPM](https://img.shields.io/npm/dm/fann-lite.svg?style=flat-square)](https://www.npmjs.org/package/fann-lite)
 
 
 
@@ -18,7 +18,6 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 
 
 # build-status [![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-fann-lite.svg)](https://travis-ci.org/kaizhu256/node-fann-lite)
-
 [![build commit status](https://kaizhu256.github.io/node-fann-lite/build/build.badge.svg)](https://travis-ci.org/kaizhu256/node-fann-lite)
 
 | git-branch : | [master](https://github.com/kaizhu256/node-fann-lite/tree/master) | [beta](https://github.com/kaizhu256/node-fann-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-fann-lite/tree/alpha)|
@@ -43,7 +42,6 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 
 
 # quickstart web example
-
 #### to run this example, follow the instruction in the script below
 - example.js
 
@@ -64,7 +62,7 @@ instruction
 /*jslint
     browser: true,
     maxerr: 8,
-    maxlen: 80,
+    maxlen: 96,
     node: true,
     nomen: true,
     stupid: true
@@ -264,7 +262,7 @@ instruction
 ```
 
 #### output from shell
-[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.testExampleJs.png)](https://travis-ci.org/kaizhu256/node-fann-lite)
+[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.testExampleJs.svg)](https://travis-ci.org/kaizhu256/node-fann-lite)
 
 #### output from phantomjs-lite
 [![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.testExampleJs.slimerjs..png)](https://hrku01-fann-lite-beta.herokuapp.com)
@@ -275,7 +273,7 @@ instruction
 
 
 # package-listing
-[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.gitLsTree.png)](https://github.com/kaizhu256/node-fann-lite)
+[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.gitLsTree.svg)](https://github.com/kaizhu256/node-fann-lite)
 
 
 
@@ -287,8 +285,8 @@ instruction
 (fast artificial neural net library) with zero npm-dependencies \
 (compiled from emscripten)",
     "devDependencies": {
-        "phantomjs-lite": "^2015.6.1",
-        "utility2": "~2015.7.8"
+        "phantomjs-lite": "^2015.7.1",
+        "utility2": "~2015.8.5"
     },
     "keywords": [
         "ann",
@@ -310,7 +308,7 @@ node_modules/.bin/utility2 shRun node test.js",
         "test": "node_modules/.bin/utility2 shRun shReadmeExportPackageJson && \
 node_modules/.bin/utility2 test test.js"
     },
-    "version": "2015.7.3"
+    "version": "2015.8.1"
 }
 ```
 
@@ -323,15 +321,15 @@ node_modules/.bin/utility2 test test.js"
 
 
 
-# change since c0c5c03a
-- npm publish 2015.7.3
+# change since 4931707a
+- npm publish 2015.8.1
 - update README.md
 - none
 
 
 
 # changelog of last 50 commits
-[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.gitLog.png)](https://github.com/kaizhu256/node-fann-lite/commits)
+[![screen-capture](https://kaizhu256.github.io/node-fann-lite/build/screen-capture.gitLog.svg)](https://github.com/kaizhu256/node-fann-lite/commits)
 
 
 
@@ -372,29 +370,13 @@ shBuild
 
 # save exit-code
 EXIT_CODE=$?
-
-shBuildCleanup() {
-    # this function will cleanup build-artifacts in local build dir
-    # create package-listing
-    MODE_BUILD=gitLsTree shRunScreenCapture shGitLsTree || return $?
-    # create recent changelog of last 50 commits
-    MODE_BUILD=gitLog shRunScreenCapture git log -50 --pretty="%ai\u000a%B" || \
-        return $?
-}
-shBuildCleanup || exit $?
-
-shBuildGithubUploadCleanup() {
-    # this function will cleanup build-artifacts in local gh-pages repo
-    return
-}
-
+# create package-listing
+MODE_BUILD=gitLsTree shRunScreenCapture shGitLsTree || exit $?
+# create recent changelog of last 50 commits
+MODE_BUILD=gitLog shRunScreenCapture git log -50 --pretty="%ai\u000a%B" || exit $?
 # if running legacy-node, then do not continue
 [ "$(node --version)" \< "v0.12" ] && exit $EXIT_CODE
-
-# upload build-artifacts to github,
-# and if number of commits > 16, then squash older commits
+# upload build-artifacts to github, and if number of commits > 16, then squash older commits
 COMMIT_LIMIT=16 shBuildGithubUpload || exit $?
-
-# exit with $EXIT_CODE
 exit $EXIT_CODE
 ```

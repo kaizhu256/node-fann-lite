@@ -361,7 +361,7 @@ shBuild() {
     MODE_BUILD=npmTest shRunScreenCapture npm test || return $?
 
     # if running legacy-node, then do not continue
-    [ "$(node --version)" \< "v0.12" ] && return
+    [ "$(node --version)" \< "v4.0" ] && return
 
     # deploy app to heroku
     shRun shHerokuDeploy hrku01-$npm_package_name-$CI_BRANCH || return $?
@@ -375,7 +375,7 @@ MODE_BUILD=gitLsTree shRunScreenCapture shGitLsTree || exit $?
 # create recent changelog of last 50 commits
 MODE_BUILD=gitLog shRunScreenCapture git log -50 --pretty="%ai\u000a%B" || exit $?
 # if running legacy-node, then do not continue
-[ "$(node --version)" \< "v0.12" ] && exit $EXIT_CODE
+[ "$(node --version)" \< "v4.0" ] && exit $EXIT_CODE
 # upload build-artifacts to github, and if number of commits > 16, then squash older commits
 COMMIT_LIMIT=16 shBuildGithubUpload || exit $?
 exit $EXIT_CODE

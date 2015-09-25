@@ -2,7 +2,7 @@
 <rect height="382" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
-<tspan x="10" y="42">[MODE_BUILD=testExampleJs] - 2015-09-25T14:41:24Z - testing example.js</tspan>
+<tspan x="10" y="42">[MODE_BUILD=testExampleJs] - 2015-09-25T14:45:40Z - testing example.js</tspan>
 <tspan x="10" y="58"></tspan>
 <tspan x="10" y="74">npm WARN engine jslint-lite@2015.8.1: wanted: {"node":"&gt;=0.10 &lt;=0.12"} (current: {"node":"4.0.0"\</tspan>
 <tspan x="10" y="90">,"npm":"2.14.2"})</tspan>
@@ -17,9 +17,9 @@
 <tspan x="10" y="234">FANN Error 1: Unable to open cFANN Error 19: The number of input neurons in the ann (2) and data\</tspan>
 <tspan x="10" y="250"> (1650552405) don't match</tspan>
 <tspan x="10" y="266">Epochs            1. Current error: 0.0000000000. Bit fail 0.</tspan>
-<tspan x="10" y="282">1 xor 1 -&gt; -0.02208578467841882</tspan>
-<tspan x="10" y="298">1 xor 0 -&gt; -0.020654000369587866</tspan>
-<tspan x="10" y="314">0 xor 1 -&gt; -0.01892672207177515</tspan>
+<tspan x="10" y="282">1 xor 1 -&gt; 0.03011547867009079</tspan>
+<tspan x="10" y="298">1 xor 0 -&gt; 0.026968523088538143</tspan>
+<tspan x="10" y="314">0 xor 1 -&gt; 0.03184160457782115</tspan>
 <tspan x="10" y="330">slimerjs - opened http://localhost:1337</tspan>
 <tspan x="10" y="346">slimerjs - created screen-capture file:///home/travis/build/kaizhu256/node-fann-lite/tmp/build/s\</tspan>
 <tspan x="10" y="362">creen-capture.testExampleJs.slimerjs..png</tspan>

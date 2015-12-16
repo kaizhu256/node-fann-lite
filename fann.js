@@ -163,9 +163,9 @@
         // export fann
         window.fann = local.fann;
         local.fann.fannInputTextarea = function () {
-            /*
-             * this function will eval the text in .fannInputTextarea
-             */
+        /*
+         * this function will eval the text in .fannInputTextarea
+         */
             var fannOutputPre;
             // init console.log
             local.consoleLog = local.consoleLog || console.log;

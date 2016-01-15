@@ -1,0 +1,822 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for node-fann-lite/example.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../base.css">
+    <style type="text/css">
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header medium">
+    <h1>Code coverage report for <span class="entity">node-fann-lite/example.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">61.36% <small>(27 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">28% <small>(7 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">66.67% <small>(6 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">61.36% <small>(27 / 44)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">node-fann-lite/</a> &#187; example.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+/*
+example.js
+&nbsp;
+this node script will serve a web-page with an interactive neural net
+&nbsp;
+instruction
+    1. save this script as example.js
+    2. run the shell command:
+          $ npm install fann-lite &amp;&amp; node example.js
+    3. open a browser to http://localhost:1337
+    4. edit or paste script in browser to interact with the neural net
+*/
+&nbsp;
+/*jslint
+    browser: true,
+    maxerr: 8,
+    maxlen: 96,
+    node: true,
+    nomen: true,
+    stupid: true
+*/
+&nbsp;
+(function (local) {
+    'use strict';
+    // run node js-env code
+    (function () {
+        // require modules
+        local.fs = require('fs');
+        local.http = require('http');
+        local.path = require('path');
+        local.url = require('url');
+        // init assets
+        local['/'] = (String() +
+&nbsp;
+&nbsp;
+&nbsp;
+/* jslint-ignore-begin */
+'&lt;!DOCTYPE html&gt;\n' +
+'&lt;html&gt;\n' +
+'&lt;head&gt;\n' +
+    '&lt;meta charset="UTF-8"&gt;\n' +
+    '&lt;title&gt;\n' +
+    'fann-lite [2015.6.1-a]\n' +
+    '&lt;/title&gt;\n' +
+    '&lt;link rel="stylesheet" href="/assets/utility2.css"&gt;\n' +
+    '&lt;style&gt;\n' +
+    '* {\n' +
+        'box-sizing: border-box;\n' +
+    '}\n' +
+    'body {\n' +
+        'background-color: #fff;\n' +
+        'font-family: Helvetical Neue, Helvetica, Arial, sans-serif;\n' +
+    '}\n' +
+    'body &gt; div {\n' +
+        'margin-top: 20px;\n' +
+    '}\n' +
+    'textarea {\n' +
+        'font-family: monospace;\n' +
+        'height: 32em;\n' +
+        'width: 100%;\n' +
+    '}\n' +
+    '.csslintOutputPre {\n' +
+        'color: #f00;\n' +
+    '}\n' +
+    '.fannOutputPre {\n' +
+        'color: #f00;\n' +
+    '}\n' +
+    '.testReportDiv {\n' +
+        'display: none;\n' +
+    '}\n' +
+    '&lt;/style&gt;\n' +
+&nbsp;
+'&lt;/head&gt;\n' +
+'&lt;body&gt;\n' +
+    '&lt;div class="ajaxProgressDiv" style="display: none;"&gt;\n' +
+    '&lt;div class="ajaxProgressBarDiv ajaxProgressBarDivLoading" &gt;loading&lt;/div&gt;\n' +
+    '&lt;/div&gt;\n' +
+    '&lt;h1 &gt;fann-lite [2015.6.1-a]&lt;/h1&gt;\n' +
+    '&lt;h3&gt;pure javascript version of fann (fast artificial neural net library) with zero npm-dependencies (compiled from emscripten)&lt;/h3&gt;\n' +
+    '&lt;div&gt;edit or paste script below to\n' +
+    '&lt;a href="http://leenissen.dk/fann/html/files2/gettingstarted-txt.html" target="_blank"&gt;\n' +
+    'eval&lt;/a&gt;\n' +
+    '&lt;/div&gt;\n' +
+'&lt;textarea class="fannInputTextarea"&gt;\n' +
+'// test\n' +
+'local.ann = local.fann.create_standard(3, 2, 3, 1);\n' +
+'local.data = local.fann\n' +
+    '.create_train_from_array(4, 2, 1, [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]);\n' +
+'local.fann\n' +
+    '.set_activation_function_hidden(local.ann, local.fann.ACTIVATION_SIGMOID_SYMMETRIC);\n' +
+'local.fann.set_activation_function_output(local.ann, 5);\n' +
+'local.fann.train_on_data(local.ann, local.data, 5000, 1000, 0.001);\n' +
+'console.log("1 xor 1 -&gt; " + local.fann.run(local.ann, [1, 1]));\n' +
+'console.log("1 xor 0 -&gt; " + local.fann.run(local.ann, [1, -1]));\n' +
+'console.log("0 xor 1 -&gt; " + local.fann.run(local.ann, [-1, 1]));\n' +
+'&lt;/textarea&gt;\n' +
+    '&lt;pre class="fannOutputPre"&gt;&lt;/pre&gt;\n' +
+    '&lt;div class="testReportDiv"&gt;&lt;/div&gt;\n' +
+    '&lt;script src="/assets/fann.js"&gt;&lt;/script&gt;\n' +
+    '&lt;script src="/assets/utility2.js"&gt;&lt;/script&gt;\n' +
+    '&lt;script&gt;\n' +
+    'window.utility2 = window.utility2 || {};\n' +
+    'window.utility2.envDict = {\n' +
+        'npm_package_description: "pure javascript version of fann (fast artificial neural net library) with zero npm-dependencies (compiled from emscripten)",\n' +
+        'npm_package_name: "fann-lite",\n' +
+        'npm_package_version: "2015.6.1-a"\n' +
+    '};\n' +
+    'document.querySelector(\n' +
+        '".fannInputTextarea"\n' +
+    ').addEventListener("keyup", window.fann.fannInputTextarea);\n' +
+    'window.fann.fannInputTextarea();\n' +
+    '&lt;/script&gt;\n' +
+    '&lt;script src="/test/test.js"&gt;&lt;/script&gt;\n' +
+&nbsp;
+'&lt;/body&gt;\n' +
+'&lt;/html&gt;\n' +
+/* jslint-ignore-end */
+&nbsp;
+&nbsp;
+&nbsp;
+        String()).replace((/\{\{envDict\.\w+?\}\}/g), <span class="fstat-no" title="function not covered" >function (match0) {</span>
+<span class="cstat-no" title="statement not covered" >            switch (match0) {</span>
+            case '{{envDict.npm_package_description}}':
+<span class="cstat-no" title="statement not covered" >                return 'this is an example module';</span>
+            case '{{envDict.npm_package_name}}':
+<span class="cstat-no" title="statement not covered" >                return 'example-module';</span>
+            case '{{envDict.npm_package_version}}':
+<span class="cstat-no" title="statement not covered" >                return '0.0.1';</span>
+            default:
+<span class="cstat-no" title="statement not covered" >                return '';</span>
+            }
+        });
+        local['/assets/fann.js'] = local.fann['/assets/fann.js'];
+        local['/assets/utility2.css'] = '';
+        local['/assets/utility2.js'] = '';
+        local['/test/test.js'] = '';
+        // create server
+        local.server = local.http.createServer(<span class="fstat-no" title="function not covered" >function (request, response) {</span>
+<span class="cstat-no" title="statement not covered" >            switch (local.url.parse(request.url).pathname) {</span>
+            // serve assets
+            case '/':
+            case '/assets/fann.js':
+            case '/assets/utility2.css':
+            case '/assets/utility2.js':
+            case '/test/test.js':
+<span class="cstat-no" title="statement not covered" >                response.end(local[local.url.parse(request.url).pathname]);</span>
+<span class="cstat-no" title="statement not covered" >                break;</span>
+            // default to 404 Not Found
+            default:
+<span class="cstat-no" title="statement not covered" >                response.statusCode = 404;</span>
+<span class="cstat-no" title="statement not covered" >                response.end('404 Not Found');</span>
+            }
+        });
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (process.env.npm_config_server_port) {
+            return;
+        }
+        // start server
+<span class="cstat-no" title="statement not covered" >        local.serverPort = 1337;</span>
+<span class="cstat-no" title="statement not covered" >        console.log('server starting on port ' + local.serverPort);</span>
+<span class="cstat-no" title="statement not covered" >        local.server.listen(local.serverPort, <span class="fstat-no" title="function not covered" >function () {</span></span>
+            // this internal build-code will screen-capture the server
+            // and then exit
+<span class="cstat-no" title="statement not covered" >            if (process.env.MODE_BUILD === 'testExampleJs') {</span>
+<span class="cstat-no" title="statement not covered" >                console.log('server stopping on port ' + local.serverPort);</span>
+<span class="cstat-no" title="statement not covered" >                require(</span>
+                    process.env.npm_config_dir_utility2 + '/index.js'
+                ).phantomScreenCapture({
+                    url: 'http://localhost:' + local.serverPort
+                }, process.exit);
+            }
+        });
+    }());
+}((function () {
+    'use strict';
+    var local;
+&nbsp;
+&nbsp;
+&nbsp;
+    // run shared js-env code
+    (function () {
+        // init local
+        local = {};
+        local.modeJs = (function () {
+            try {
+                return module.exports &amp;&amp;
+                    typeof process.versions.node === 'string' &amp;&amp;
+                    typeof require('http').createServer === 'function' &amp;&amp;
+                    'node';
+            } catch (errorCaughtNode) {
+<span class="cstat-no" title="statement not covered" >                return typeof navigator.userAgent === 'string' &amp;&amp;</span>
+                    typeof document.querySelector('body') === 'object' &amp;&amp;
+                    'browser';
+            }
+        }());
+        // init global
+        local.global = local.modeJs === 'browser'
+            ? <span class="branch-0 cbranch-no" title="branch not covered" >window</span>
+            : global;
+        // init fann-lite
+        local.fann = local.modeJs === 'browser'
+            ? <span class="branch-0 cbranch-no" title="branch not covered" >window.fann</span>
+            : (function () {
+                try {
+                    return require('fann-lite');
+                } catch (errorCaught) {
+                    return require('./fann.js');
+                }
+            }());
+        // export local
+        module.exports = local;
+    }());
+    return local;
+}())));</pre></td></tr>
+</table></pre>
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 20 2015 04:28:19 GMT+0000 (UTC)</div>
+</div>
+</body>
+</html>

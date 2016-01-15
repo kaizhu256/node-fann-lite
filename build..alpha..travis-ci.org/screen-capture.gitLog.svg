@@ -1,0 +1,42 @@
+<svg height="622" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="622" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">2015-08-20 12:27:15 +0800</tspan>
+<tspan x="10" y="42">'update README.md'</tspan>
+<tspan x="10" y="58"></tspan>
+<tspan x="10" y="74">2015-08-20 08:16:23 +0800</tspan>
+<tspan x="10" y="90">'update README.md'</tspan>
+<tspan x="10" y="106"></tspan>
+<tspan x="10" y="122">2015-08-18 00:17:27 +0800</tspan>
+<tspan x="10" y="138">update devDependencies</tspan>
+<tspan x="10" y="154"></tspan>
+<tspan x="10" y="170">2015-07-31 17:24:45 +0800</tspan>
+<tspan x="10" y="186">'update dependencies'</tspan>
+<tspan x="10" y="202"></tspan>
+<tspan x="10" y="218">2015-07-31 15:58:58 +0800</tspan>
+<tspan x="10" y="234">'update dependencies'</tspan>
+<tspan x="10" y="250"></tspan>
+<tspan x="10" y="266">2015-07-26 23:25:27 +0800</tspan>
+<tspan x="10" y="282">- npm publish 2015.7.3</tspan>
+<tspan x="10" y="298">- update README.md</tspan>
+<tspan x="10" y="314"></tspan>
+<tspan x="10" y="330">2015-07-25 13:08:19 +0800</tspan>
+<tspan x="10" y="346">- npm publish 2015.7.2</tspan>
+<tspan x="10" y="362">- deploy heroku test-server</tspan>
+<tspan x="10" y="378"></tspan>
+<tspan x="10" y="394">2015-07-25 10:46:52 +0800</tspan>
+<tspan x="10" y="410">- npm publish 2015.7.1</tspan>
+<tspan x="10" y="426">- add simple xor training and test example</tspan>
+<tspan x="10" y="442">- fix ci-build</tspan>
+<tspan x="10" y="458"></tspan>
+<tspan x="10" y="474">2015-06-11 11:11:07 +0800</tspan>
+<tspan x="10" y="490">- npm publish 2015.6.1-a</tspan>
+<tspan x="10" y="506">- add compiled doublefann.js from emscripten</tspan>
+<tspan x="10" y="522"></tspan>
+<tspan x="10" y="538">2015-06-11 02:24:44 +0000</tspan>
+<tspan x="10" y="554">add compiled doublefann.js from emscripten</tspan>
+<tspan x="10" y="570"></tspan>
+<tspan x="10" y="586">2014-03-26 02:31:50 +0700</tspan>
+<tspan x="10" y="602">add blank README.md</tspan>
+</text>
+</svg>

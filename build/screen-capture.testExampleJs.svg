@@ -1,0 +1,25 @@
+<svg height="350" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="350" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+<tspan x="10" y="42">[MODE_BUILD=testExampleJs] - 2015-08-20T04:28:07Z - testing example.js</tspan>
+<tspan x="10" y="58"></tspan>
+<tspan x="10" y="74">jslint-lite@2015.6.3 node_modules/jslint-lite</tspan>
+<tspan x="10" y="90">npm install fann-lite &amp;&amp; node example.js</tspan>
+<tspan x="10" y="106"></tspan>
+<tspan x="10" y="122">fann-lite@2015.7.3 node_modules/fann-lite</tspan>
+<tspan x="10" y="138">server starting on port 1337</tspan>
+<tspan x="10" y="154">server stopping on port 1337</tspan>
+<tspan x="10" y="170">pre-main prep time: 1 ms</tspan>
+<tspan x="10" y="186">Max epochs     5000. Desired error: 0.0010000000.</tspan>
+<tspan x="10" y="202">FANN Error 1: Unable to open cFANN Error 19: The number of input neurons in the ann (2) and data\</tspan>
+<tspan x="10" y="218"> (1650552405) don't match</tspan>
+<tspan x="10" y="234">Epochs            1. Current error: 0.0000000000. Bit fail 0.</tspan>
+<tspan x="10" y="250">1 xor 1 -&gt; 0.01954954309662016</tspan>
+<tspan x="10" y="266">1 xor 0 -&gt; 0.021261673240743573</tspan>
+<tspan x="10" y="282">0 xor 1 -&gt; 0.021398069176487455</tspan>
+<tspan x="10" y="298">slimerjs - opened http://localhost:1337</tspan>
+<tspan x="10" y="314">slimerjs - created screen-capture file:///home/travis/build/kaizhu256/node-fann-lite/tmp/build/s\</tspan>
+<tspan x="10" y="330">creen-capture.testExampleJs.slimerjs..png</tspan>
+</text>
+</svg>

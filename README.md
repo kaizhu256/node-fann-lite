@@ -297,9 +297,9 @@ instruction
     "main": "fann.js",
     "name": "fann-lite",
     "os": ["darwin", "linux"],
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/kaizhu256/node-fann-lite.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaizhu256/node-fann-lite.git"
     },
     "scripts": {
         "build-ci": "node_modules/.bin/utility2 shRun shReadmeBuild",

@@ -83,7 +83,7 @@ instruction
 
 
 /* jslint-ignore-begin */
-'<!DOCTYPE html>\n' +
+'<!doctype html>\n' +
 '<html>\n' +
 '<head>\n' +
     '<meta charset="UTF-8">\n' +

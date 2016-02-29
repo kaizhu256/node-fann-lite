@@ -25,10 +25,10 @@
     // run node js-env code
     case 'node':
         // init assets
-        local.utility2.cacheDict.assets['/'] =
-            local.utility2.cacheDict.assets['/test/test.html'] = local['/'];
-        local.utility2.cacheDict.assets['/assets/fann.js'] = local['/assets/fann.js'];
-        local.utility2.cacheDict.assets['/test/test.js'] =
+        local.utility2.assetsDict['/'] =
+            local.utility2.assetsDict['/test/test.html'] = local['/'];
+        local.utility2.assetsDict['/assets/fann.js'] = local['/assets/fann.js'];
+        local.utility2.assetsDict['/test/test.js'] =
             local.utility2.istanbul_lite.instrumentInPackage(
                 local.fs.readFileSync(__filename, 'utf8'),
                 __filename,

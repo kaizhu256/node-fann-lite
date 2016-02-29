@@ -321,7 +321,7 @@ node_modules/.bin/utility2 test test.js"
 
 
 
-# change since 4931707a
+# change since commit 4931707a
 - npm publish 2015.8.1
 - update README.md
 - none

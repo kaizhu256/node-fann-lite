@@ -55,7 +55,7 @@
         // require module
         local.fann = require('./fann.js');
 
-        local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
+        //!! local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
         //!! local.data = local.fann._fann_create_train_from_array(
             //!! 4, 2, 1,
             //!! [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]

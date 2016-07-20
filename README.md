@@ -9,6 +9,7 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 # documentation (original c-api)
 [http://leenissen.dk/fann/html/files2/gettingstarted-txt.html](http://leenissen.dk/fann/html/files2/gettingstarted-txt.html)
 - currently only tested to work in chrome browser
+- built from https://github.com/libfann/fann/tree/2.2.0
 
 
 

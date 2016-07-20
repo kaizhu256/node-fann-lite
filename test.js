@@ -53,7 +53,8 @@
     // run node js-env code post-init
     case 'node':
         // require module
-        local.fann = require('./fann.js');
+        local.fann = require('./external/fann.js');
+        local.fann._my_print_enum();
 
         //!! local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
         //!! local.data = local.fann._fann_create_train_from_array(

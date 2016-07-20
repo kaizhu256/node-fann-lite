@@ -1,3 +1,4 @@
+/* istanbul instrument in package fann-lite */
 /*jslint
     bitwise: true,
     browser: true,
@@ -8,116 +9,62 @@
     regexp: true,
     stupid: true
 */
-(function (local) {
-    'use strict';
-    switch (local.modeJs) {
-
-
-
-    // run browser js-env code
-    case 'browser':
-        // export fann
-        local.global.fann = local.fann;
-        break;
-
-
-
-    // run node js-env code
-    case 'node':
-        // init assets
-        local.utility2.assetsDict['/'] =
-            local.utility2.assetsDict['/test/test.html'] = local['/'];
-        local.utility2.assetsDict['/assets/fann.js'] = local['/assets/fann.js'];
-        local.utility2.assetsDict['/test/test.js'] =
-            local.utility2.istanbul_lite.instrumentInPackage(
-                local.fs.readFileSync(__filename, 'utf8'),
-                __filename,
-                'fann-lite'
-            );
-        // init middleware
-        local.middleware = local.utility2.middlewareGroupCreate([
-            local.utility2.middlewareInit,
-            local.utility2.middlewareAssetsCached
-        ]);
-        // init error-middleware
-        local.middlewareError = local.utility2.middlewareError;
-        // run server-test
-        local.utility2.testRunServer(local);
-        // jslint dir
-        [
-            __dirname
-        ].forEach(function (dir) {
-            local.fs.readdirSync(dir).forEach(function (file) {
-                file = dir + '/' + file;
-                // if the file is modified, then restart the process
-                local.utility2.onFileModifiedRestart(file);
-                switch (local.path.extname(file)) {
-                case '.js':
-                case '.json':
-                    // jslint file
-                    local.utility2.jslint_lite
-                        .jslintAndPrint(local.fs.readFileSync(file, 'utf8'), file);
-                    break;
-                }
-            });
-        });
-        // init repl debugger
-        local.utility2.replStart();
-        break;
-    }
-}((function () {
+(function () {
     'use strict';
     var local;
 
 
 
-    // run shared js-env code
+    // run shared js-env code - pre-init
     (function () {
+        // init Error.stackTraceLimit
+        Error.stackTraceLimit = Infinity;
         // init local
         local = {};
+        // init modeJs
         local.modeJs = (function () {
             try {
+                return typeof navigator.userAgent === 'string' &&
+                    typeof document.querySelector('body') === 'object' &&
+                    typeof XMLHttpRequest.prototype.open === 'function' &&
+                    'browser';
+            } catch (errorCaughtBrowser) {
                 return module.exports &&
                     typeof process.versions.node === 'string' &&
                     typeof require('http').createServer === 'function' &&
                     'node';
-            } catch (errorCaughtNode) {
-                return typeof navigator.userAgent === 'string' &&
-                    typeof document.querySelector('body') === 'object' &&
-                    'browser';
             }
         }());
-        // init example.js
-        if (local.modeJs === 'node') {
-            require('fs').writeFileSync(
-                './example.js',
-                require('fs').readFileSync('./README.md', 'utf8')
-                    // support syntax-highlighting
-                    .replace((/[\S\s]+?\n.*?example.js\s*?```\w*?\n/), function (match0) {
-                        // preserve lineno
-                        return match0.replace((/.+/g), '');
-                    })
-                    .replace((/\n```[\S\s]+/), '')
-            );
-            // init example.js
-            local = require('./example.js');
+        switch (local.modeJs) {
+        // re-init local from window.local
+        case 'browser':
+            local = window.local;
+            break;
+        // re-init local from example.js
+        case 'node':
+            local = require('utility2').local;
+            break;
         }
-        // init global
-        local.global = local.modeJs === 'browser'
-            ? window
-            : global;
-        // init utility2
-        local.utility2 = local.modeJs === 'browser'
-            ? window.utility2
-            : require('utility2');
-        // init onReady
-        local.utility2.onReadyInit();
-        // init fann-lite
-        local.fann = local.modeJs === 'browser'
-            ? window.fann
-            : require('./fann.js');
-        // export local
-        local.global.local = local;
     }());
-    return local;
-}())));
+    switch (local.modeJs) {
+
+
+
+    // run node js-env code post-init
+    case 'node':
+        // require module
+        local.fann = require('./fann.js');
+
+        local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
+        //!! local.data = local.fann._fann_create_train_from_array(
+            //!! 4, 2, 1,
+            //!! [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]
+        //!! );
+        //!! local.fann
+        //!! .set_activation_function_hidden(local.ann, local.fann.ACTIVATION_SIGMOID_SYMMETRIC);
+        //!! local.fann._fann_set_activation_function_output(local.ann, 5);
+        //!! local.fann._fann_train_on_data(local.ann, local.data, 5000, 1000, 0.001);
+
+        break;
+    }
+}());

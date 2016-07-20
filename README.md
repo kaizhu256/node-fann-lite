@@ -97,7 +97,7 @@ instruction
     '}\n' +
     'body {\n' +
         'background-color: #fff;\n' +
-        'font-family: Helvetical Neue, Helvetica, Arial, sans-serif;\n' +
+        'font-family: Helvetica Neue, Helvetica, Arial, sans-serif;\n' +
     '}\n' +
     'body > div {\n' +
         'margin-top: 20px;\n' +
@@ -321,7 +321,7 @@ node_modules/.bin/utility2 test test.js"
 
 
 
-# change since commit 4931707a
+# change since 4931707a
 - npm publish 2015.8.1
 - update README.md
 - none

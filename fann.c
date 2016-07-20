@@ -1,4 +1,4 @@
-#include "doublefann.c"
+#include "external/doublefann.c"
 
 FANN_EXTERNAL struct fann *FANN_API fann_create_array_8(
     unsigned int num_layers,

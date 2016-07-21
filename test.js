@@ -103,9 +103,26 @@
 
     // run node js-env code post-init
     case 'node':
+        local.fann.my_test = local.fann.cwrap('my_test', 'number', ['number', 'string']);
+        local.fann.my_test(null, 'aa');
         //!! local.fann._my_print_enum();
+        [
+            'fann_save',
+            'fann_save_train'
+        ].forEach(function (key) {
+            local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
+        });
+        [
+            'fann_read_train_from_file',
+            'fann_read_train_from_file',
+            'fann_read_train_from_file',
+            //!! 'fann_train_on_file'
+        ].forEach(function (key) {
+            local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
+        });
 
-        //!! local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
+        local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
+        local.fann.fann_save(local.ann, 'aa.foo');
 
         //!! local.data = local.fann._fann_create_train_from_array(
             //!! 4, 2, 1,

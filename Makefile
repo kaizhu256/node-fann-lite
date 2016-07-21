@@ -70,6 +70,8 @@ EXPORTED_FUNCTIONS=\
     "_fann_reset_MSE",\
     "_fann_save",\
     "_fann_save_to_fixed",\
+    "_fann_save_train",\
+    "_fann_save_train_to_fixed",\
     "_fann_set_activation_function",\
     "_fann_set_activation_function_hidden",\
     "_fann_set_activation_function_layer",\
@@ -112,7 +114,8 @@ EXPORTED_FUNCTIONS=\
     "_fann_set_training_algorithm",\
     "_fann_set_user_data",\
     "_fann_train_on_file",\
-    "_my_print_enum"\
+    "_my_print_enum",\
+    "_my_test"\
 ]'
 
 all: fann example

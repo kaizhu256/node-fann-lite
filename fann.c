@@ -100,3 +100,8 @@ int my_print_enum() {
     printf("FANN_TRAIN_SARPROP %d\n", FANN_TRAIN_SARPROP);
     return 0;
 }
+
+FANN_EXTERNAL int FANN_API my_test(struct fann *ann, const char *configuration_file) {
+    printf("%s\n", configuration_file);
+    return 0;
+}

@@ -180,7 +180,10 @@ EXPORTED_FUNCTIONS=\
     "_fann_update_weights_irpropm",\
     "_fann_update_weights_quickprop",\
     "_fann_update_weights_sarprop",\
-    "_my_print_enum",\
+    "_my_file_read",\
+    "_my_file_remove",\
+    "_my_file_write",\
+    "_my_print_constants",\
     "_my_test"\
 ]'
 

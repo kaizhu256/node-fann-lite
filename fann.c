@@ -1,54 +1,57 @@
 #include "external/doublefann.c"
 
-//!! FANN_EXTERNAL struct fann *FANN_API fann_create_array_8(
-    //!! unsigned int num_layers,
-    //!! unsigned int layer0,
-    //!! unsigned int layer1,
-    //!! unsigned int layer2,
-    //!! unsigned int layer3,
-    //!! unsigned int layer4,
-    //!! unsigned int layer5,
-    //!! unsigned int layer6,
-    //!! unsigned int layer7,
-    //!! int type,
-    //!! float connection_rate
-//!! ) {
-    //!! int error;
-    //!! unsigned int layers[8];
-    //!! error = 0;
-    //!! layers[0] = layer0;
-    //!! if(layer0 > 1000000) error = 1;
-    //!! layers[1] = layer1;
-    //!! if(layer1 > 1000000) error = 1;
-    //!! layers[2] = layer2;
-    //!! if(layer2 > 1000000) error = 1;
-    //!! layers[3] = layer3;
-    //!! if(layer3 > 1000000) error = 1;
-    //!! layers[4] = layer4;
-    //!! if(layer4 > 1000000) error = 1;
-    //!! layers[5] = layer5;
-    //!! if(layer5 > 1000000) error = 1;
-    //!! layers[6] = layer6;
-    //!! if(layer6 > 1000000) error = 1;
-    //!! layers[7] = layer7;
-    //!! if(layer7 > 1000000) error = 1;
-    //!! if(error) {
-        //!! fann_error(NULL, FANN_E_CANT_ALLOCATE_MEM);
-        //!! return NULL;
-    //!! }
-    //!! switch (type) {
-    //!! case 0:
-        //!! return fann_create_standard_array(num_layers, layers);
-    //!! case 1:
-        //!! return fann_create_sparse_array(connection_rate, num_layers, layers);
-    //!! case 2:
-        //!! return fann_create_shortcut_array(num_layers, layers);
-    //!! }
-    //!! return NULL;
-//!! }
+const char *my_file_read(const char *file) {
+/*
+ * this function will read the text from the file
+ */
+    static char *buffer;
+    long length;
+	  FILE *fp = fopen(file, "r");
+    if (!fp) {
+        fprintf(stderr, "error - cannot open file %s\n", file);
+        return NULL;
+    }
+    fseek(fp, 0, SEEK_END);
+    length = ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    if (buffer) {
+        buffer = malloc(length);
+    } else {
+        buffer = realloc(buffer, length);
+    }
+    if (buffer) {
+      fread(buffer, 1, length, fp);
+    }
+    fclose(fp);
+    return buffer;
+}
 
+int my_file_remove(const char *file) {
+/*
+ * this function will remove the file
+ */
+    return remove(file);
+}
 
-int my_print_enum() {
+int my_file_write(const char *file, const char *text) {
+/*
+ * this function will write the text to the file
+ */
+    long length;
+	  FILE *fp = fopen(file, "w");
+    if (!fp) {
+        fprintf(stderr, "error - cannot open file %s\n", file);
+        return 1;
+    }
+    fprintf(fp, "%s", text);
+    fclose(fp);
+    return 0;
+}
+
+int my_print_constants() {
+/*
+ * this function will print global constants to stdout
+ */
     printf("FANN_COS %d\n", FANN_COS);
     printf("FANN_COS_SYMMETRIC %d\n", FANN_COS_SYMMETRIC);
     printf("FANN_ELLIOT %d\n", FANN_ELLIOT);
@@ -103,7 +106,9 @@ int my_print_enum() {
     return 0;
 }
 
-FANN_EXTERNAL int FANN_API my_test(struct fann *ann, const char *configuration_file) {
-    printf("%s\n", configuration_file);
+int my_test() {
+/*
+ * this function will run tests
+ */
     return 0;
 }

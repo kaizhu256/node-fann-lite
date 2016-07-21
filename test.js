@@ -47,6 +47,7 @@
             local.fann = require('./tmp/build/fann.js');
             break;
         }
+        // local.fann._my_print_constants();
         local.fann.FANN_COS = 17;
         local.fann.FANN_COS_SYMMETRIC = 15;
         local.fann.FANN_ELLIOT = 10;
@@ -105,36 +106,73 @@
 
     // run node js-env code post-init
     case 'node':
-        local.fann.my_test = local.fann.cwrap('my_test', 'number', ['number', 'string']);
-        local.fann.my_test(null, 'aa');
-        //!! local.fann._my_print_enum();
         [
+            'fann_create_from_file',
+            'fann_read_train_from_file',
             'fann_save',
-            'fann_save_train'
+            'fann_save_train',
+            'fann_cascadetrain_on_file',
+            'fann_train_on_file',
+            'my_file_read',
+            'my_file_remove',
+            'my_file_write',
+            'my_test'
         ].forEach(function (key) {
-            local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
-        });
-        [
-            'fann_read_train_from_file',
-            'fann_read_train_from_file',
-            'fann_read_train_from_file',
-            //!! 'fann_train_on_file'
-        ].forEach(function (key) {
-            local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
+            switch (key) {
+            case 'my_test':
+                local.fann[key] = local.fann.cwrap(key, 'number', []);
+                break;
+            case 'fann_create_from_file':
+            case 'fann_read_train_from_file':
+                local.fann[key] = local.fann.cwrap(key, 'number', ['string']);
+                break;
+            case 'fann_save':
+            case 'fann_save_train':
+                local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
+                break;
+            case 'fann_cascadetrain_on_file':
+            case 'fann_train_on_file':
+                local.fann[key] = local.fann.cwrap(
+                    key,
+                    'number',
+                    ['number', 'string', 'number', 'number', 'number']
+                );
+                break;
+            case 'my_file_read':
+            case 'my_file_remove':
+                local.fann[key] = local.fann.cwrap(key, 'string', ['string']);
+                break;
+            case 'my_file_write':
+                local.fann[key] = local.fann.cwrap(key, 'string', ['string', 'string']);
+                break;
+            }
         });
 
+        local.fann.fann_create_from_string = function (text) {
+        /*
+         * this function will create an ann from the config text
+         */
+            local.fann.my_file_write('ann.net', text);
+            return local.fann.fann_create_from_file('ann.net');
+        };
+
+        local.fann.fann_save_to_string = function (ann) {
+        /*
+         * this function will save the ann to the config text
+         */
+            local.fann.fann_save(ann, 'ann.net');
+            return local.fann.my_file_read('ann.net');
+        };
+
         local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
-        local.fann.fann_save(local.ann, 'aa.foo');
+        debugPrint(
+            local.fann.fann_save_to_string(local.ann)
+        );
 
         //!! local.data = local.fann._fann_create_train_from_array(
             //!! 4, 2, 1,
             //!! [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]
         //!! );
-        //!! local.fann
-        //!! .set_activation_function_hidden(local.ann, local.fann.ACTIVATION_SIGMOID_SYMMETRIC);
-        //!! local.fann._fann_set_activation_function_output(local.ann, 5);
-        //!! local.fann._fann_train_on_data(local.ann, local.data, 5000, 1000, 0.001);
-
         break;
     }
 }());

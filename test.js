@@ -49,6 +49,11 @@
         }
         local.fann.FANN_COS = 17;
         local.fann.FANN_COS_SYMMETRIC = 15;
+        local.fann.FANN_ELLIOT = 10;
+        local.fann.FANN_ELLIOT_SYMMETRIC = 11;
+        local.fann.FANN_ERRORFUNC_LINEAR = 0;
+        local.fann.FANN_ERRORFUNC_TANH = 1;
+        local.fann.FANN_ERRSTR_MAX = 128;
         local.fann.FANN_E_CANT_ALLOCATE_MEM = 11;
         local.fann.FANN_E_CANT_OPEN_CONFIG_R = 1;
         local.fann.FANN_E_CANT_OPEN_CONFIG_W = 2;
@@ -70,11 +75,8 @@
         local.fann.FANN_E_TRAIN_DATA_SUBSET = 16;
         local.fann.FANN_E_WRONG_CONFIG_VERSION = 3;
         local.fann.FANN_E_WRONG_NUM_CONNECTIONS = 7;
-        local.fann.FANN_ELLIOT = 10;
-        local.fann.FANN_ELLIOT_SYMMETRIC = 11;
-        local.fann.FANN_ERRORFUNC_LINEAR = 0;
-        local.fann.FANN_ERRORFUNC_TANH = 1;
         local.fann.FANN_GAUSSIAN = 7;
+        local.fann.FANN_GAUSSIAN_STEPWISE = 9;
         local.fann.FANN_GAUSSIAN_SYMMETRIC = 8;
         local.fann.FANN_LINEAR = 0;
         local.fann.FANN_LINEAR_PIECE = 12;

@@ -1,6 +1,7 @@
 CC=emcc
 CFLAGS=\
-		-Iexternal/include\
+		-Iexternal/include
+EXPORTED_FUNCTIONS=\
 		-s EXPORTED_FUNCTIONS='[\
     "_fann_cascadetrain_on_data",\
     "_fann_cascadetrain_on_file",\
@@ -114,9 +115,10 @@ CFLAGS=\
     "_my_print_enum"\
 ]'
 
-all:
-		#!! $(CC) main.c -o doublefann.js $(CFLAGS)
-		#!! $(CC) main.c -o doublefann.min.js -O2 --memory-init-file 0 $(CFLAGS)
-		#!! $(CC) main.c -o doublefann.js $(CFLAGS) && printf "\nModule.FS=FS;\n" >> doublefann.js
-		#!! $(CC) main.c -o doublefann.min.js -O2 --memory-init-file 0 $(CFLAGS) && printf "\nModule.FS=FS;\n" >> doublefann.min.js
-		$(CC) fann.c -o external/fann.js $(CFLAGS) && printf "\nModule.FS=FS;\n" >> fann.js
+all: fann example
+clean:
+		rm tmp/*.mem tmp/*.o tmp/*.js 2>/dev/null || true
+example:
+		gcc example.c -o tmp/build/example.out -Iexternal/include
+fann:
+		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && printf "\nModule.FS=FS;\n" >> tmp/fann.js

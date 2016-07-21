@@ -119,15 +119,14 @@ all: fann example
 clean:
 		rm *.net tmp/build/*.mem tmp/build/*.out tmp/build/*.js 2>/dev/null || true
 example:
-		cp xor.data tmp/build && \
 		gcc example.c -o tmp/build/example.out -Iexternal/include
 fann:
 		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
 		printf "\nModule.FS=FS;\n" >> tmp/fann.js
-test:
+test: example
 		tmp/build/example.out && \
-		printf "\n\nxor.data\n" &&\
-		cat xor.data && \
-		printf "\n\nxor_double.net\n" &&\
-		cat xor_double.net && \
+		printf "\n\ntest.xor.data\n" && \
+		cat test.xor.data && \
+		printf "\n\ntest.xor_double.net\n" && \
+		cat test.xor_double.net && \
 		rm *.net

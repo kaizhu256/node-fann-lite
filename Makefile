@@ -117,8 +117,17 @@ EXPORTED_FUNCTIONS=\
 
 all: fann example
 clean:
-		rm tmp/*.mem tmp/*.o tmp/*.js 2>/dev/null || true
+		rm *.net tmp/build/*.mem tmp/build/*.out tmp/build/*.js 2>/dev/null || true
 example:
+		cp xor.data tmp/build && \
 		gcc example.c -o tmp/build/example.out -Iexternal/include
 fann:
-		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && printf "\nModule.FS=FS;\n" >> tmp/fann.js
+		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
+		printf "\nModule.FS=FS;\n" >> tmp/fann.js
+test:
+		tmp/build/example.out && \
+		printf "\n\nxor.data\n" &&\
+		cat xor.data && \
+		printf "\n\nxor_double.net\n" &&\
+		cat xor_double.net && \
+		rm *.net

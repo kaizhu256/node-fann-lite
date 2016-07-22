@@ -11,7 +11,7 @@
 */
 (function () {
     'use strict';
-    var local, options;
+    var local;
 
 
 
@@ -295,6 +295,27 @@
     // run node js-env code post-init
     case 'node':
         local.fann.my_test_xor();
+        // init repl debugger
+        local.utility2.replStart();
+        // debug dir
+        [
+            local.utility2.__dirname,
+            __dirname
+        ].forEach(function (dir) {
+            local.fs.readdirSync(dir).forEach(function (file) {
+                file = dir + '/' + file;
+                // if the file is modified, then restart the process
+                local.utility2.onFileModifiedRestart(file);
+                switch (local.path.extname(file)) {
+                // jslint file
+                case '.css':
+                case '.js':
+                case '.json':
+                    local.utility2.jslintAndPrint(local.fs.readFileSync(file, 'utf8'), file);
+                    break;
+                }
+            });
+        });
         break;
     }
 }());

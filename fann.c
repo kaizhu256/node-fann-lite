@@ -1,26 +1,26 @@
 #include "external/doublefann.c"
 
 char *ARRAY_CHAR;
-long ARRAY_CHAR_LENGTH;
+int ARRAY_CHAR_LENGTH;
 double *ARRAY_DOUBLE;
-long ARRAY_DOUBLE_LENGTH;
+int ARRAY_DOUBLE_LENGTH;
 int *ARRAY_INT;
-long ARRAY_INT_LENGTH;
+int ARRAY_INT_LENGTH;
 
-int my_array_char_realloc(long length) {
+int my_array_char_realloc(int length) {
 /*
  * this function will realloc the double array
  */
     ARRAY_CHAR_LENGTH = length;
     if (ARRAY_CHAR) {
-        ARRAY_CHAR = malloc(length);
+        ARRAY_CHAR = malloc(length + 1);
     } else {
-        ARRAY_CHAR = realloc(ARRAY_CHAR, length);
+        ARRAY_CHAR = realloc(ARRAY_CHAR, length + 1);
     }
     return 0;
 }
 
-int my_array_double_realloc(long length) {
+int my_array_double_realloc(int length) {
 /*
  * this function will realloc the double array
  */
@@ -33,7 +33,7 @@ int my_array_double_realloc(long length) {
     return 0;
 }
 
-int my_array_int_realloc(long length) {
+int my_array_int_realloc(int length) {
 /*
  * this function will realloc the double array
  */
@@ -64,7 +64,7 @@ int my_array_double_from_string(const char *text) {
 /*
  * this function will parse text into ARRAY_DOUBLE
  */
-    long ii;
+    int ii;
     int offset;
     double *ptr_double;
     my_array_double_realloc(65536);
@@ -77,21 +77,25 @@ int my_array_double_from_string(const char *text) {
     return 0;
 }
 
-const char *my_array_double_to_string() {
+const char *my_array_double_to_string(double *ptr_double, int length) {
 /*
  * this function will stringify ARRAY_DOUBLE
  */
-    long ii;
-    char *ptr;
-    if (!ARRAY_DOUBLE) {
+    int ii;
+    char *ptr_char;
+    if (!ptr_double) {
+        ptr_double = ARRAY_DOUBLE;
+        length = ARRAY_DOUBLE_LENGTH;
+    }
+    if (!ptr_double) {
         return NULL;
     }
-    my_array_char_realloc(17 * ARRAY_DOUBLE_LENGTH);
-    ptr = ARRAY_CHAR;
-    for (ii = 0; ii < ARRAY_DOUBLE_LENGTH; ii += 1) {
-        ptr += sprintf(ptr, "%1.8le ", ARRAY_DOUBLE[ii]);
+    my_array_char_realloc(17 * length);
+    ptr_char = ARRAY_CHAR;
+    for (ii = 0; ii < length; ii += 1) {
+        ptr_char += sprintf(ptr_char, "%1.8le ", ptr_double[ii]);
     }
-    ptr[-1] = 0;
+    ptr_char[-1] = 0;
     return ARRAY_CHAR;
 }
 
@@ -106,7 +110,7 @@ int my_array_int_from_string(const char *text) {
 /*
  * this function will parse text into ARRAY_INT
  */
-    long ii;
+    int ii;
     int offset;
     int *ptr_int;
     my_array_int_realloc(65536);
@@ -123,17 +127,17 @@ const char *my_array_int_to_string() {
 /*
  * this function will stringify ARRAY_INT
  */
-    long ii;
-    char *ptr;
+    int ii;
+    char *ptr_char;
     if (!ARRAY_INT) {
         return NULL;
     }
     my_array_char_realloc(12 * ARRAY_INT_LENGTH);
-    ptr = ARRAY_CHAR;
+    ptr_char = ARRAY_CHAR;
     for (ii = 0; ii < ARRAY_INT_LENGTH; ii += 1) {
-        ptr += sprintf(ptr, "%8d ", ARRAY_INT[ii]);
+        ptr_char += sprintf(ptr_char, "%d ", ARRAY_INT[ii]);
     }
-    ptr[-1] = 0;
+    ptr_char[-1] = 0;
     return ARRAY_CHAR;
 }
 
@@ -147,12 +151,13 @@ const char *my_file_read(const char *file) {
         return NULL;
     }
     fseek(fp, 0, SEEK_END);
-    my_array_char_realloc(ftell(fp));
+    my_array_char_realloc(ftell(fp) + 1);
     fseek(fp, 0, SEEK_SET);
     if (ARRAY_CHAR) {
       fread(ARRAY_CHAR, 1, ARRAY_CHAR_LENGTH, fp);
     }
     fclose(fp);
+    ARRAY_CHAR[ARRAY_CHAR_LENGTH] = 0;
     return ARRAY_CHAR;
 }
 

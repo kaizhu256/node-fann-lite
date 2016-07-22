@@ -146,7 +146,11 @@
                 break;
             case 'my_array_double_to_string':
             case 'my_array_int_to_string':
-                local.fann[key] = local.fann.cwrap(key, 'string', []);
+                local.fann['_' + key + '_'] = local.fann.cwrap(
+                    key,
+                    'string',
+                    ['number', 'number']
+                );
                 break;
             case 'my_file_read':
             case 'my_file_remove':
@@ -211,6 +215,19 @@
             return local.fann.fann_read_train_from_file('train.data');
         };
 
+        local.fann.fann_run = function (ann, inputList) {
+        /*
+         * this function will run the ann with the inputList, and return the outputList
+         */
+            var result;
+            local.fann.my_array_double_from_string(inputList.join(' '));
+            result = local.fann._fann_run(ann, local.fann._my_array_double());
+            return local.fann._my_array_double_to_string_(
+                result,
+                local.fann._fann_get_num_output(ann)
+            );
+        };
+
         local.fann.fann_save_to_string = function (ann) {
         /*
          * this function will save the ann to the config text
@@ -234,6 +251,7 @@
         options.numLayers = 3;
         options.numNeuronsHidden = 3;
         options.numOutput = 1;
+        // ann - init
         options.ann = local.fann.fann_create_standard_array([
             options.numInput,
             options.numNeuronsHidden,
@@ -247,7 +265,11 @@
             options.ann,
             local.fann.FANN_SIGMOID_SYMMETRIC
         );
-        // train
+        //!! local.fann._fann_set_training_algorithm(
+            //!! options.ann,
+            //!! local.fann.FANN_TRAIN_QUICKPROP
+        //!! )
+        // ann - train
         local.fann._fann_train_on_data(
             options.ann,
             local.fann.fann_read_train_from_string(
@@ -257,13 +279,19 @@
             options.epochsBetweenReports,
             options.desiredError
         );
+        // ann - test
+        debugPrint(
+            local.fann.fann_run(options.ann, [-1, 1])
+        );
+
+
         debugPrint(
             local.fann.fann_save_to_string(options.ann)
         );
         local.fann.my_array_double_from_string('-1 2 3');
-        debugPrint(
-            JSON.stringify(local.fann.my_array_double_to_string())
-        );
+        //!! debugPrint(
+            //!! JSON.stringify(local.fann._my_array_double_to_string_())
+        //!! );
 
 
         //!! local.data = local.fann._fann_create_train_from_array(

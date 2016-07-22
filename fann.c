@@ -60,24 +60,7 @@ double *my_array_double_get() {
     return ARRAY_DOUBLE;
 }
 
-int my_array_double_from_string(const char *text) {
-/*
- * this function will parse text into ARRAY_DOUBLE
- */
-    int ii;
-    int offset;
-    double *ptr_double;
-    my_array_double_realloc(65536);
-    ptr_double = ARRAY_DOUBLE;
-    for (ii = 0; sscanf(text, "%lf%n", ptr_double, &offset) == 1; ii += 1) {
-        text += offset;
-        ptr_double += 1;
-    }
-    ARRAY_DOUBLE_LENGTH = ii;
-    return 0;
-}
-
-const char *my_array_double_to_string(double *ptr_double, int length) {
+const char *my_array_double_get_to_string(double *ptr_double, int length) {
 /*
  * this function will stringify ARRAY_DOUBLE
  */
@@ -99,6 +82,23 @@ const char *my_array_double_to_string(double *ptr_double, int length) {
     return ARRAY_CHAR;
 }
 
+int my_array_double_set_from_string(const char *text) {
+/*
+ * this function will parse text into ARRAY_DOUBLE
+ */
+    int ii;
+    int offset;
+    double *ptr_double;
+    my_array_double_realloc(65536);
+    ptr_double = ARRAY_DOUBLE;
+    for (ii = 0; sscanf(text, "%lf%n", ptr_double, &offset) == 1; ii += 1) {
+        text += offset;
+        ptr_double += 1;
+    }
+    ARRAY_DOUBLE_LENGTH = ii;
+    return 0;
+}
+
 int *my_array_int_get() {
 /*
  * this function will return ARRAY_INT
@@ -106,24 +106,7 @@ int *my_array_int_get() {
     return ARRAY_INT;
 }
 
-int my_array_int_from_string(const char *text) {
-/*
- * this function will parse text into ARRAY_INT
- */
-    int ii;
-    int offset;
-    int *ptr_int;
-    my_array_int_realloc(65536);
-    ptr_int = ARRAY_INT;
-    for (ii = 0; sscanf(text, "%d%n", ptr_int, &offset) == 1; ii += 1) {
-        text += offset;
-        ptr_int += 1;
-    }
-    ARRAY_INT_LENGTH = ii;
-    return 0;
-}
-
-const char *my_array_int_to_string(int *ptr_int, int length) {
+const char *my_array_int_get_to_string(int *ptr_int, int length) {
 /*
  * this function will stringify ARRAY_INT
  */
@@ -143,6 +126,23 @@ const char *my_array_int_to_string(int *ptr_int, int length) {
     }
     ptr_char[-1] = 0;
     return ARRAY_CHAR;
+}
+
+int my_array_int_set_from_string(const char *text) {
+/*
+ * this function will parse text into ARRAY_INT
+ */
+    int ii;
+    int offset;
+    int *ptr_int;
+    my_array_int_realloc(65536);
+    ptr_int = ARRAY_INT;
+    for (ii = 0; sscanf(text, "%d%n", ptr_int, &offset) == 1; ii += 1) {
+        text += offset;
+        ptr_int += 1;
+    }
+    ARRAY_INT_LENGTH = ii;
+    return 0;
 }
 
 const char *my_file_read(const char *file) {

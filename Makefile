@@ -183,13 +183,13 @@ EXPORTED_FUNCTIONS=\
 		"_my_array_char_get",\
 		"_my_array_char_realloc",\
 		"_my_array_double_get",\
+		"_my_array_double_get_to_string",\
 		"_my_array_double_realloc",\
-		"_my_array_double_from_string",\
-		"_my_array_double_to_string",\
+		"_my_array_double_set_from_string",\
 		"_my_array_int_get",\
+		"_my_array_int_get_to_string",\
 		"_my_array_int_realloc",\
-		"_my_array_int_from_string",\
-		"_my_array_int_to_string",\
+		"_my_array_int_set_from_string",\
     "_my_file_read",\
     "_my_file_remove",\
     "_my_file_write",\

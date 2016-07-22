@@ -113,10 +113,10 @@
             'fann_save_train',
             'fann_cascadetrain_on_file',
             'fann_train_on_file',
-            'my_array_double_from_string',
-            'my_array_double_to_string',
-            'my_array_int_from_string',
-            'my_array_int_to_string',
+            'my_array_double_get_to_string',
+            'my_array_double_set_from_string',
+            'my_array_int_get_to_string',
+            'my_array_int_set_from_string',
             'my_file_read',
             'my_file_remove',
             'my_file_write',
@@ -129,8 +129,8 @@
                 break;
             case 'fann_create_from_file':
             case 'fann_read_train_from_file':
-            case 'my_array_double_from_string':
-            case 'my_array_int_from_string':
+            case 'my_array_double_set_from_string':
+            case 'my_array_int_set_from_string':
                 value = local.fann.cwrap(key, 'number', ['string']);
                 break;
             case 'fann_save':
@@ -145,8 +145,8 @@
                     ['number', 'string', 'number', 'number', 'number']
                 );
                 break;
-            case 'my_array_double_to_string':
-            case 'my_array_int_to_string':
+            case 'my_array_double_get_to_string':
+            case 'my_array_int_get_to_string':
                 value = local.fann.cwrap(key, 'string', ['number', 'number']);
                 break;
             case 'my_file_read':
@@ -247,7 +247,7 @@
         /*
          * this function will create an ann from the config list
          */
-            var dataTrain
+            var dataTrain;
             local.fann._fann_set_activation_function_hidden(
                 options.ann,
                 options.activation || local.fann.FANN_SIGMOID_SYMMETRIC
@@ -273,7 +273,9 @@
         /*
          * this function will get the double-array ptr as a javascript-array
          */
-            return local.fann._my_array_double_to_string_2(ptr, length).split(' ').map(Number);
+            return local.fann._my_array_double_get_to_string_2(ptr, length)
+                .split(' ')
+                .map(Number);
         };
 
         local.fann.my_array_double_set = function (list) {
@@ -281,7 +283,7 @@
          * this function will set the javascript-array list as an double-array,
          * and return its ptr
          */
-            local.fann._my_array_double_from_string_2(list.join(' '));
+            local.fann._my_array_double_set_from_string_2(list.join(' '));
             return local.fann._my_array_double_get();
         };
 
@@ -289,7 +291,9 @@
         /*
          * this function will get the int-array ptr as a javascript-array
          */
-            return local.fann._my_array_int_to_string_2(ptr, length).split(' ').map(Number);
+            return local.fann._my_array_int_get_to_string_2(ptr, length)
+                .split(' ')
+                .map(Number);
         };
 
         local.fann.my_array_int_set = function (list) {
@@ -297,41 +301,23 @@
          * this function will set the javascript-array list as an int-array,
          * and return its ptr
          */
-            local.fann._my_array_int_from_string_2(list.join(' '));
+            local.fann._my_array_int_set_from_string_2(list.join(' '));
             return local.fann._my_array_int_get();
         };
 
         options = {};
-        options.desiredError = 0.001;
-        options.epochsBetweenReports = 1000;
-        options.maxEpochs = 500000;
-        options.numInput = 2;
-        options.numLayers = 3;
-        options.numNeuronsHidden = 3;
-        options.numOutput = 1;
         // ann - init
         options.ann = local.fann.fann_ann_from_array([2, 3, 1]);
         // ann - train
         options.dataTrain = local.fs.readFileSync('test.xor.data', 'utf8');
         local.fann.fann_train(options);
-
-
-        //!! options.ann = local.fann.fann_ann_from_cascadetrain(
-            //!! local.fs.readFileSync('test.xor.data', 'utf8')
-        //!! );
-
-
         // ann - debug
         console.log(
             local.fann.fann_ann_to_string(options.ann)
         );
         // ann - test
-        console.log(
-            local.fann.fann_run(options.ann, [-1, 1])
-        );
-        console.log(
-            local.fann.fann_run(options.ann, [1, 1])
-        );
+        console.log(local.fann.fann_run(options.ann, [-1, 1]));
+        console.log(local.fann.fann_run(options.ann, [1, 1]));
         break;
     }
 }());

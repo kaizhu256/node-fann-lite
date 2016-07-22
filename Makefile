@@ -204,7 +204,10 @@ example:
 		gcc example.c -o tmp/build/example.out -Iexternal/include
 fann:
 		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
-		printf "\nModule.FS=FS;\n" >> tmp/fann.js
+		printf "\nModule.FS=FS;\n" >> tmp/build/fann.js
+		$(CC) -o tmp/build/fann.min.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) \
+		--memory-init-file 0 -O2 && \
+		printf "\nModule.FS=FS;\n" >> tmp/build/fann.min.js
 test: example
 		tmp/build/example.out && \
 		printf "\n\ntest.xor.data\n" && \

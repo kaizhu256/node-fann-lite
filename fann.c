@@ -9,7 +9,7 @@ int ARRAY_INT_LENGTH;
 
 int my_array_char_realloc(int length) {
 /*
- * this function will realloc the double array
+ * this function will realloc ARRAY_CHAR
  */
     ARRAY_CHAR_LENGTH = length;
     if (ARRAY_CHAR) {
@@ -22,7 +22,7 @@ int my_array_char_realloc(int length) {
 
 int my_array_double_realloc(int length) {
 /*
- * this function will realloc the double array
+ * this function will realloc ARRAY_DOUBLE
  */
     ARRAY_DOUBLE_LENGTH = length;
     if (ARRAY_DOUBLE) {
@@ -35,7 +35,7 @@ int my_array_double_realloc(int length) {
 
 int my_array_int_realloc(int length) {
 /*
- * this function will realloc the double array
+ * this function will realloc ARRAY_INT
  */
     ARRAY_INT_LENGTH = length;
     if (ARRAY_INT) {
@@ -46,16 +46,16 @@ int my_array_int_realloc(int length) {
     return 0;
 }
 
-const char *my_array_char() {
+const char *my_array_char_get() {
 /*
- * this function will return the global ARRAY_CHAR
+ * this function will return ARRAY_CHAR
  */
     return ARRAY_CHAR;
 }
 
-double *my_array_double() {
+double *my_array_double_get() {
 /*
- * this function will return the global ARRAY_DOUBLE
+ * this function will return ARRAY_DOUBLE
  */
     return ARRAY_DOUBLE;
 }
@@ -83,11 +83,11 @@ const char *my_array_double_to_string(double *ptr_double, int length) {
  */
     int ii;
     char *ptr_char;
-    if (!ptr_double) {
+    if (!length) {
         ptr_double = ARRAY_DOUBLE;
         length = ARRAY_DOUBLE_LENGTH;
     }
-    if (!ptr_double) {
+    if (!length) {
         return NULL;
     }
     my_array_char_realloc(17 * length);
@@ -99,9 +99,9 @@ const char *my_array_double_to_string(double *ptr_double, int length) {
     return ARRAY_CHAR;
 }
 
-int *my_array_int() {
+int *my_array_int_get() {
 /*
- * this function will return the global ARRAY_INT
+ * this function will return ARRAY_INT
  */
     return ARRAY_INT;
 }
@@ -123,19 +123,23 @@ int my_array_int_from_string(const char *text) {
     return 0;
 }
 
-const char *my_array_int_to_string() {
+const char *my_array_int_to_string(int *ptr_int, int length) {
 /*
  * this function will stringify ARRAY_INT
  */
     int ii;
     char *ptr_char;
-    if (!ARRAY_INT) {
+    if (!length) {
+        ptr_int = ARRAY_INT;
+        length = ARRAY_INT_LENGTH;
+    }
+    if (!length) {
         return NULL;
     }
-    my_array_char_realloc(12 * ARRAY_INT_LENGTH);
+    my_array_char_realloc(12 * length);
     ptr_char = ARRAY_CHAR;
-    for (ii = 0; ii < ARRAY_INT_LENGTH; ii += 1) {
-        ptr_char += sprintf(ptr_char, "%d ", ARRAY_INT[ii]);
+    for (ii = 0; ii < length; ii += 1) {
+        ptr_char += sprintf(ptr_char, "%d ", ptr_int[ii]);
     }
     ptr_char[-1] = 0;
     return ARRAY_CHAR;

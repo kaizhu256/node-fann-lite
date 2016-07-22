@@ -122,23 +122,24 @@
             'my_file_write',
             'my_test'
         ].forEach(function (key) {
+            var value;
             switch (key) {
             case 'my_test':
-                local.fann[key] = local.fann.cwrap(key, 'number', []);
+                value = local.fann.cwrap(key, 'number', []);
                 break;
             case 'fann_create_from_file':
             case 'fann_read_train_from_file':
             case 'my_array_double_from_string':
             case 'my_array_int_from_string':
-                local.fann[key] = local.fann.cwrap(key, 'number', ['string']);
+                value = local.fann.cwrap(key, 'number', ['string']);
                 break;
             case 'fann_save':
             case 'fann_save_train':
-                local.fann[key] = local.fann.cwrap(key, 'number', ['number', 'string']);
+                value = local.fann.cwrap(key, 'number', ['number', 'string']);
                 break;
             case 'fann_cascadetrain_on_file':
             case 'fann_train_on_file':
-                local.fann[key] = local.fann.cwrap(
+                value = local.fann.cwrap(
                     key,
                     'number',
                     ['number', 'string', 'number', 'number', 'number']
@@ -146,28 +147,25 @@
                 break;
             case 'my_array_double_to_string':
             case 'my_array_int_to_string':
-                local.fann['_' + key + '_'] = local.fann.cwrap(
-                    key,
-                    'string',
-                    ['number', 'number']
-                );
+                value = local.fann.cwrap(key, 'string', ['number', 'number']);
                 break;
             case 'my_file_read':
             case 'my_file_remove':
-                local.fann[key] = local.fann.cwrap(key, 'string', ['string']);
+                value = local.fann.cwrap(key, 'string', ['string']);
                 break;
             case 'my_file_write':
-                local.fann[key] = local.fann.cwrap(key, 'string', ['string', 'string']);
+                value = local.fann.cwrap(key, 'string', ['string', 'string']);
                 break;
             }
+            local.fann['_' + key + '_2'] = value;
         });
 
         local.fann.fann_create_from_string = function (text) {
         /*
          * this function will create an ann from the config text
          */
-            local.fann.my_file_write('ann.net', text);
-            return local.fann.fann_create_from_file('ann.net');
+            local.fann._my_file_write_2('ann.net', text);
+            return local.fann._fann_create_from_file_2('ann.net');
         };
 
         local.fann.fann_create_from_cascadetrain_on_string = function (
@@ -200,10 +198,10 @@
         /*
          * this function will create an ann from the config text
          */
-            local.fann.my_array_int_from_string(list.join(' '));
+            local.fann._my_array_int_from_string_2(list.join(' '));
             return local.fann._fann_create_standard_array(
                 list.length,
-                local.fann._my_array_int()
+                local.fann._my_array_int_get()
             );
         };
 
@@ -211,8 +209,8 @@
         /*
          * this function will read the training data from the training text
          */
-            local.fann.my_file_write('train.data', text);
-            return local.fann.fann_read_train_from_file('train.data');
+            local.fann._my_file_write_2('train.data', text);
+            return local.fann._fann_read_train_from_file_2('train.data');
         };
 
         local.fann.fann_run = function (ann, inputList) {
@@ -220,20 +218,31 @@
          * this function will run the ann with the inputList, and return the outputList
          */
             var result;
-            local.fann.my_array_double_from_string(inputList.join(' '));
-            result = local.fann._fann_run(ann, local.fann._my_array_double());
-            return local.fann._my_array_double_to_string_(
-                result,
-                local.fann._fann_get_num_output(ann)
-            );
+            local.fann._my_array_double_from_string_2(inputList.join(' '));
+            result = local.fann._fann_run(ann, local.fann._my_array_double_get());
+            return local.fann.my_array_double_get(result, local.fann._fann_get_num_output(ann));
         };
 
         local.fann.fann_save_to_string = function (ann) {
         /*
          * this function will save the ann to the config text
          */
-            local.fann.fann_save(ann, 'ann.net');
-            return local.fann.my_file_read('ann.net');
+            local.fann._fann_save_2(ann, 'ann.net');
+            return local.fann._my_file_read_2('ann.net');
+        };
+
+        local.fann.my_array_double_get = function (ptr, length) {
+        /*
+         * this function will return the double array at ptr as a javascript array
+         */
+            return local.fann._my_array_double_to_string_2(ptr, length).split(' ').map(Number);
+        };
+
+        local.fann.my_array_int_get = function (ptr, length) {
+        /*
+         * this function will return the int array at ptr as a javascript array
+         */
+            return local.fann._my_array_int_to_string_2(ptr, length).split(' ').map(Number);
         };
 
         //!! local.ann = local.fann.fann_create_from_cascadetrain_on_string(
@@ -288,16 +297,7 @@
         debugPrint(
             local.fann.fann_save_to_string(options.ann)
         );
-        local.fann.my_array_double_from_string('-1 2 3');
-        //!! debugPrint(
-            //!! JSON.stringify(local.fann._my_array_double_to_string_())
-        //!! );
-
-
-        //!! local.data = local.fann._fann_create_train_from_array(
-            //!! 4, 2, 1,
-            //!! [-1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, -1]
-        //!! );
+        local.fann._my_array_double_from_string_2('-1 2 3');
         break;
     }
 }());

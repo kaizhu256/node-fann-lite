@@ -180,13 +180,13 @@ EXPORTED_FUNCTIONS=\
     "_fann_update_weights_irpropm",\
     "_fann_update_weights_quickprop",\
     "_fann_update_weights_sarprop",\
-		"_my_array_char",\
+		"_my_array_char_get",\
 		"_my_array_char_realloc",\
-		"_my_array_double",\
+		"_my_array_double_get",\
 		"_my_array_double_realloc",\
 		"_my_array_double_from_string",\
 		"_my_array_double_to_string",\
-		"_my_array_int",\
+		"_my_array_int_get",\
 		"_my_array_int_realloc",\
 		"_my_array_int_from_string",\
 		"_my_array_int_to_string",\

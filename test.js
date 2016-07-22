@@ -160,7 +160,46 @@
             local.fann['_' + key + '_2'] = value;
         });
 
-        local.fann.fann_create_from_string = function (text) {
+        local.fann.fann_ann_from_array = function (layerList) {
+        /*
+         * this function will create an ann from the config layerList
+         */
+            return local.fann._fann_create_standard_array(
+                layerList.length,
+                local.fann.my_array_int_set(layerList)
+            );
+        };
+
+        //!! local.fann.fann_ann_from_cascadetrain = function (
+            //!! data,
+            //!! max_neuron,
+            //!! neurons_between_reports,
+            //!! desired_error
+        //!! ) {
+        //!! /*
+         //!! * this function will create an ann, cascade-trained from the training data
+         //!! */
+            //!! var ann;
+            //!! data = local.fann.fann_read_train_from_string(data);
+            //!! ann = [
+                //!! local.fann._fann_num_input_train_data(data),
+                //!! local.fann._fann_num_output_train_data(data)
+            //!! ];
+            //!! ann = local.fann._fann_create_shortcut_array(
+                //!! ann.length,
+                //!! local.fann.my_array_int_set(debugPrint(ann))
+            //!! );
+            //!! local.fann._fann_cascadetrain_on_data(
+                //!! ann,
+                //!! data,
+                //!! max_neuron || 256,
+                //!! neurons_between_reports || 1000,
+                //!! desired_error || 0.001
+            //!! );
+            //!! return ann;
+        //!! };
+
+        local.fann.fann_ann_from_string = function (text) {
         /*
          * this function will create an ann from the config text
          */
@@ -168,45 +207,27 @@
             return local.fann._fann_create_from_file_2('ann.net');
         };
 
-        local.fann.fann_create_from_cascadetrain_on_string = function (
-            data,
-            max_neuron,
-            neurons_between_reports,
-            desired_error
-        ) {
+        local.fann.fann_ann_to_string = function (ann) {
         /*
-         * this function will create an ann cascade-trained from the training data
+         * this function will save the ann to the config text
          */
-            var ann;
-            data = local.fann.fann_read_train_from_string(data);
-            ann = local.fann._fann_create_shortcut(
-                2,
-                local.fann._fann_num_input_train_data(data),
-                local.fann._fann_num_output_train_data(data)
-            );
-            local.fann._fann_cascadetrain_on_data(
-                ann,
-                data,
-                max_neuron || 2,
-                neurons_between_reports || 0,
-                desired_error || 1
-            );
-            return ann;
-        };
-
-        local.fann.fann_create_standard_array = function (list) {
-        /*
-         * this function will create an ann from the config text
-         */
-            return local.fann._fann_create_standard_array(
-                list.length,
-                local.fann.my_array_int_set(list)
-            );
+            local.fann._fann_save_2(ann, 'ann.net');
+            return local.fann._my_file_read_2('ann.net');
         };
 
         local.fann.fann_read_train_from_string = function (text) {
         /*
          * this function will read the training data from the training text
+         * e.g. for xor
+            4 2 1
+            -1 -1
+            -1
+            -1 1
+            1
+            1 -1
+            1
+            1 1
+            -1
          */
             local.fann._my_file_write_2('train.data', text);
             return local.fann._fann_read_train_from_file_2('train.data');
@@ -222,12 +243,30 @@
             );
         };
 
-        local.fann.fann_save_to_string = function (ann) {
+        local.fann.fann_train = function (options) {
         /*
-         * this function will save the ann to the config text
+         * this function will create an ann from the config list
          */
-            local.fann._fann_save_2(ann, 'ann.net');
-            return local.fann._my_file_read_2('ann.net');
+            var dataTrain
+            local.fann._fann_set_activation_function_hidden(
+                options.ann,
+                options.activation || local.fann.FANN_SIGMOID_SYMMETRIC
+            );
+            local.fann._fann_set_activation_function_output(
+                options.ann,
+                options.activation || local.fann.FANN_SIGMOID_SYMMETRIC
+            );
+            dataTrain = local.fann.fann_read_train_from_string(options.dataTrain);
+            // Initialize the weights using Widrow + Nguyen’s algorithm
+            local.fann._fann_init_weights(options.ann, dataTrain);
+            // defaults from http://leenissen.dk/fann/html/files2/gettingstarted-txt.html
+            local.fann._fann_train_on_data(
+                options.ann,
+                dataTrain,
+                options.maxEpochs || 500000,
+                options.epochsBetweenReports || 1000,
+                options.desiredError || 0.001
+            );
         };
 
         local.fann.my_array_double_get = function (ptr, length) {
@@ -262,12 +301,6 @@
             return local.fann._my_array_int_get();
         };
 
-        //!! local.ann = local.fann.fann_create_from_cascadetrain_on_string(
-            //!! local.fann.fann_read_train_from_string(
-                //!! local.fs.readFileSync('test.xor.data', 'utf8')
-            //!! )
-        //!! );
-
         options = {};
         options.desiredError = 0.001;
         options.epochsBetweenReports = 1000;
@@ -277,36 +310,27 @@
         options.numNeuronsHidden = 3;
         options.numOutput = 1;
         // ann - init
-        options.ann = local.fann.fann_create_standard_array([
-            options.numInput,
-            options.numNeuronsHidden,
-            options.numOutput
-        ]);
-        local.fann._fann_set_activation_function_hidden(
-            options.ann,
-            local.fann.FANN_SIGMOID_SYMMETRIC
-        );
-        local.fann._fann_set_activation_function_output(
-            options.ann,
-            local.fann.FANN_SIGMOID_SYMMETRIC
-        );
+        options.ann = local.fann.fann_ann_from_array([2, 3, 1]);
         // ann - train
-        local.fann._fann_train_on_data(
-            options.ann,
-            local.fann.fann_read_train_from_string(
-                local.fs.readFileSync('test.xor.data', 'utf8')
-            ),
-            options.maxEpochs,
-            options.epochsBetweenReports,
-            options.desiredError
-        );
+        options.dataTrain = local.fs.readFileSync('test.xor.data', 'utf8');
+        local.fann.fann_train(options);
+
+
+        //!! options.ann = local.fann.fann_ann_from_cascadetrain(
+            //!! local.fs.readFileSync('test.xor.data', 'utf8')
+        //!! );
+
+
         // ann - debug
         console.log(
-            local.fann.fann_save_to_string(options.ann)
+            local.fann.fann_ann_to_string(options.ann)
         );
         // ann - test
         console.log(
             local.fann.fann_run(options.ann, [-1, 1])
+        );
+        console.log(
+            local.fann.fann_run(options.ann, [1, 1])
         );
         break;
     }

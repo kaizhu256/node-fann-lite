@@ -11,7 +11,7 @@
 */
 (function () {
     'use strict';
-    var local;
+    var local, options;
 
 
 
@@ -198,10 +198,9 @@
         /*
          * this function will create an ann from the config text
          */
-            local.fann._my_array_int_from_string_2(list.join(' '));
             return local.fann._fann_create_standard_array(
                 list.length,
-                local.fann._my_array_int_get()
+                local.fann.my_array_int_set(list)
             );
         };
 
@@ -217,10 +216,10 @@
         /*
          * this function will run the ann with the inputList, and return the outputList
          */
-            var result;
-            local.fann._my_array_double_from_string_2(inputList.join(' '));
-            result = local.fann._fann_run(ann, local.fann._my_array_double_get());
-            return local.fann.my_array_double_get(result, local.fann._fann_get_num_output(ann));
+            return local.fann.my_array_double_get(
+                local.fann._fann_run(ann, local.fann.my_array_double_set(inputList)),
+                local.fann._fann_get_num_output(ann)
+            );
         };
 
         local.fann.fann_save_to_string = function (ann) {
@@ -233,16 +232,34 @@
 
         local.fann.my_array_double_get = function (ptr, length) {
         /*
-         * this function will return the double array at ptr as a javascript array
+         * this function will get the double-array ptr as a javascript-array
          */
             return local.fann._my_array_double_to_string_2(ptr, length).split(' ').map(Number);
         };
 
+        local.fann.my_array_double_set = function (list) {
+        /*
+         * this function will set the javascript-array list as an double-array,
+         * and return its ptr
+         */
+            local.fann._my_array_double_from_string_2(list.join(' '));
+            return local.fann._my_array_double_get();
+        };
+
         local.fann.my_array_int_get = function (ptr, length) {
         /*
-         * this function will return the int array at ptr as a javascript array
+         * this function will get the int-array ptr as a javascript-array
          */
             return local.fann._my_array_int_to_string_2(ptr, length).split(' ').map(Number);
+        };
+
+        local.fann.my_array_int_set = function (list) {
+        /*
+         * this function will set the javascript-array list as an int-array,
+         * and return its ptr
+         */
+            local.fann._my_array_int_from_string_2(list.join(' '));
+            return local.fann._my_array_int_get();
         };
 
         //!! local.ann = local.fann.fann_create_from_cascadetrain_on_string(
@@ -251,7 +268,6 @@
             //!! )
         //!! );
 
-        var options;
         options = {};
         options.desiredError = 0.001;
         options.epochsBetweenReports = 1000;
@@ -274,10 +290,6 @@
             options.ann,
             local.fann.FANN_SIGMOID_SYMMETRIC
         );
-        //!! local.fann._fann_set_training_algorithm(
-            //!! options.ann,
-            //!! local.fann.FANN_TRAIN_QUICKPROP
-        //!! )
         // ann - train
         local.fann._fann_train_on_data(
             options.ann,
@@ -288,16 +300,14 @@
             options.epochsBetweenReports,
             options.desiredError
         );
-        // ann - test
-        debugPrint(
-            local.fann.fann_run(options.ann, [-1, 1])
-        );
-
-
-        debugPrint(
+        // ann - debug
+        console.log(
             local.fann.fann_save_to_string(options.ann)
         );
-        local.fann._my_array_double_from_string_2('-1 2 3');
+        // ann - test
+        console.log(
+            local.fann.fann_run(options.ann, [-1, 1])
+        );
         break;
     }
 }());

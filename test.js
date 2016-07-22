@@ -113,6 +113,10 @@
             'fann_save_train',
             'fann_cascadetrain_on_file',
             'fann_train_on_file',
+            'my_array_double_from_string',
+            'my_array_double_to_string',
+            'my_array_int_from_string',
+            'my_array_int_to_string',
             'my_file_read',
             'my_file_remove',
             'my_file_write',
@@ -124,6 +128,8 @@
                 break;
             case 'fann_create_from_file':
             case 'fann_read_train_from_file':
+            case 'my_array_double_from_string':
+            case 'my_array_int_from_string':
                 local.fann[key] = local.fann.cwrap(key, 'number', ['string']);
                 break;
             case 'fann_save':
@@ -137,6 +143,10 @@
                     'number',
                     ['number', 'string', 'number', 'number', 'number']
                 );
+                break;
+            case 'my_array_double_to_string':
+            case 'my_array_int_to_string':
+                local.fann[key] = local.fann.cwrap(key, 'string', []);
                 break;
             case 'my_file_read':
             case 'my_file_remove':
@@ -156,6 +166,51 @@
             return local.fann.fann_create_from_file('ann.net');
         };
 
+        local.fann.fann_create_from_cascadetrain_on_string = function (
+            data,
+            max_neuron,
+            neurons_between_reports,
+            desired_error
+        ) {
+        /*
+         * this function will create an ann cascade-trained from the training data
+         */
+            var ann;
+            data = local.fann.fann_read_train_from_string(data);
+            ann = local.fann._fann_create_shortcut(
+                2,
+                local.fann._fann_num_input_train_data(data),
+                local.fann._fann_num_output_train_data(data)
+            );
+            local.fann._fann_cascadetrain_on_data(
+                ann,
+                data,
+                max_neuron || 2,
+                neurons_between_reports || 0,
+                desired_error || 1
+            );
+            return ann;
+        };
+
+        local.fann.fann_create_standard_array = function (list) {
+        /*
+         * this function will create an ann from the config text
+         */
+            local.fann.my_array_int_from_string(list.join(' '));
+            return local.fann._fann_create_standard_array(
+                list.length,
+                local.fann._my_array_int()
+            );
+        };
+
+        local.fann.fann_read_train_from_string = function (text) {
+        /*
+         * this function will read the training data from the training text
+         */
+            local.fann.my_file_write('train.data', text);
+            return local.fann.fann_read_train_from_file('train.data');
+        };
+
         local.fann.fann_save_to_string = function (ann) {
         /*
          * this function will save the ann to the config text
@@ -164,10 +219,52 @@
             return local.fann.my_file_read('ann.net');
         };
 
-        local.ann = local.fann._fann_create_standard(3, 2, 3, 1);
-        debugPrint(
-            local.fann.fann_save_to_string(local.ann)
+        //!! local.ann = local.fann.fann_create_from_cascadetrain_on_string(
+            //!! local.fann.fann_read_train_from_string(
+                //!! local.fs.readFileSync('test.xor.data', 'utf8')
+            //!! )
+        //!! );
+
+        var options;
+        options = {};
+        options.desiredError = 0.001;
+        options.epochsBetweenReports = 1000;
+        options.maxEpochs = 500000;
+        options.numInput = 2;
+        options.numLayers = 3;
+        options.numNeuronsHidden = 3;
+        options.numOutput = 1;
+        options.ann = local.fann.fann_create_standard_array([
+            options.numInput,
+            options.numNeuronsHidden,
+            options.numOutput
+        ]);
+        local.fann._fann_set_activation_function_hidden(
+            options.ann,
+            local.fann.FANN_SIGMOID_SYMMETRIC
         );
+        local.fann._fann_set_activation_function_output(
+            options.ann,
+            local.fann.FANN_SIGMOID_SYMMETRIC
+        );
+        // train
+        local.fann._fann_train_on_data(
+            options.ann,
+            local.fann.fann_read_train_from_string(
+                local.fs.readFileSync('test.xor.data', 'utf8')
+            ),
+            options.maxEpochs,
+            options.epochsBetweenReports,
+            options.desiredError
+        );
+        debugPrint(
+            local.fann.fann_save_to_string(options.ann)
+        );
+        local.fann.my_array_double_from_string('-1 2 3');
+        debugPrint(
+            JSON.stringify(local.fann.my_array_double_to_string())
+        );
+
 
         //!! local.data = local.fann._fann_create_train_from_array(
             //!! 4, 2, 1,

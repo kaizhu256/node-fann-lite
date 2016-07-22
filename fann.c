@@ -1,29 +1,159 @@
 #include "external/doublefann.c"
 
+char *ARRAY_CHAR;
+long ARRAY_CHAR_LENGTH;
+double *ARRAY_DOUBLE;
+long ARRAY_DOUBLE_LENGTH;
+int *ARRAY_INT;
+long ARRAY_INT_LENGTH;
+
+int my_array_char_realloc(long length) {
+/*
+ * this function will realloc the double array
+ */
+    ARRAY_CHAR_LENGTH = length;
+    if (ARRAY_CHAR) {
+        ARRAY_CHAR = malloc(length);
+    } else {
+        ARRAY_CHAR = realloc(ARRAY_CHAR, length);
+    }
+    return 0;
+}
+
+int my_array_double_realloc(long length) {
+/*
+ * this function will realloc the double array
+ */
+    ARRAY_DOUBLE_LENGTH = length;
+    if (ARRAY_DOUBLE) {
+        ARRAY_DOUBLE = malloc(length);
+    } else {
+        ARRAY_DOUBLE = realloc(ARRAY_DOUBLE, length);
+    }
+    return 0;
+}
+
+int my_array_int_realloc(long length) {
+/*
+ * this function will realloc the double array
+ */
+    ARRAY_INT_LENGTH = length;
+    if (ARRAY_INT) {
+        ARRAY_INT = malloc(length);
+    } else {
+        ARRAY_INT = realloc(ARRAY_INT, length);
+    }
+    return 0;
+}
+
+const char *my_array_char() {
+/*
+ * this function will return the global ARRAY_CHAR
+ */
+    return ARRAY_CHAR;
+}
+
+double *my_array_double() {
+/*
+ * this function will return the global ARRAY_DOUBLE
+ */
+    return ARRAY_DOUBLE;
+}
+
+int my_array_double_from_string(const char *text) {
+/*
+ * this function will parse text into ARRAY_DOUBLE
+ */
+    long ii;
+    int offset;
+    double *ptr_double;
+    my_array_double_realloc(65536);
+    ptr_double = ARRAY_DOUBLE;
+    for (ii = 0; sscanf(text, "%lf%n", ptr_double, &offset) == 1; ii += 1) {
+        text += offset;
+        ptr_double += 1;
+    }
+    ARRAY_DOUBLE_LENGTH = ii;
+    return 0;
+}
+
+const char *my_array_double_to_string() {
+/*
+ * this function will stringify ARRAY_DOUBLE
+ */
+    long ii;
+    char *ptr;
+    if (!ARRAY_DOUBLE) {
+        return NULL;
+    }
+    my_array_char_realloc(17 * ARRAY_DOUBLE_LENGTH);
+    ptr = ARRAY_CHAR;
+    for (ii = 0; ii < ARRAY_DOUBLE_LENGTH; ii += 1) {
+        ptr += sprintf(ptr, "%1.8le ", ARRAY_DOUBLE[ii]);
+    }
+    ptr[-1] = 0;
+    return ARRAY_CHAR;
+}
+
+int *my_array_int() {
+/*
+ * this function will return the global ARRAY_INT
+ */
+    return ARRAY_INT;
+}
+
+int my_array_int_from_string(const char *text) {
+/*
+ * this function will parse text into ARRAY_INT
+ */
+    long ii;
+    int offset;
+    int *ptr_int;
+    my_array_int_realloc(65536);
+    ptr_int = ARRAY_INT;
+    for (ii = 0; sscanf(text, "%d%n", ptr_int, &offset) == 1; ii += 1) {
+        text += offset;
+        ptr_int += 1;
+    }
+    ARRAY_INT_LENGTH = ii;
+    return 0;
+}
+
+const char *my_array_int_to_string() {
+/*
+ * this function will stringify ARRAY_INT
+ */
+    long ii;
+    char *ptr;
+    if (!ARRAY_INT) {
+        return NULL;
+    }
+    my_array_char_realloc(12 * ARRAY_INT_LENGTH);
+    ptr = ARRAY_CHAR;
+    for (ii = 0; ii < ARRAY_INT_LENGTH; ii += 1) {
+        ptr += sprintf(ptr, "%8d ", ARRAY_INT[ii]);
+    }
+    ptr[-1] = 0;
+    return ARRAY_CHAR;
+}
+
 const char *my_file_read(const char *file) {
 /*
  * this function will read the text from the file
  */
-    static char *buffer;
-    long length;
 	  FILE *fp = fopen(file, "r");
     if (!fp) {
         fprintf(stderr, "error - cannot open file %s\n", file);
         return NULL;
     }
     fseek(fp, 0, SEEK_END);
-    length = ftell(fp);
+    my_array_char_realloc(ftell(fp));
     fseek(fp, 0, SEEK_SET);
-    if (buffer) {
-        buffer = malloc(length);
-    } else {
-        buffer = realloc(buffer, length);
-    }
-    if (buffer) {
-      fread(buffer, 1, length, fp);
+    if (ARRAY_CHAR) {
+      fread(ARRAY_CHAR, 1, ARRAY_CHAR_LENGTH, fp);
     }
     fclose(fp);
-    return buffer;
+    return ARRAY_CHAR;
 }
 
 int my_file_remove(const char *file) {
@@ -37,7 +167,6 @@ int my_file_write(const char *file, const char *text) {
 /*
  * this function will write the text to the file
  */
-    long length;
 	  FILE *fp = fopen(file, "w");
     if (!fp) {
         fprintf(stderr, "error - cannot open file %s\n", file);

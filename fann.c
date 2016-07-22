@@ -13,9 +13,9 @@ int my_array_char_realloc(int length) {
  */
     ARRAY_CHAR_LENGTH = length;
     if (ARRAY_CHAR) {
-        ARRAY_CHAR = malloc(length + 1);
-    } else {
         ARRAY_CHAR = realloc(ARRAY_CHAR, length + 1);
+    } else {
+        ARRAY_CHAR = malloc(length + 1);
     }
     return 0;
 }
@@ -26,9 +26,9 @@ int my_array_double_realloc(int length) {
  */
     ARRAY_DOUBLE_LENGTH = length;
     if (ARRAY_DOUBLE) {
-        ARRAY_DOUBLE = malloc(length);
-    } else {
         ARRAY_DOUBLE = realloc(ARRAY_DOUBLE, length);
+    } else {
+        ARRAY_DOUBLE = malloc(length);
     }
     return 0;
 }
@@ -39,9 +39,9 @@ int my_array_int_realloc(int length) {
  */
     ARRAY_INT_LENGTH = length;
     if (ARRAY_INT) {
-        ARRAY_INT = malloc(length);
-    } else {
         ARRAY_INT = realloc(ARRAY_INT, length);
+    } else {
+        ARRAY_INT = malloc(length);
     }
     return 0;
 }

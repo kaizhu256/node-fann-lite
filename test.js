@@ -99,13 +99,6 @@
         local.fann.FANN_TRAIN_QUICKPROP = 3;
         local.fann.FANN_TRAIN_RPROP = 2;
         local.fann.FANN_TRAIN_SARPROP = 4;
-    }());
-    switch (local.modeJs) {
-
-
-
-    // run node js-env code post-init
-    case 'node':
         [
             'fann_create_from_file',
             'fann_read_train_from_file',
@@ -170,35 +163,6 @@
             );
         };
 
-        //!! local.fann.fann_ann_from_cascadetrain = function (
-            //!! data,
-            //!! max_neuron,
-            //!! neurons_between_reports,
-            //!! desired_error
-        //!! ) {
-        //!! /*
-         //!! * this function will create an ann, cascade-trained from the training data
-         //!! */
-            //!! var ann;
-            //!! data = local.fann.fann_read_train_from_string(data);
-            //!! ann = [
-                //!! local.fann._fann_num_input_train_data(data),
-                //!! local.fann._fann_num_output_train_data(data)
-            //!! ];
-            //!! ann = local.fann._fann_create_shortcut_array(
-                //!! ann.length,
-                //!! local.fann.my_array_int_set(debugPrint(ann))
-            //!! );
-            //!! local.fann._fann_cascadetrain_on_data(
-                //!! ann,
-                //!! data,
-                //!! max_neuron || 256,
-                //!! neurons_between_reports || 1000,
-                //!! desired_error || 0.001
-            //!! );
-            //!! return ann;
-        //!! };
-
         local.fann.fann_ann_from_string = function (text) {
         /*
          * this function will create an ann from the config text
@@ -259,13 +223,12 @@
             dataTrain = local.fann.fann_read_train_from_string(options.dataTrain);
             // Initialize the weights using Widrow + Nguyen’s algorithm
             local.fann._fann_init_weights(options.ann, dataTrain);
-            // defaults from http://leenissen.dk/fann/html/files2/gettingstarted-txt.html
             local.fann._fann_train_on_data(
                 options.ann,
                 dataTrain,
-                options.maxEpochs || 500000,
-                options.epochsBetweenReports || 1000,
-                options.desiredError || 0.001
+                options.maxEpochs || 256,
+                options.epochsBetweenReports || 256,
+                options.desiredError || 0.00390625
             );
         };
 
@@ -305,19 +268,33 @@
             return local.fann._my_array_int_get();
         };
 
-        options = {};
-        // ann - init
-        options.ann = local.fann.fann_ann_from_array([2, 3, 1]);
-        // ann - train
-        options.dataTrain = local.fs.readFileSync('test.xor.data', 'utf8');
-        local.fann.fann_train(options);
-        // ann - debug
-        console.log(
-            local.fann.fann_ann_to_string(options.ann)
-        );
-        // ann - test
-        console.log(local.fann.fann_run(options.ann, [-1, 1]));
-        console.log(local.fann.fann_run(options.ann, [1, 1]));
+        local.fann.my_test_xor = function () {
+        /*
+         * this function will train and test the xor function
+         */
+            var options;
+            options = {};
+            // ann - init
+            options.ann = local.fann.fann_ann_from_array([2, 3, 1]);
+            // ann - train
+            options.dataTrain = '4 2 1\n-1 -1\n-1\n-1 1\n1\n1 -1\n1\n1 1\n-1\n';
+            local.fann.fann_train(options);
+            // ann - debug
+            console.log(local.fann.fann_ann_to_string(options.ann));
+            // ann - test
+            console.log('xor test (-1,-1) ' + local.fann.fann_run(options.ann, [-1, -1])[0]);
+            console.log('xor test (-1, 1) ' + local.fann.fann_run(options.ann, [-1, 1])[0]);
+            console.log('xor test ( 1,-1) ' + local.fann.fann_run(options.ann, [1, -1])[0]);
+            console.log('xor test ( 1, 1) ' + local.fann.fann_run(options.ann, [1, 1])[0]);
+        };
+    }());
+    switch (local.modeJs) {
+
+
+
+    // run node js-env code post-init
+    case 'node':
+        local.fann.my_test_xor();
         break;
     }
 }());

@@ -1,4 +1,3 @@
-/* jslint-ignore-all */
 // The Module object: Our interface to the outside world. We import
 // and export values on it, and do the work to get that through
 // closure compiler if necessary. There are various ways Module can be used:
@@ -25726,16 +25725,16 @@ function _my_array_char_realloc($length) {
  $2 = HEAP32[140>>2]|0;
  $3 = ($2|0)!=(0|0);
  if ($3) {
-  $4 = $0;
-  $5 = (($4) + 1)|0;
-  $6 = (_malloc($5)|0);
-  HEAP32[140>>2] = $6;
+  $4 = HEAP32[140>>2]|0;
+  $5 = $0;
+  $6 = (($5) + 1)|0;
+  $7 = (_realloc($4,$6)|0);
+  HEAP32[140>>2] = $7;
   STACKTOP = sp;return 0;
  } else {
-  $7 = HEAP32[140>>2]|0;
   $8 = $0;
   $9 = (($8) + 1)|0;
-  $10 = (_realloc($7,$9)|0);
+  $10 = (_malloc($9)|0);
   HEAP32[140>>2] = $10;
   STACKTOP = sp;return 0;
  }
@@ -25752,14 +25751,14 @@ function _my_array_double_realloc($length) {
  $2 = HEAP32[148>>2]|0;
  $3 = ($2|0)!=(0|0);
  if ($3) {
-  $4 = $0;
-  $5 = (_malloc($4)|0);
-  HEAP32[148>>2] = $5;
+  $4 = HEAP32[148>>2]|0;
+  $5 = $0;
+  $6 = (_realloc($4,$5)|0);
+  HEAP32[148>>2] = $6;
   STACKTOP = sp;return 0;
  } else {
-  $6 = HEAP32[148>>2]|0;
   $7 = $0;
-  $8 = (_realloc($6,$7)|0);
+  $8 = (_malloc($7)|0);
   HEAP32[148>>2] = $8;
   STACKTOP = sp;return 0;
  }
@@ -25776,14 +25775,14 @@ function _my_array_int_realloc($length) {
  $2 = HEAP32[156>>2]|0;
  $3 = ($2|0)!=(0|0);
  if ($3) {
-  $4 = $0;
-  $5 = (_malloc($4)|0);
-  HEAP32[156>>2] = $5;
+  $4 = HEAP32[156>>2]|0;
+  $5 = $0;
+  $6 = (_realloc($4,$5)|0);
+  HEAP32[156>>2] = $6;
   STACKTOP = sp;return 0;
  } else {
-  $6 = HEAP32[156>>2]|0;
   $7 = $0;
-  $8 = (_realloc($6,$7)|0);
+  $8 = (_malloc($7)|0);
   HEAP32[156>>2] = $8;
   STACKTOP = sp;return 0;
  }
@@ -41853,3 +41852,5 @@ run();
 
 
 
+
+Module.FS=FS;

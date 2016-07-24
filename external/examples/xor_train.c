@@ -20,6 +20,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <stdio.h>
 
 #include "../doublefann.c"
+#include <emscripten.h>
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 	unsigned int max_epochs, unsigned int epochs_between_reports,
@@ -31,6 +32,12 @@ int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 
 int main()
 {
+    // mount the current folder as a NODEFS instance
+    // inside of emscripten
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '.' }, '/my');
+    );
 	fann_type *calc_out;
 	const unsigned int num_input = 2;
 	const unsigned int num_output = 1;
@@ -48,7 +55,7 @@ int main()
 	printf("Creating network.\n");
 	ann = fann_create_standard(num_layers, num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("xor.data");
+	data = fann_read_train_from_file("/my/xor.data");
 
 	fann_set_activation_steepness_hidden(ann, 1);
 	fann_set_activation_steepness_output(ann, 1);

@@ -2,47 +2,47 @@
 
 char *ARRAY_CHAR;
 int ARRAY_CHAR_LENGTH;
+int ARRAY_CHAR_LENGTH_INTERNAL;
 double *ARRAY_DOUBLE;
 int ARRAY_DOUBLE_LENGTH;
+int ARRAY_DOUBLE_LENGTH_INTERNAL;
 int *ARRAY_INT;
 int ARRAY_INT_LENGTH;
+int ARRAY_INT_LENGTH_INTERNAL;
 
 int my_array_char_realloc(int length) {
 /*
- * this function will realloc ARRAY_CHAR
+ * this function will realloc ARRAY_CHAR to at least length
  */
     ARRAY_CHAR_LENGTH = length;
-    if (ARRAY_CHAR) {
-        ARRAY_CHAR = realloc(ARRAY_CHAR, length + 1);
-    } else {
-        ARRAY_CHAR = malloc(length + 1);
+    while (ARRAY_CHAR_LENGTH_INTERNAL < ARRAY_CHAR_LENGTH + 1) {
+        ARRAY_CHAR_LENGTH_INTERNAL <<= 1;
     }
+    ARRAY_CHAR = realloc(ARRAY_CHAR, sizeof(char) * ARRAY_CHAR_LENGTH_INTERNAL);
     return 0;
 }
 
 int my_array_double_realloc(int length) {
 /*
- * this function will realloc ARRAY_DOUBLE
+ * this function will realloc ARRAY_DOUBLE to at least length
  */
     ARRAY_DOUBLE_LENGTH = length;
-    if (ARRAY_DOUBLE) {
-        ARRAY_DOUBLE = realloc(ARRAY_DOUBLE, length);
-    } else {
-        ARRAY_DOUBLE = malloc(length);
+    while (ARRAY_DOUBLE_LENGTH_INTERNAL < ARRAY_DOUBLE_LENGTH) {
+        ARRAY_DOUBLE_LENGTH_INTERNAL <<= 1;
     }
+    ARRAY_DOUBLE = realloc(ARRAY_DOUBLE, sizeof(double) * ARRAY_DOUBLE_LENGTH_INTERNAL);
     return 0;
 }
 
 int my_array_int_realloc(int length) {
 /*
- * this function will realloc ARRAY_INT
+ * this function will realloc ARRAY_INT to at least length
  */
     ARRAY_INT_LENGTH = length;
-    if (ARRAY_INT) {
-        ARRAY_INT = realloc(ARRAY_INT, length);
-    } else {
-        ARRAY_INT = malloc(length);
+    while (ARRAY_INT_LENGTH_INTERNAL < ARRAY_INT_LENGTH) {
+        ARRAY_INT_LENGTH_INTERNAL <<= 1;
     }
+    ARRAY_INT = realloc(ARRAY_INT, sizeof(int) * ARRAY_INT_LENGTH_INTERNAL);
     return 0;
 }
 
@@ -183,6 +183,19 @@ int my_file_write(const char *file, const char *text) {
     }
     fprintf(fp, "%s", text);
     fclose(fp);
+    return 0;
+}
+
+int my_init() {
+/*
+ * this function will run the init
+ */
+    ARRAY_CHAR_LENGTH_INTERNAL = 1;
+    ARRAY_CHAR = malloc(sizeof(char));
+    ARRAY_INT_LENGTH_INTERNAL = 1;
+    ARRAY_INT = malloc(sizeof(int));
+    ARRAY_DOUBLE_LENGTH_INTERNAL = 1;
+    ARRAY_DOUBLE = malloc(sizeof(double));
     return 0;
 }
 

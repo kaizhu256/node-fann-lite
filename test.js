@@ -47,6 +47,10 @@
             local.fann = require('./tmp/build/fann.min.js');
             break;
         }
+        if (!local.fann._initialized) {
+            local.fann._initialized = true;
+            local.fann._my_init();
+        }
         // local.fann._my_print_exports();
         local.fann.FANN_COS = 17;
         local.fann.FANN_COS_SYMMETRIC = 15;

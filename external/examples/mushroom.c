@@ -30,7 +30,7 @@ int main()
 
 	const unsigned int num_layers = 3;
 	const unsigned int num_neurons_hidden = 32;
-	const float desired_error = (const float) 0.0001;
+	const float desired_error = (const float) 0.0002;
 	const unsigned int max_epochs = 300;
 	const unsigned int epochs_between_reports = 10;
 	struct fann *ann;

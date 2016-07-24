@@ -32,7 +32,7 @@ int main( int argc, char** argv )
 
 	fann_train_on_data(ann, data, max_epochs, epochs_between_reports, desired_error);
 	fann_destroy_train( data );
-	fann_save(ann, "scaling.net");
+	fann_save(ann, "/my/examples/scaling.net");
 	fann_destroy(ann);
 	return 0;
 }

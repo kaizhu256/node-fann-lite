@@ -14,7 +14,7 @@ int main( int argc, char** argv )
 	struct fann *ann;
 	struct fann_train_data *data;
 	printf("Creating network.\n");
-	ann = fann_create_from_file("scaling.net");
+	ann = fann_create_from_file("/my/examples/scaling.net");
 	if(!ann)
 	{
 		printf("Error creating ann --- ABORTING.\n");

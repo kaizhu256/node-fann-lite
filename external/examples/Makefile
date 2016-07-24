@@ -1,7 +1,7 @@
 # This makefile is on purpose not made with configure, to show how to use the library
 # The make file requires that the fann library is installed (see ../README)
 
-GCC=gcc
+GCC=gcc -I../include
 
 TARGETS = xor_train xor_test xor_test_fixed simple_train steepness_train simple_test robot mushroom cascade_train scaling_test scaling_train
 DEBUG_TARGETS = xor_train_debug xor_test_debug xor_test_fixed_debug cascade_train_debug
@@ -9,10 +9,10 @@ DEBUG_TARGETS = xor_train_debug xor_test_debug xor_test_fixed_debug cascade_trai
 all: $(TARGETS)
 
 %: %.c Makefile
-	$(GCC) -O3 $< -o $@ -lfann -lm
+	$(GCC) -O3 $< -o $@ -lm
 
 %_fixed: %.c Makefile
-	$(GCC) -O3 -DFIXEDFANN $< -o $@ -lfixedfann -lm
+	$(GCC) -O3 -DFIXEDFANN $< -o $@ -lm
 
 clean:
 	rm -f $(TARGETS) $(DEBUG_TARGETS) xor_fixed.data *.net *~ *.obj *.exe *.tds noscale.txt withscale.txt scale_test_results.txt

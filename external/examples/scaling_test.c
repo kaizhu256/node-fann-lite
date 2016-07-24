@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "fann.h"
+#include "../doublefann.c"
 
 int main( int argc, char** argv )
 {

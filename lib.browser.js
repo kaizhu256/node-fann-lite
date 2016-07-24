@@ -42138,6 +42138,7 @@ Module.FS=FS;
             NN,
             options,
             sampleOutput;
+        document.querySelector('#testTrainPre1').innerText = '';
         local.utility2.ajaxProgressShow();
         options = {};
         sampleInput = sampleInput.trim().split('\n');
@@ -42247,6 +42248,11 @@ Module.FS=FS;
         // init
         local.fann.my_test_xor();
         local.utility2.ajaxProgressHide();
+        local.fann.print = function (text) {
+            document.querySelector('#testTrainPre1').innerText =
+                document.querySelector('#testTrainPre1').innerText || '';
+            document.querySelector('#testTrainPre1').innerText += text + '\n';
+        };
         // int event-handling
         local.testTrain = function () {
             var value;

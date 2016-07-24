@@ -1,17 +1,17 @@
 /*
   Fast Artificial Neural Network Library (fann)
   Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
-  
+
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
   version 2.1 of the License, or (at your option) any later version.
-  
+
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   Lesser General Public License for more details.
-  
+
   You should have received a copy of the GNU Lesser General Public
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -171,7 +171,7 @@ void fann_error(struct fann_error *errdat, const enum fann_errno_enum errno_f, .
 	case FANN_E_INDEX_OUT_OF_BOUND:
 		vsprintf(errstr, "Index %d is out of bound.\n", ap);
 		break;
-	case FANN_E_SCALE_NOT_PRESENT: 
+	case FANN_E_SCALE_NOT_PRESENT:
 		sprintf(errstr, "Scaling parameters not present.\n");
 		break;
     case FANN_E_INPUT_NO_MATCH:
@@ -179,7 +179,7 @@ void fann_error(struct fann_error *errdat, const enum fann_errno_enum errno_f, .
     	break;
     case FANN_E_OUTPUT_NO_MATCH:
      	vsprintf(errstr, "The number of output neurons in the ann (%d) and data (%d) don't match\n", ap);
-     	break; 
+     	break;
 	}
 	va_end(ap);
 

@@ -3,6 +3,11 @@
 
 int main( int argc, char** argv )
 {
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '..' }, '/my');
+    );
+
 	fann_type *calc_out;
 	unsigned int i;
 	int ret = 0;
@@ -18,7 +23,7 @@ int main( int argc, char** argv )
 	fann_print_connections(ann);
 	fann_print_parameters(ann);
 	printf("Testing network.\n");
-	data = fann_read_train_from_file("../datasets/scaling.data");
+	data = fann_read_train_from_file("/my/datasets/scaling.data");
 	for(i = 0; i < fann_length_train_data(data); i++)
 	{
 		fann_reset_MSE(ann);

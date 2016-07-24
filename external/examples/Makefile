@@ -15,52 +15,52 @@ all: $(TARGETS)
 	$(GCC) -O3 -DFIXEDFANN $< -o $@ -lm
 
 clean:
-	rm -f $(TARGETS) $(DEBUG_TARGETS) xor_fixed.data *.js *.net *~ *.obj *.exe *.tds noscale.txt withscale.txt scale_test_results.txt
+	rm -f $(TARGETS) $(DEBUG_TARGETS) xor_fixed.data *.js *.mem *.net *~ *.obj *.exe *.tds noscale.txt withscale.txt scale_test_results.txt
 
-runtest: $(TARGETS)
+runtest:
 	@echo
 	@echo Training network
-	./xor_train
+	node xor_train.js
 
 	@echo
 	@echo Testing network with floats
-	./xor_test
+	node xor_test.js
 
-	@echo
-	@echo Testing network with fixed points
-	./xor_test_fixed
+	#!! @echo
+	#!! @echo Testing network with fixed points
+	#!! node xor_test_fixed.js
 
 	@echo
 	@echo simple_train
-	./simple_train
+	node simple_train.js
 
 	@echo
 	@echo steepness_train
-	./steepness_train
+	node steepness_train.js
 
 	@echo
 	@echo simple_test
-	./simple_test
+	node simple_test.js
 
 	@echo
 	@echo robot
-	./robot
+	node robot.js
 
 	@echo
 	@echo mushroom
-	./mushroom
+	node mushroom.js
 
 	@echo
 	@echo cascade_train
-	./cascade_train
+	node cascade_train.js
 
 	@echo
 	@echo scaling_test
-	./scaling_test
+	node scaling_test.js
 
 	@echo
 	@echo scaling_train
-	./scaling_train
+	node scaling_train.js
 
 #below this line is only for debugging the fann library
 

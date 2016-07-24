@@ -22,10 +22,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 int main()
 {
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '.' }, '/my');
+    );
+
 	fann_type *calc_out;
 	fann_type input[2];
 
-	struct fann *ann = fann_create_from_file("xor_float.net");
+	struct fann *ann = fann_create_from_file("/my/xor_float.net");
 
 	input[0] = -1;
 	input[1] = 1;

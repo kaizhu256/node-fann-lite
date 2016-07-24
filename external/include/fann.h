@@ -612,4 +612,5 @@ FANN_EXTERNAL unsigned int FANN_API fann_get_multiplier(struct fann *ann);
 
 #endif /* NOT FANN_INCLUDE */
 
+#include <emscripten.h>
 void *my_nop(void *);

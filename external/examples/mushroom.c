@@ -23,6 +23,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 int main()
 {
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '..' }, '/my');
+    );
+
 	const unsigned int num_layers = 3;
 	const unsigned int num_neurons_hidden = 32;
 	const float desired_error = (const float) 0.0001;
@@ -35,7 +40,7 @@ int main()
 
 	printf("Creating network.\n");
 
-	train_data = fann_read_train_from_file("../datasets/mushroom.train");
+	train_data = fann_read_train_from_file("/my/datasets/mushroom.train");
 
 	ann = fann_create_standard(num_layers,
 					  train_data->num_input, num_neurons_hidden, train_data->num_output);
@@ -51,14 +56,14 @@ int main()
 
 	printf("Testing network.\n");
 
-	test_data = fann_read_train_from_file("../datasets/mushroom.test");
+	test_data = fann_read_train_from_file("/my/datasets/mushroom.test");
 
 	fann_reset_MSE(ann);
 	for(i = 0; i < fann_length_train_data(test_data); i++)
 	{
 		fann_test(ann, test_data->input[i], test_data->output[i]);
 	}
-	
+
 	printf("MSE error on test data: %f\n", fann_get_MSE(ann));
 
 	printf("Saving network.\n");

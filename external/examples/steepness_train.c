@@ -69,6 +69,11 @@ void train_on_steepness_file(struct fann *ann, char *filename,
 
 int main()
 {
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '.' }, '/my');
+    );
+
 	const unsigned int num_input = 2;
 	const unsigned int num_output = 1;
 	const unsigned int num_layers = 3;
@@ -84,14 +89,14 @@ int main()
 	struct fann *ann = fann_create_standard(num_layers,
 								   num_input, num_neurons_hidden, num_output);
 
-	data = fann_read_train_from_file("xor.data");
+	data = fann_read_train_from_file("/my/xor.data");
 
 	fann_set_activation_function_hidden(ann, FANN_SIGMOID_SYMMETRIC);
 	fann_set_activation_function_output(ann, FANN_SIGMOID_SYMMETRIC);
 
 	fann_set_training_algorithm(ann, FANN_TRAIN_QUICKPROP);
 
-	train_on_steepness_file(ann, "xor.data", max_epochs,
+	train_on_steepness_file(ann, "/my/xor.data", max_epochs,
 							epochs_between_reports, desired_error, (float) 1.0, (float) 0.1,
 							(float) 20.0);
 
@@ -107,7 +112,7 @@ int main()
 	}
 
 
-	fann_save(ann, "xor_float.net");
+	fann_save(ann, "/my/xor_float.net");
 
 	fann_destroy(ann);
 	fann_destroy_train(data);

@@ -23,6 +23,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 int main()
 {
+    EM_ASM(
+        FS.mkdir('/my');
+        FS.mount(NODEFS, { root: '.' }, '/my');
+    );
+
 	fann_type *calc_out;
 	unsigned int i;
 	int ret = 0;
@@ -33,9 +38,9 @@ int main()
 	printf("Creating network.\n");
 
 #ifdef FIXEDFANN
-	ann = fann_create_from_file("xor_fixed.net");
+	ann = fann_create_from_file("/my/xor_fixed.net");
 #else
-	ann = fann_create_from_file("xor_float.net");
+	ann = fann_create_from_file("/my/xor_float.net");
 #endif
 
 	if(!ann)
@@ -50,9 +55,9 @@ int main()
 	printf("Testing network.\n");
 
 #ifdef FIXEDFANN
-	data = fann_read_train_from_file("xor_fixed.data");
+	data = fann_read_train_from_file("/my/xor_fixed.data");
 #else
-	data = fann_read_train_from_file("xor.data");
+	data = fann_read_train_from_file("/my/xor.data");
 #endif
 
 	for(i = 0; i < fann_length_train_data(data); i++)

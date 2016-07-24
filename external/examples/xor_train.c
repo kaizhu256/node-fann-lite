@@ -20,7 +20,6 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <stdio.h>
 
 #include "../doublefann.c"
-#include <emscripten.h>
 
 int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 	unsigned int max_epochs, unsigned int epochs_between_reports,
@@ -32,12 +31,11 @@ int FANN_API test_callback(struct fann *ann, struct fann_train_data *train,
 
 int main()
 {
-    // mount the current folder as a NODEFS instance
-    // inside of emscripten
     EM_ASM(
         FS.mkdir('/my');
         FS.mount(NODEFS, { root: '.' }, '/my');
     );
+
 	fann_type *calc_out;
 	const unsigned int num_input = 2;
 	const unsigned int num_output = 1;
@@ -85,10 +83,10 @@ int main()
 
 	printf("Saving network.\n");
 
-	fann_save(ann, "xor_float.net");
+	fann_save(ann, "/my/xor_float.net");
 
-	decimal_point = fann_save_to_fixed(ann, "xor_fixed.net");
-	fann_save_train_to_fixed(data, "xor_fixed.data", decimal_point);
+	decimal_point = fann_save_to_fixed(ann, "/my/xor_fixed.net");
+	fann_save_train_to_fixed(data, "/my/xor_fixed.data", decimal_point);
 
 	printf("Cleaning up.\n");
 	fann_destroy_train(data);

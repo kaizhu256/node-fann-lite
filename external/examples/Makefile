@@ -30,6 +30,38 @@ runtest: $(TARGETS)
 	@echo Testing network with fixed points
 	./xor_test_fixed
 
+	@echo
+	@echo simple_train
+	./simple_train
+
+	@echo
+	@echo steepness_train
+	./steepness_train
+
+	@echo
+	@echo simple_test
+	./simple_test
+
+	@echo
+	@echo robot
+	./robot
+
+	@echo
+	@echo mushroom
+	./mushroom
+
+	@echo
+	@echo cascade_train
+	./cascade_train
+
+	@echo
+	@echo scaling_test
+	./scaling_test
+
+	@echo
+	@echo scaling_train
+	./scaling_train
+
 #below this line is only for debugging the fann library
 
 rundebugtest: $(DEBUG_TARGETS)

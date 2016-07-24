@@ -193,7 +193,7 @@ EXPORTED_FUNCTIONS=\
     "_my_file_read",\
     "_my_file_remove",\
     "_my_file_write",\
-    "_my_print_constants",\
+    "_my_print_exports",\
     "_my_test"\
 ]'
 

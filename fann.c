@@ -186,7 +186,7 @@ int my_file_write(const char *file, const char *text) {
     return 0;
 }
 
-int my_print_constants() {
+int my_print_exports() {
 /*
  * this function will print global constants to stdout
  */

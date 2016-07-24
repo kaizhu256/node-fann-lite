@@ -47,7 +47,7 @@
             local.fann = require('./tmp/build/fann.min.js');
             break;
         }
-        // local.fann._my_print_constants();
+        // local.fann._my_print_exports();
         local.fann.FANN_COS = 17;
         local.fann.FANN_COS_SYMMETRIC = 15;
         local.fann.FANN_ELLIOT = 10;
@@ -294,6 +294,7 @@
 
     // run node js-env code post-init
     case 'node':
+        global.local = local;
         local.fann.my_test_xor();
         // init repl debugger
         local.utility2.replStart();

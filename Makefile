@@ -204,14 +204,13 @@ EXPORTED_FUNCTIONS=\
 
 all: fann
 clean:
-	cd tmp/build && rm *.mem *.out lib._fann.js 2>/dev/null || true
+	mkdir -p tmp/build && cd tmp/build && rm *.mem *.out lib._fann.js 2>/dev/null || true
 	cd external/examples && make clean
 fann:
+	mkdir -p tmp/build && \
 	$(CC) -o tmp/build/lib._fann.js lib._fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
 	printf "\n/* jslint-ignore-all */\nModule.FS=FS;\n" >> tmp/build/lib._fann.js && \
     sed -in -e 's/[ ]\{1,\}$$//' tmp/build/lib._fann.js && \
 	rm -f tmp/build/fann.jsn
 test:
-	cd external/examples && \
-	make && \
-	make runtest
+	cd external/examples && make && make runtest

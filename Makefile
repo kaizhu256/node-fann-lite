@@ -1,10 +1,10 @@
 CC=emcc
 CFLAGS=\
     -Iexternal/include\
-		-Wall\
-		-Werror\
-		-Wextra\
-		-pedantic
+    -Wall\
+    -Werror\
+    -Wextra\
+    -pedantic
 EXPORTED_FUNCTIONS=\
     -s EXPORTED_FUNCTIONS='[\
     "_fann_activation",\
@@ -184,16 +184,16 @@ EXPORTED_FUNCTIONS=\
     "_fann_update_weights_irpropm",\
     "_fann_update_weights_quickprop",\
     "_fann_update_weights_sarprop",\
-		"_my_array_char_get",\
-		"_my_array_char_realloc",\
-		"_my_array_double_get",\
-		"_my_array_double_get_to_string",\
-		"_my_array_double_realloc",\
-		"_my_array_double_set_from_string",\
-		"_my_array_int_get",\
-		"_my_array_int_get_to_string",\
-		"_my_array_int_realloc",\
-		"_my_array_int_set_from_string",\
+    "_my_array_char_get",\
+    "_my_array_char_realloc",\
+    "_my_array_double_get",\
+    "_my_array_double_get_to_string",\
+    "_my_array_double_realloc",\
+    "_my_array_double_set_from_string",\
+    "_my_array_int_get",\
+    "_my_array_int_get_to_string",\
+    "_my_array_int_realloc",\
+    "_my_array_int_set_from_string",\
     "_my_file_read",\
     "_my_file_remove",\
     "_my_file_write",\
@@ -204,16 +204,18 @@ EXPORTED_FUNCTIONS=\
 
 all: fann example
 clean:
-		rm *.net tmp/build/*.mem tmp/build/*.out tmp/build/*.js 2>/dev/null || true
+	rm *.net tmp/build/*.mem tmp/build/*.out tmp/build/*.js 2>/dev/null || true
 example:
-		gcc example.c -o tmp/build/example.out -Iexternal/include
+	gcc example.c -o tmp/build/example.out -Iexternal/include
 fann:
-		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
-		printf "\nModule.FS=FS;\n" >> tmp/build/fann.js
+	$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
+	printf "\nModule.FS=FS;\n" >> tmp/build/fann.js && \
+    sed -in -e 's/[ ]\{1,\}$$//' tmp/build/fann.js && \
+	rm -f tmp/build/fann.jsn
 test: example
-		tmp/build/example.out && \
-		printf "\n\ntest.xor.data\n" && \
-		cat test.xor.data && \
-		printf "\n\ntest.xor_double.net\n" && \
-		cat test.xor_double.net && \
-		rm *.net
+	tmp/build/example.out && \
+	printf "\n\ntest.xor.data\n" && \
+	cat test.xor.data && \
+	printf "\n\ntest.xor_double.net\n" && \
+	cat test.xor_double.net && \
+	rm *.net

@@ -1,17 +1,17 @@
 /*
   Fast Artificial Neural Network Library (fann)
   Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
-  
+
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
   License as published by the Free Software Foundation; either
   version 2.1 of the License, or (at your option) any later version.
-  
+
   This library is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
   Lesser General Public License for more details.
-  
+
   You should have received a copy of the GNU Lesser General Public
   License along with this library; if not, write to the Free Software
   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
@@ -83,6 +83,7 @@ fann_type fann_activation_derived(unsigned int activation_function,
 fann_type fann_activation(struct fann * ann, unsigned int activation_function, fann_type steepness,
 						  fann_type value)
 {
+  my_nop(ann);
 	value = fann_mult(steepness, value);
 	fann_activation_switch(activation_function, value, value);
 	return value;
@@ -110,7 +111,7 @@ FANN_EXTERNAL void FANN_API fann_train(struct fann *ann, fann_type * input,
 fann_type fann_update_MSE(struct fann *ann, struct fann_neuron* neuron, fann_type neuron_diff)
 {
 	float neuron_diff2;
-	
+
 	switch (neuron->activation_function)
 	{
 		case FANN_LINEAR_PIECE_SYMMETRIC:
@@ -150,7 +151,7 @@ fann_type fann_update_MSE(struct fann *ann, struct fann_neuron* neuron, fann_typ
 	{
 		ann->num_bit_fail++;
 	}
-	
+
 	return neuron_diff;
 }
 
@@ -174,7 +175,7 @@ FANN_EXTERNAL fann_type *FANN_API fann_test(struct fann *ann, fann_type * input,
 		neuron_diff = (*desired_output - neuron_value);
 
 		neuron_diff = fann_update_MSE(ann, output_neuron, neuron_diff);
-		
+
 		desired_output++;
 		output_neuron++;
 
@@ -200,7 +201,7 @@ FANN_EXTERNAL float FANN_API fann_get_MSE(struct fann *ann)
 
 FANN_EXTERNAL unsigned int FANN_API fann_get_bit_fail(struct fann *ann)
 {
-	return ann->num_bit_fail;	
+	return ann->num_bit_fail;
 }
 
 /* reset the mean square error.
@@ -356,11 +357,11 @@ void fann_backpropagate_MSE(struct fann *ann)
 
 		for(neuron_it = (layer_it - 1)->first_neuron; neuron_it != last_neuron; neuron_it++)
 		{
-			*error_prev_layer *= fann_activation_derived(neuron_it->activation_function, 
+			*error_prev_layer *= fann_activation_derived(neuron_it->activation_function,
 				neuron_it->activation_steepness, neuron_it->value, neuron_it->sum);
 			error_prev_layer++;
 		}
-		
+
 	}
 }
 
@@ -377,7 +378,7 @@ void fann_update_weights(struct fann *ann)
 
 	/* store some variabels local for fast access */
 	const float learning_rate = ann->learning_rate;
-    const float learning_momentum = ann->learning_momentum;        
+    const float learning_momentum = ann->learning_momentum;
 	struct fann_neuron *first_neuron = ann->first_layer->first_neuron;
 	struct fann_layer *first_layer = ann->first_layer;
 	const struct fann_layer *last_layer = ann->last_layer;
@@ -393,7 +394,7 @@ void fann_update_weights(struct fann *ann)
 		{
 			fann_error((struct fann_error *) ann, FANN_E_CANT_ALLOCATE_MEM);
 			return;
-		}		
+		}
 	}
 
 #ifdef DEBUGTRAIN
@@ -575,7 +576,7 @@ void fann_clear_train_arrays(struct fann *ann)
 	if(ann->training_algorithm == FANN_TRAIN_RPROP)
 	{
 		delta_zero = ann->rprop_delta_zero;
-		
+
 		for(i = 0; i < ann->total_connections_allocated; i++)
 			ann->prev_steps[i] = delta_zero;
 	}
@@ -636,7 +637,7 @@ void fann_update_weights_quickprop(struct fann *ann, unsigned int num_data,
 	float decay = ann->quickprop_decay;	/*-0.0001;*/
 	float mu = ann->quickprop_mu;	/*1.75; */
 	float shrink_factor = (float) (mu / (1.0 + mu));
-	
+
 	unsigned int i = first_weight;
 
 	for(; i != past_end; i++)
@@ -646,7 +647,7 @@ void fann_update_weights_quickprop(struct fann *ann, unsigned int num_data,
 		slope = train_slopes[i] + decay * w;
 		prev_slope = prev_train_slopes[i];
 		next_step = 0.0;
-		
+
 		/* The step must always be in direction opposite to the slope. */
 		if(prev_step > 0.001)
 		{
@@ -673,14 +674,14 @@ void fann_update_weights_quickprop(struct fann *ann, unsigned int num_data,
 				next_step += prev_step * slope / (prev_slope - slope);	/* Else, use quadratic estimate. */
 		}
 		else /* Last step was zero, so use only linear term. */
-			next_step += epsilon * slope; 
+			next_step += epsilon * slope;
 
 		/*
 		if(next_step > 1000 || next_step < -1000)
 		{
 			printf("quickprop[%d] weight=%f, slope=%f, prev_slope=%f, next_step=%f, prev_step=%f\n",
 				   i, weights[i], slope, prev_slope, next_step, prev_step);
-			
+
 			   if(next_step > 1000)
 			   next_step = 1000;
 			   else
@@ -874,8 +875,8 @@ FANN_EXTERNAL struct fann_layer* FANN_API fann_get_layer(struct fann *ann, int l
 		fann_error((struct fann_error *) ann, FANN_E_INDEX_OUT_OF_BOUND, layer);
 		return NULL;
 	}
-	
-	return ann->first_layer + layer;	
+
+	return ann->first_layer + layer;
 }
 
 FANN_EXTERNAL struct fann_neuron* FANN_API fann_get_neuron_layer(struct fann *ann, struct fann_layer* layer, int neuron)
@@ -883,9 +884,9 @@ FANN_EXTERNAL struct fann_neuron* FANN_API fann_get_neuron_layer(struct fann *an
 	if(neuron >= (layer->last_neuron - layer->first_neuron))
 	{
 		fann_error((struct fann_error *) ann, FANN_E_INDEX_OUT_OF_BOUND, neuron);
-		return NULL;	
+		return NULL;
 	}
-	
+
 	return layer->first_neuron + neuron;
 }
 
@@ -931,7 +932,7 @@ FANN_EXTERNAL void FANN_API fann_set_activation_function_layer(struct fann *ann,
 {
 	struct fann_neuron *last_neuron, *neuron_it;
 	struct fann_layer *layer_it = fann_get_layer(ann, layer);
-	
+
 	if(layer_it == NULL)
 		return;
 
@@ -1005,7 +1006,7 @@ FANN_EXTERNAL void FANN_API fann_set_activation_steepness_layer(struct fann *ann
 {
 	struct fann_neuron *last_neuron, *neuron_it;
 	struct fann_layer *layer_it = fann_get_layer(ann, layer);
-	
+
 	if(layer_it == NULL)
 		return;
 

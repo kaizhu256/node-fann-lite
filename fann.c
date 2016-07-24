@@ -191,11 +191,23 @@ int my_init() {
  * this function will run the init
  */
     ARRAY_CHAR_LENGTH_INTERNAL = 1;
-    ARRAY_CHAR = malloc(sizeof(char));
-    ARRAY_INT_LENGTH_INTERNAL = 1;
-    ARRAY_INT = malloc(sizeof(int));
+    if (ARRAY_CHAR) {
+        ARRAY_CHAR = realloc(ARRAY_CHAR, sizeof(char));
+    } else {
+        ARRAY_CHAR = malloc(sizeof(char));
+    }
     ARRAY_DOUBLE_LENGTH_INTERNAL = 1;
-    ARRAY_DOUBLE = malloc(sizeof(double));
+    if (ARRAY_DOUBLE) {
+        ARRAY_DOUBLE = realloc(ARRAY_DOUBLE, sizeof(double));
+    } else {
+        ARRAY_DOUBLE = malloc(sizeof(double));
+    }
+    ARRAY_INT_LENGTH_INTERNAL = 1;
+    if (ARRAY_INT) {
+        ARRAY_INT = realloc(ARRAY_INT, sizeof(int));
+    } else {
+        ARRAY_INT = malloc(sizeof(int));
+    }
     return 0;
 }
 

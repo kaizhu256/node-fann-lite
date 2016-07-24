@@ -1,6 +1,10 @@
 CC=emcc
 CFLAGS=\
-    -Iexternal/include
+    -Iexternal/include\
+		-Wall\
+		-Werror\
+		-Wextra\
+		-pedantic
 EXPORTED_FUNCTIONS=\
     -s EXPORTED_FUNCTIONS='[\
     "_fann_activation",\
@@ -206,9 +210,6 @@ example:
 fann:
 		$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
 		printf "\nModule.FS=FS;\n" >> tmp/build/fann.js
-		$(CC) -o tmp/build/fann.min.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) \
-		--memory-init-file 0 -O2 && \
-		printf "\nModule.FS=FS;\n" >> tmp/build/fann.min.js
 test: example
 		tmp/build/example.out && \
 		printf "\n\ntest.xor.data\n" && \

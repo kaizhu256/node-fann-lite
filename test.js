@@ -44,7 +44,7 @@
         case 'node':
             local = require('utility2').local;
             // require module
-            local.fann = require('./tmp/build/fann.min.js');
+            local.fann = require('./tmp/build/lib._fann.js');
             break;
         }
         local.fann._my_init();

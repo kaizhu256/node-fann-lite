@@ -202,20 +202,16 @@ EXPORTED_FUNCTIONS=\
     "_my_test"\
 ]'
 
-all: fann example
+all: fann
 clean:
-	rm *.net tmp/build/*.mem tmp/build/*.out tmp/build/*.js 2>/dev/null || true
-example:
-	gcc example.c -o tmp/build/example.out -Iexternal/include
+	cd tmp/build && rm *.mem *.out lib._fann.js 2>/dev/null || true
+	cd external/examples && make clean
 fann:
-	$(CC) -o tmp/build/fann.js fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
-	printf "\nModule.FS=FS;\n" >> tmp/build/fann.js && \
-    sed -in -e 's/[ ]\{1,\}$$//' tmp/build/fann.js && \
+	$(CC) -o tmp/build/lib._fann.js lib._fann.c $(CFLAGS) $(EXPORTED_FUNCTIONS) && \
+	printf "\n/* jslint-ignore-all */\nModule.FS=FS;\n" >> tmp/build/lib._fann.js && \
+    sed -in -e 's/[ ]\{1,\}$$//' tmp/build/lib._fann.js && \
 	rm -f tmp/build/fann.jsn
-test: example
-	tmp/build/example.out && \
-	printf "\n\ntest.xor.data\n" && \
-	cat test.xor.data && \
-	printf "\n\ntest.xor_double.net\n" && \
-	cat test.xor_double.net && \
-	rm *.net
+test:
+	cd external/examples && \
+	make && \
+	make runtest

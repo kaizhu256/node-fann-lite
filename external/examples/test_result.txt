@@ -4,15 +4,18 @@ node xor_train.js
 Creating network.
 Training network.
 Max epochs     1000. Desired error: 0.0000000000.
-Epochs            1. Current error: 0.2961337268. Bit fail 4.
-Epochs           10. Current error: 0.2096444666. Bit fail 4.
-Epochs           20. Current error: 0.0463946760. Bit fail 4.
-Epochs           28. Current error: 0.0000454914. Bit fail 0.
-Testing network. 0.000007
-XOR test (-1.000000,-1.000000) -> -0.997799, should be -1.000000, difference=0.002201
-XOR test (-1.000000,1.000000) -> 0.994231, should be 1.000000, difference=0.005769
-XOR test (1.000000,-1.000000) -> 0.996756, should be 1.000000, difference=0.003244
-XOR test (1.000000,1.000000) -> -0.991882, should be -1.000000, difference=0.008118
+Epochs            1. Current error: 0.2997876704. Bit fail 4.
+Epochs           10. Current error: 0.1527178586. Bit fail 4.
+Epochs           20. Current error: 0.0451563038. Bit fail 4.
+Epochs           30. Current error: 0.0082749706. Bit fail 4.
+Epochs           40. Current error: 0.0011275391. Bit fail 3.
+Epochs           50. Current error: 0.0000868683. Bit fail 1.
+Epochs           53. Current error: 0.0000329730. Bit fail 0.
+Testing network. 0.000020
+XOR test (-1.000000,-1.000000) -> -0.999494, should be -1.000000, difference=0.000506
+XOR test (-1.000000,1.000000) -> 0.987042, should be 1.000000, difference=0.012958
+XOR test (1.000000,-1.000000) -> 0.993626, should be 1.000000, difference=0.006374
+XOR test (1.000000,1.000000) -> -0.989210, should be -1.000000, difference=0.010790
 Saving network.
 Cleaning up.
  
@@ -21,11 +24,11 @@ Testing network with floats
 node xor_test.js
 Creating network.
 Layer / Neuron 0123456
-L   1 / N    3 cCC....
-L   1 / N    4 CCC....
-L   1 / N    5 HAB....
+L   1 / N    3 Deb....
+L   1 / N    4 CCD....
+L   1 / N    5 cCc....
 L   1 / N    6 .......
-L   2 / N    7 ...dDda
+L   2 / N    7 ...DCDB
 L   2 / N    8 .......
 Input layer                          :   2 neurons, 1 bias
   Hidden layer                       :   3 neurons, 1 bias
@@ -39,9 +42,9 @@ Multiplier                           :8192
 Bit fail limit                       :  82
 Testing network.
 XOR test (-8192, -8192) -> -8192, should be -8192, difference=0.000000
-XOR test (-8192, 8192) -> 8192, should be 8192, difference=0.000000
+XOR test (-8192, 8192) -> 8030, should be 8192, difference=0.019775
 XOR test (8192, -8192) -> 8192, should be 8192, difference=0.000000
-XOR test (8192, 8192) -> -8192, should be -8192, difference=0.000000
+XOR test (8192, 8192) -> -8023, should be -8192, difference=0.020630
 Cleaning up.
  
 #!! @echo
@@ -51,393 +54,393 @@ Cleaning up.
 simple_train
 node simple_train.js
 Max epochs   500000. Desired error: 0.0010000000.
-Epochs            1. Current error: 0.2501201332. Bit fail 4.
-Epochs           37. Current error: 0.0009067850. Bit fail 0.
+Epochs            1. Current error: 0.2500016689. Bit fail 4.
+Epochs           20. Current error: 0.0009125834. Bit fail 0.
  
 
 steepness_train
 node steepness_train.js
 Max epochs   500000. Desired error: 0.0010000000
-Epochs            1. Current error: 0.2503410876
-Epochs          139. Current error: 0.0007895803
+Epochs            1. Current error: 0.2524190247
+Epochs          177. Current error: 0.0009809781
 Steepness: 1.100000
-Epochs          140. Current error: 0.0001911603
+Epochs          178. Current error: 0.0003001272
 Steepness: 1.200000
-Epochs          141. Current error: 0.0000499734
+Epochs          179. Current error: 0.0001034043
 Steepness: 1.300000
-Epochs          142. Current error: 0.0000163168
+Epochs          180. Current error: 0.0000379862
 Steepness: 1.400000
-Epochs          143. Current error: 0.0000054738
+Epochs          181. Current error: 0.0000143236
 Steepness: 1.500000
-Epochs          144. Current error: 0.0000019414
+Epochs          182. Current error: 0.0000054580
 Steepness: 1.600000
-Epochs          145. Current error: 0.0000007294
+Epochs          183. Current error: 0.0000021183
 Steepness: 1.700000
-Epochs          146. Current error: 0.0000002826
+Epochs          184. Current error: 0.0000008573
 Steepness: 1.800000
-Epochs          147. Current error: 0.0000001137
+Epochs          185. Current error: 0.0000003642
 Steepness: 1.900000
-Epochs          148. Current error: 0.0000000484
+Epochs          186. Current error: 0.0000001601
 Steepness: 2.000000
-Epochs          149. Current error: 0.0000000233
+Epochs          187. Current error: 0.0000000805
 Steepness: 2.100000
-Epochs          150. Current error: 0.0000000212
+Epochs          188. Current error: 0.0000002841
 Steepness: 2.200000
-Epochs          151. Current error: 0.0000000272
+Epochs          189. Current error: 0.0000000165
 Steepness: 2.300000
-Epochs          152. Current error: 0.0000000261
+Epochs          190. Current error: 0.0000000094
 Steepness: 2.400000
-Epochs          153. Current error: 0.0000006163
+Epochs          191. Current error: 0.0000000097
 Steepness: 2.500000
-Epochs          154. Current error: 0.0000000269
+Epochs          192. Current error: 0.0000001791
 Steepness: 2.600000
-Epochs          155. Current error: 0.0000000245
+Epochs          193. Current error: 0.0000000065
 Steepness: 2.700000
-Epochs          156. Current error: 0.0000000440
+Epochs          194. Current error: 0.0000000039
 Steepness: 2.800000
-Epochs          157. Current error: 0.0000002084
+Epochs          195. Current error: 0.0000000031
 Steepness: 2.900000
-Epochs          158. Current error: 0.0000000638
+Epochs          196. Current error: 0.0000000057
 Steepness: 3.000000
-Epochs          159. Current error: 0.0000000412
+Epochs          197. Current error: 0.0000000063
 Steepness: 3.100000
-Epochs          160. Current error: 0.0000000305
-Steepness: 3.200000
-Epochs          161. Current error: 0.0000000302
-Steepness: 3.300000
-Epochs          162. Current error: 0.0000000513
-Steepness: 3.400000
-Epochs          163. Current error: 0.0000001338
-Steepness: 3.500000
-Epochs          164. Current error: 0.0000000483
-Steepness: 3.600000
-Epochs          165. Current error: 0.0000000393
-Steepness: 3.700000
-Epochs          166. Current error: 0.0000000421
-Steepness: 3.800000
-Epochs          167. Current error: 0.0000000731
-Steepness: 3.900000
-Epochs          168. Current error: 0.0000000533
-Steepness: 4.000000
-Epochs          169. Current error: 0.0000000444
-Steepness: 4.100000
-Epochs          170. Current error: 0.0000000466
-Steepness: 4.200000
-Epochs          171. Current error: 0.0000000738
-Steepness: 4.300000
-Epochs          172. Current error: 0.0000000345
-Steepness: 4.400000
-Epochs          173. Current error: 0.0000000292
-Steepness: 4.500000
-Epochs          174. Current error: 0.0000000303
-Steepness: 4.600000
-Epochs          175. Current error: 0.0000000453
-Steepness: 4.700000
-Epochs          176. Current error: 0.0000000351
-Steepness: 4.800000
-Epochs          177. Current error: 0.0000000301
-Steepness: 4.900000
-Epochs          178. Current error: 0.0000000309
-Steepness: 5.000000
-Epochs          179. Current error: 0.0000000432
-Steepness: 5.100000
-Epochs          180. Current error: 0.0000000249
-Steepness: 5.200000
-Epochs          181. Current error: 0.0000000209
-Steepness: 5.300000
-Epochs          182. Current error: 0.0000000201
-Steepness: 5.400000
-Epochs          183. Current error: 0.0000000244
-Steepness: 5.500000
-Epochs          184. Current error: 0.0000000333
-Steepness: 5.600000
-Epochs          185. Current error: 0.0000000204
-Steepness: 5.700000
-Epochs          186. Current error: 0.0000000173
-Steepness: 5.800000
-Epochs          187. Current error: 0.0000000164
-Steepness: 5.900000
-Epochs          188. Current error: 0.0000000189
-Steepness: 6.000000
-Epochs          189. Current error: 0.0000000289
-Steepness: 6.100000
-Epochs          190. Current error: 0.0000000162
-Steepness: 6.200000
-Epochs          191. Current error: 0.0000000148
-Steepness: 6.300000
-Epochs          192. Current error: 0.0000000156
-Steepness: 6.400000
-Epochs          193. Current error: 0.0000000216
-Steepness: 6.500000
-Epochs          194. Current error: 0.0000000149
-Steepness: 6.600000
-Epochs          195. Current error: 0.0000000125
-Steepness: 6.700000
-Epochs          196. Current error: 0.0000000113
-Steepness: 6.800000
-Epochs          197. Current error: 0.0000000116
-Steepness: 6.900000
 Epochs          198. Current error: 0.0000000150
+Steepness: 3.200000
+Epochs          199. Current error: 0.0000000682
+Steepness: 3.300000
+Epochs          200. Current error: 0.0000000110
+Steepness: 3.400000
+Epochs          201. Current error: 0.0000000102
+Steepness: 3.500000
+Epochs          202. Current error: 0.0000000153
+Steepness: 3.600000
+Epochs          203. Current error: 0.0000000205
+Steepness: 3.700000
+Epochs          204. Current error: 0.0000000108
+Steepness: 3.800000
+Epochs          205. Current error: 0.0000000067
+Steepness: 3.900000
+Epochs          206. Current error: 0.0000000044
+Steepness: 4.000000
+Epochs          207. Current error: 0.0000000033
+Steepness: 4.100000
+Epochs          208. Current error: 0.0000000030
+Steepness: 4.200000
+Epochs          209. Current error: 0.0000000040
+Steepness: 4.300000
+Epochs          210. Current error: 0.0000000103
+Steepness: 4.400000
+Epochs          211. Current error: 0.0000000064
+Steepness: 4.500000
+Epochs          212. Current error: 0.0000000042
+Steepness: 4.600000
+Epochs          213. Current error: 0.0000000028
+Steepness: 4.700000
+Epochs          214. Current error: 0.0000000020
+Steepness: 4.800000
+Epochs          215. Current error: 0.0000000015
+Steepness: 4.900000
+Epochs          216. Current error: 0.0000000013
+Steepness: 5.000000
+Epochs          217. Current error: 0.0000000014
+Steepness: 5.100000
+Epochs          218. Current error: 0.0000000023
+Steepness: 5.200000
+Epochs          219. Current error: 0.0000000078
+Steepness: 5.300000
+Epochs          220. Current error: 0.0000000032
+Steepness: 5.400000
+Epochs          221. Current error: 0.0000000030
+Steepness: 5.500000
+Epochs          222. Current error: 0.0000000035
+Steepness: 5.600000
+Epochs          223. Current error: 0.0000000055
+Steepness: 5.700000
+Epochs          224. Current error: 0.0000000028
+Steepness: 5.800000
+Epochs          225. Current error: 0.0000000025
+Steepness: 5.900000
+Epochs          226. Current error: 0.0000000027
+Steepness: 6.000000
+Epochs          227. Current error: 0.0000000041
+Steepness: 6.100000
+Epochs          228. Current error: 0.0000000025
+Steepness: 6.200000
+Epochs          229. Current error: 0.0000000021
+Steepness: 6.300000
+Epochs          230. Current error: 0.0000000019
+Steepness: 6.400000
+Epochs          231. Current error: 0.0000000022
+Steepness: 6.500000
+Epochs          232. Current error: 0.0000000036
+Steepness: 6.600000
+Epochs          233. Current error: 0.0000000019
+Steepness: 6.700000
+Epochs          234. Current error: 0.0000000018
+Steepness: 6.800000
+Epochs          235. Current error: 0.0000000019
+Steepness: 6.900000
+Epochs          236. Current error: 0.0000000028
 Steepness: 7.000000
-Epochs          199. Current error: 0.0000000136
+Epochs          237. Current error: 0.0000000017
 Steepness: 7.100000
-Epochs          200. Current error: 0.0000000139
+Epochs          238. Current error: 0.0000000015
 Steepness: 7.200000
-Epochs          201. Current error: 0.0000000155
+Epochs          239. Current error: 0.0000000015
 Steepness: 7.300000
-Epochs          202. Current error: 0.0000000103
+Epochs          240. Current error: 0.0000000018
 Steepness: 7.400000
-Epochs          203. Current error: 0.0000000093
+Epochs          241. Current error: 0.0000000019
 Steepness: 7.500000
-Epochs          204. Current error: 0.0000000094
+Epochs          242. Current error: 0.0000000017
 Steepness: 7.600000
-Epochs          205. Current error: 0.0000000116
+Epochs          243. Current error: 0.0000000016
 Steepness: 7.700000
-Epochs          206. Current error: 0.0000000106
+Epochs          244. Current error: 0.0000000019
 Steepness: 7.800000
-Epochs          207. Current error: 0.0000000109
+Epochs          245. Current error: 0.0000000013
 Steepness: 7.900000
-Epochs          208. Current error: 0.0000000114
+Epochs          246. Current error: 0.0000000011
 Steepness: 8.000000
-Epochs          209. Current error: 0.0000000087
+Epochs          247. Current error: 0.0000000010
 Steepness: 8.100000
-Epochs          210. Current error: 0.0000000073
+Epochs          248. Current error: 0.0000000010
 Steepness: 8.200000
-Epochs          211. Current error: 0.0000000065
+Epochs          249. Current error: 0.0000000013
 Steepness: 8.300000
-Epochs          212. Current error: 0.0000000061
+Epochs          250. Current error: 0.0000000014
 Steepness: 8.400000
-Epochs          213. Current error: 0.0000000066
+Epochs          251. Current error: 0.0000000012
 Steepness: 8.500000
-Epochs          214. Current error: 0.0000000088
+Epochs          252. Current error: 0.0000000012
 Steepness: 8.600000
-Epochs          215. Current error: 0.0000000078
+Epochs          253. Current error: 0.0000000013
 Steepness: 8.700000
-Epochs          216. Current error: 0.0000000073
+Epochs          254. Current error: 0.0000000011
 Steepness: 8.800000
-Epochs          217. Current error: 0.0000000076
+Epochs          255. Current error: 0.0000000011
 Steepness: 8.900000
-Epochs          218. Current error: 0.0000000088
+Epochs          256. Current error: 0.0000000012
 Steepness: 9.000000
-Epochs          219. Current error: 0.0000000062
+Epochs          257. Current error: 0.0000000009
 Steepness: 9.100000
-Epochs          220. Current error: 0.0000000057
+Epochs          258. Current error: 0.0000000008
 Steepness: 9.200000
-Epochs          221. Current error: 0.0000000057
+Epochs          259. Current error: 0.0000000007
 Steepness: 9.300000
-Epochs          222. Current error: 0.0000000067
+Epochs          260. Current error: 0.0000000006
 Steepness: 9.400000
-Epochs          223. Current error: 0.0000000065
+Epochs          261. Current error: 0.0000000006
 Steepness: 9.500000
-Epochs          224. Current error: 0.0000000071
+Epochs          262. Current error: 0.0000000007
 Steepness: 9.600000
-Epochs          225. Current error: 0.0000000054
+Epochs          263. Current error: 0.0000000011
 Steepness: 9.700000
-Epochs          226. Current error: 0.0000000048
+Epochs          264. Current error: 0.0000000007
 Steepness: 9.800000
-Epochs          227. Current error: 0.0000000046
+Epochs          265. Current error: 0.0000000007
 Steepness: 9.900000
-Epochs          228. Current error: 0.0000000048
+Epochs          266. Current error: 0.0000000007
 Steepness: 10.000000
-Epochs          229. Current error: 0.0000000059
+Epochs          267. Current error: 0.0000000009
 Steepness: 10.100000
-Epochs          230. Current error: 0.0000000051
+Epochs          268. Current error: 0.0000000007
 Steepness: 10.200000
-Epochs          231. Current error: 0.0000000042
+Epochs          269. Current error: 0.0000000006
 Steepness: 10.300000
-Epochs          232. Current error: 0.0000000035
+Epochs          270. Current error: 0.0000000005
 Steepness: 10.400000
-Epochs          233. Current error: 0.0000000030
+Epochs          271. Current error: 0.0000000005
 Steepness: 10.500000
-Epochs          234. Current error: 0.0000000025
+Epochs          272. Current error: 0.0000000006
 Steepness: 10.600000
-Epochs          235. Current error: 0.0000000021
+Epochs          273. Current error: 0.0000000007
 Steepness: 10.700000
-Epochs          236. Current error: 0.0000000017
+Epochs          274. Current error: 0.0000000006
 Steepness: 10.800000
-Epochs          237. Current error: 0.0000000015
+Epochs          275. Current error: 0.0000000005
 Steepness: 10.900000
-Epochs          238. Current error: 0.0000000012
+Epochs          276. Current error: 0.0000000004
 Steepness: 11.000000
-Epochs          239. Current error: 0.0000000010
+Epochs          277. Current error: 0.0000000003
 Steepness: 11.100000
-Epochs          240. Current error: 0.0000000009
+Epochs          278. Current error: 0.0000000003
 Steepness: 11.200000
-Epochs          241. Current error: 0.0000000007
+Epochs          279. Current error: 0.0000000002
 Steepness: 11.300000
-Epochs          242. Current error: 0.0000000006
+Epochs          280. Current error: 0.0000000002
 Steepness: 11.400000
-Epochs          243. Current error: 0.0000000005
+Epochs          281. Current error: 0.0000000002
 Steepness: 11.500000
-Epochs          244. Current error: 0.0000000004
+Epochs          282. Current error: 0.0000000001
 Steepness: 11.600000
-Epochs          245. Current error: 0.0000000004
+Epochs          283. Current error: 0.0000000001
 Steepness: 11.700000
-Epochs          246. Current error: 0.0000000003
+Epochs          284. Current error: 0.0000000001
 Steepness: 11.800000
-Epochs          247. Current error: 0.0000000002
+Epochs          285. Current error: 0.0000000001
 Steepness: 11.900000
-Epochs          248. Current error: 0.0000000002
+Epochs          286. Current error: 0.0000000001
 Steepness: 12.000000
-Epochs          249. Current error: 0.0000000002
+Epochs          287. Current error: 0.0000000001
 Steepness: 12.100000
-Epochs          250. Current error: 0.0000000001
-Steepness: 12.200000
-Epochs          251. Current error: 0.0000000001
-Steepness: 12.300000
-Epochs          252. Current error: 0.0000000001
-Steepness: 12.400000
-Epochs          253. Current error: 0.0000000001
-Steepness: 12.500000
-Epochs          254. Current error: 0.0000000001
-Steepness: 12.600000
-Epochs          255. Current error: 0.0000000001
-Steepness: 12.700000
-Epochs          256. Current error: 0.0000000001
-Steepness: 12.800000
-Epochs          257. Current error: 0.0000000000
-Steepness: 12.900000
-Epochs          258. Current error: 0.0000000000
-Steepness: 13.000000
-Epochs          259. Current error: 0.0000000000
-Steepness: 13.100000
-Epochs          260. Current error: 0.0000000000
-Steepness: 13.200000
-Epochs          261. Current error: 0.0000000000
-Steepness: 13.300000
-Epochs          262. Current error: 0.0000000000
-Steepness: 13.400000
-Epochs          263. Current error: 0.0000000000
-Steepness: 13.500000
-Epochs          264. Current error: 0.0000000000
-Steepness: 13.600000
-Epochs          265. Current error: 0.0000000000
-Steepness: 13.700000
-Epochs          266. Current error: 0.0000000000
-Steepness: 13.800000
-Epochs          267. Current error: 0.0000000000
-Steepness: 13.900000
-Epochs          268. Current error: 0.0000000000
-Steepness: 14.000000
-Epochs          269. Current error: 0.0000000000
-Steepness: 14.100000
-Epochs          270. Current error: 0.0000000000
-Steepness: 14.200000
-Epochs          271. Current error: 0.0000000000
-Steepness: 14.300000
-Epochs          272. Current error: 0.0000000000
-Steepness: 14.400000
-Epochs          273. Current error: 0.0000000000
-Steepness: 14.500000
-Epochs          274. Current error: 0.0000000000
-Steepness: 14.600000
-Epochs          275. Current error: 0.0000000000
-Steepness: 14.700000
-Epochs          276. Current error: 0.0000000000
-Steepness: 14.800000
-Epochs          277. Current error: 0.0000000000
-Steepness: 14.900000
-Epochs          278. Current error: 0.0000000000
-Steepness: 15.000000
-Epochs          279. Current error: 0.0000000000
-Steepness: 15.100000
-Epochs          280. Current error: 0.0000000000
-Steepness: 15.200000
-Epochs          281. Current error: 0.0000000000
-Steepness: 15.300000
-Epochs          282. Current error: 0.0000000000
-Steepness: 15.400000
-Epochs          283. Current error: 0.0000000000
-Steepness: 15.500000
-Epochs          284. Current error: 0.0000000000
-Steepness: 15.600000
-Epochs          285. Current error: 0.0000000000
-Steepness: 15.700000
-Epochs          286. Current error: 0.0000000000
-Steepness: 15.800000
-Epochs          287. Current error: 0.0000000000
-Steepness: 15.900000
 Epochs          288. Current error: 0.0000000000
-Steepness: 16.000000
+Steepness: 12.200000
 Epochs          289. Current error: 0.0000000000
-Steepness: 16.100000
+Steepness: 12.300000
 Epochs          290. Current error: 0.0000000000
-Steepness: 16.200000
+Steepness: 12.400000
 Epochs          291. Current error: 0.0000000000
-Steepness: 16.300000
+Steepness: 12.500000
 Epochs          292. Current error: 0.0000000000
-Steepness: 16.400000
+Steepness: 12.600000
 Epochs          293. Current error: 0.0000000000
-Steepness: 16.500000
+Steepness: 12.700000
 Epochs          294. Current error: 0.0000000000
-Steepness: 16.600000
+Steepness: 12.800000
 Epochs          295. Current error: 0.0000000000
-Steepness: 16.700000
+Steepness: 12.900000
 Epochs          296. Current error: 0.0000000000
-Steepness: 16.800000
+Steepness: 13.000000
 Epochs          297. Current error: 0.0000000000
-Steepness: 16.900000
+Steepness: 13.100000
 Epochs          298. Current error: 0.0000000000
-Steepness: 17.000000
+Steepness: 13.200000
 Epochs          299. Current error: 0.0000000000
-Steepness: 17.100000
+Steepness: 13.300000
 Epochs          300. Current error: 0.0000000000
-Steepness: 17.200000
+Steepness: 13.400000
 Epochs          301. Current error: 0.0000000000
-Steepness: 17.300000
+Steepness: 13.500000
 Epochs          302. Current error: 0.0000000000
-Steepness: 17.400000
+Steepness: 13.600000
 Epochs          303. Current error: 0.0000000000
-Steepness: 17.500000
+Steepness: 13.700000
 Epochs          304. Current error: 0.0000000000
-Steepness: 17.600000
+Steepness: 13.800000
 Epochs          305. Current error: 0.0000000000
-Steepness: 17.700000
+Steepness: 13.900000
 Epochs          306. Current error: 0.0000000000
-Steepness: 17.800000
+Steepness: 14.000000
 Epochs          307. Current error: 0.0000000000
-Steepness: 17.900000
+Steepness: 14.100000
 Epochs          308. Current error: 0.0000000000
-Steepness: 18.000000
+Steepness: 14.200000
 Epochs          309. Current error: 0.0000000000
-Steepness: 18.100000
+Steepness: 14.300000
 Epochs          310. Current error: 0.0000000000
-Steepness: 18.200000
+Steepness: 14.400000
 Epochs          311. Current error: 0.0000000000
-Steepness: 18.300000
+Steepness: 14.500000
 Epochs          312. Current error: 0.0000000000
-Steepness: 18.400000
+Steepness: 14.600000
 Epochs          313. Current error: 0.0000000000
-Steepness: 18.500000
+Steepness: 14.700000
 Epochs          314. Current error: 0.0000000000
-Steepness: 18.600000
+Steepness: 14.800000
 Epochs          315. Current error: 0.0000000000
-Steepness: 18.700000
+Steepness: 14.900000
 Epochs          316. Current error: 0.0000000000
-Steepness: 18.800000
+Steepness: 15.000000
 Epochs          317. Current error: 0.0000000000
-Steepness: 18.900000
+Steepness: 15.100000
 Epochs          318. Current error: 0.0000000000
-Steepness: 19.000000
+Steepness: 15.200000
 Epochs          319. Current error: 0.0000000000
-Steepness: 19.100000
+Steepness: 15.300000
 Epochs          320. Current error: 0.0000000000
-Steepness: 19.200000
+Steepness: 15.400000
 Epochs          321. Current error: 0.0000000000
-Steepness: 19.300000
+Steepness: 15.500000
 Epochs          322. Current error: 0.0000000000
-Steepness: 19.400000
+Steepness: 15.600000
 Epochs          323. Current error: 0.0000000000
-Steepness: 19.500000
+Steepness: 15.700000
 Epochs          324. Current error: 0.0000000000
-Steepness: 19.600000
+Steepness: 15.800000
 Epochs          325. Current error: 0.0000000000
-Steepness: 19.700000
+Steepness: 15.900000
 Epochs          326. Current error: 0.0000000000
-Steepness: 19.800000
+Steepness: 16.000000
 Epochs          327. Current error: 0.0000000000
-Steepness: 19.900000
+Steepness: 16.100000
 Epochs          328. Current error: 0.0000000000
+Steepness: 16.200000
+Epochs          329. Current error: 0.0000000000
+Steepness: 16.300000
+Epochs          330. Current error: 0.0000000000
+Steepness: 16.400000
+Epochs          331. Current error: 0.0000000000
+Steepness: 16.500000
+Epochs          332. Current error: 0.0000000000
+Steepness: 16.600000
+Epochs          333. Current error: 0.0000000000
+Steepness: 16.700000
+Epochs          334. Current error: 0.0000000000
+Steepness: 16.800000
+Epochs          335. Current error: 0.0000000000
+Steepness: 16.900000
+Epochs          336. Current error: 0.0000000000
+Steepness: 17.000000
+Epochs          337. Current error: 0.0000000000
+Steepness: 17.100000
+Epochs          338. Current error: 0.0000000000
+Steepness: 17.200000
+Epochs          339. Current error: 0.0000000000
+Steepness: 17.300000
+Epochs          340. Current error: 0.0000000000
+Steepness: 17.400000
+Epochs          341. Current error: 0.0000000000
+Steepness: 17.500000
+Epochs          342. Current error: 0.0000000000
+Steepness: 17.600000
+Epochs          343. Current error: 0.0000000000
+Steepness: 17.700000
+Epochs          344. Current error: 0.0000000000
+Steepness: 17.800000
+Epochs          345. Current error: 0.0000000000
+Steepness: 17.900000
+Epochs          346. Current error: 0.0000000000
+Steepness: 18.000000
+Epochs          347. Current error: 0.0000000000
+Steepness: 18.100000
+Epochs          348. Current error: 0.0000000000
+Steepness: 18.200000
+Epochs          349. Current error: 0.0000000000
+Steepness: 18.300000
+Epochs          350. Current error: 0.0000000000
+Steepness: 18.400000
+Epochs          351. Current error: 0.0000000000
+Steepness: 18.500000
+Epochs          352. Current error: 0.0000000000
+Steepness: 18.600000
+Epochs          353. Current error: 0.0000000000
+Steepness: 18.700000
+Epochs          354. Current error: 0.0000000000
+Steepness: 18.800000
+Epochs          355. Current error: 0.0000000000
+Steepness: 18.900000
+Epochs          356. Current error: 0.0000000000
+Steepness: 19.000000
+Epochs          357. Current error: 0.0000000000
+Steepness: 19.100000
+Epochs          358. Current error: 0.0000000000
+Steepness: 19.200000
+Epochs          359. Current error: 0.0000000000
+Steepness: 19.300000
+Epochs          360. Current error: 0.0000000000
+Steepness: 19.400000
+Epochs          361. Current error: 0.0000000000
+Steepness: 19.500000
+Epochs          362. Current error: 0.0000000000
+Steepness: 19.600000
+Epochs          363. Current error: 0.0000000000
+Steepness: 19.700000
+Epochs          364. Current error: 0.0000000000
+Steepness: 19.800000
+Epochs          365. Current error: 0.0000000000
+Steepness: 19.900000
+Epochs          366. Current error: 0.0000000000
 XOR test (-1.000000, -1.000000) -> -1.000000, should be -1.000000, difference=-0.000000
 XOR test (-1.000000, 1.000000) -> 1.000000, should be 1.000000, difference=-0.000000
 XOR test (1.000000, -1.000000) -> 1.000000, should be 1.000000, difference=-0.000000
@@ -454,16 +457,16 @@ node robot.js
 Creating network.
 Training network.
 Max epochs     3000. Desired error: 0.0010000000.
-Epochs            1. Current error: 0.0384953817. Bit fail 67.
-Epochs           10. Current error: 0.0063805967. Bit fail 8.
-Epochs           20. Current error: 0.0035048290. Bit fail 0.
-Epochs           30. Current error: 0.0028585149. Bit fail 0.
-Epochs           40. Current error: 0.0022256145. Bit fail 0.
-Epochs           50. Current error: 0.0015026917. Bit fail 0.
-Epochs           60. Current error: 0.0010074381. Bit fail 0.
-Epochs           61. Current error: 0.0009737005. Bit fail 0.
+Epochs            1. Current error: 0.0390572505. Bit fail 71.
+Epochs           10. Current error: 0.0055758507. Bit fail 3.
+Epochs           20. Current error: 0.0034071755. Bit fail 0.
+Epochs           30. Current error: 0.0028041620. Bit fail 0.
+Epochs           40. Current error: 0.0023216517. Bit fail 0.
+Epochs           50. Current error: 0.0016860781. Bit fail 0.
+Epochs           60. Current error: 0.0011961701. Bit fail 0.
+Epochs           67. Current error: 0.0009749556. Bit fail 0.
 Testing network.
-MSE error on test data: 0.007731
+MSE error on test data: 0.008083
 Saving network.
 Cleaning up.
  
@@ -473,11 +476,11 @@ node mushroom.js
 Creating network.
 Training network.
 Max epochs      300. Desired error: 0.0002000000.
-Epochs            1. Current error: 0.2502379199. Bit fail 8124.
-Epochs           10. Current error: 0.0006943366. Bit fail 11.
-Epochs           11. Current error: 0.0001543941. Bit fail 1.
+Epochs            1. Current error: 0.2517136875. Bit fail 8124.
+Epochs           10. Current error: 0.0016762446. Bit fail 24.
+Epochs           15. Current error: 0.0000873804. Bit fail 0.
 Testing network.
-MSE error on test data: 0.001024
+MSE error on test data: 0.000146
 Saving network.
 Cleaning up.
  
@@ -521,43 +524,59 @@ Cascade no. of candidates            :   8
 Training network.
 Max neurons  30. Desired error: 0.000000
 Neurons       0. Current error: 1.000000. Total error:256.0000. Epochs    51. Bit fail 256
-Neurons       1. Current error: 0.789866. Total error:202.2056. Epochs   153. Bit fail 121. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
-Neurons       2. Current error: 0.279585. Total error: 71.5738. Epochs   282. Bit fail  45. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
-Neurons       3. Current error: 0.056209. Total error: 14.3896. Epochs   582. Bit fail  10. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
-Neurons       4. Current error: 0.034327. Total error:  8.7876. Epochs   832. Bit fail   1. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
-Neurons       5. Current error: 0.005083. Total error:  1.3013. Epochs   947. Bit fail   0. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
-Train outputs    Current error: 0.005818. Epochs    948
-Layer / Neuron 01234567890123
-L   1 / N    9 CCCCCCCCC.....
-L   2 / N   10 CCCCCCCCCd....
-L   3 / N   11 BBBBBBBBBcb...
-L   4 / N   12 aaaaaaaaaBBB..
-L   5 / N   13 BBBBBBBBBcbbC.
-L   6 / N   14 AAAAAAAAAcBddh
+Neurons       1. Current error: 0.789996. Total error:202.2391. Epochs   153. Bit fail 121. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       2. Current error: 0.279070. Total error: 71.4419. Epochs   266. Bit fail  45. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       3. Current error: 0.052359. Total error: 13.4038. Epochs   531. Bit fail  10. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       4. Current error: 0.022565. Total error:  5.7766. Epochs   807. Bit fail   1. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       5. Current error: 0.015418. Total error:  3.9469. Epochs  1008. Bit fail   1. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       6. Current error: 0.012008. Total error:  3.0741. Epochs  1262. Bit fail   1. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Neurons       7. Current error: 0.053309. Total error: 13.6471. Epochs  1408. Bit fail   0. candidate steepness 1.00. function FANN_SIGMOID_SYMMETRIC
+Train outputs    Current error: 0.094917. Epochs   1409
+Layer / Neuron 0123456789012345
+L   1 / N    9 CCCCCCCCc.......
+L   2 / N   10 CCCCCCCCcd......
+L   3 / N   11 CCCCCCCCcdc.....
+L   4 / N   12 bbbbbbbbBDCC....
+L   5 / N   13 AABaABABbaBDA...
+L   6 / N   14 aABbBBBBbbBDBd..
+L   7 / N   15 BBBBBBBBbbbbBAA.
+L   8 / N   16 AAAAAAAAaAcCDaAB
 
-Train error: 0.041679, Train bit-fail: 0, Test error: 0.041679, Test bit-fail: 0
+Train error: 0.030982, Train bit-fail: 1, Test error: 0.030982, Test bit-fail: 1
 
+ERROR: -1.000000 does not match 0.294168
 Saving network.
 Cleaning up.
+ 
+
+scaling_train
+node scaling_train.js
+Max epochs     5000. Desired error: 0.0001000000.
+Epochs            1. Current error: 1.0000548706. Bit fail 820.
+Epochs         1000. Current error: 0.0084274540. Bit fail 0.
+Epochs         2000. Current error: 0.0077834826. Bit fail 0.
+Epochs         3000. Current error: 0.0072035255. Bit fail 0.
+Epochs         4000. Current error: 0.0066751494. Bit fail 0.
+Epochs         5000. Current error: 0.0062839775. Bit fail 0.
  
 
 scaling_test
 node scaling_test.js
 Creating network.
 Layer / Neuron 0123456789012345
-L   1 / N    4 AaAB............
-L   1 / N    5 aaAB............
-L   1 / N    6 aAAB............
-L   1 / N    7 AAaA............
-L   1 / N    8 aAAA............
+L   1 / N    4 aaAB............
+L   1 / N    5 aADa............
+L   1 / N    6 aabA............
+L   1 / N    7 aaAa............
+L   1 / N    8 AAba............
 L   1 / N    9 ................
-L   2 / N   10 ....aaaBaB......
-L   2 / N   11 ....aaaBaB......
-L   2 / N   12 ....BCBABB......
-L   2 / N   13 ....aaaBaB......
-L   2 / N   14 ....CIBABB......
+L   2 / N   10 ....AbBCAA......
+L   2 / N   11 ....bCCaCB......
+L   2 / N   12 ....BbAAaA......
+L   2 / N   13 ....CbBbaB......
+L   2 / N   14 ....AbBBAB......
 L   2 / N   15 ................
-L   3 / N   16 ..........CCaBaa
+L   3 / N   16 ..........bMdbda
 L   3 / N   17 ................
 Input layer                          :   3 neurons, 1 bias
   Hidden layer                       :   5 neurons, 1 bias
@@ -606,1016 +625,1005 @@ Cascade activation steepnesses[3]    :   1.000
 Cascade candidate groups             :   2
 Cascade no. of candidates            :  80
 Testing network.
-Result 1000.285291 original 1001.000000 error 0.714709
-Result 1000.280397 original 1000.540000 error 0.259603
-Result 1000.275637 original 999.584000 error 0.691637
-Result 1000.271008 original 999.010000 error 1.261008
-Result 1000.266506 original 999.346000 error 0.920506
-Result 1000.262130 original 1000.280000 error 0.017870
-Result 1000.257877 original 1000.960000 error 0.702123
-Result 1000.253744 original 1000.750000 error 0.496256
-Result 1000.249727 original 999.854000 error 0.395727
-Result 1000.245825 original 999.089000 error 1.156825
-Result 1000.281658 original 1001.010000 error 0.728342
-Result 1000.276662 original 1000.550000 error 0.273338
-Result 1000.271800 original 999.580000 error 0.691800
-Result 1000.267071 original 999.000000 error 1.267071
-Result 1000.262471 original 999.340000 error 0.922471
-Result 1000.257999 original 1000.290000 error 0.032001
-Result 1000.253651 original 1000.970000 error 0.716349
-Result 1000.249426 original 1000.760000 error 0.510574
-Result 1000.245320 original 999.853000 error 0.392320
-Result 1000.241331 original 999.080000 error 1.161331
-Result 1000.278606 original 1001.020000 error 0.741394
-Result 1000.273512 original 1000.550000 error 0.276488
-Result 1000.268552 original 999.576000 error 0.692552
-Result 1000.263726 original 998.990000 error 1.273726
-Result 1000.259030 original 999.333000 error 0.926030
-Result 1000.254463 original 1000.290000 error 0.035537
-Result 1000.250022 original 1000.980000 error 0.729978
-Result 1000.245705 original 1000.770000 error 0.524295
-Result 1000.241510 original 999.852000 error 0.389510
-Result 1000.237433 original 999.071000 error 1.166433
-Result 1000.276176 original 1001.030000 error 0.753824
-Result 1000.270987 original 1000.560000 error 0.289013
-Result 1000.265934 original 999.571000 error 0.694934
-Result 1000.261013 original 998.980000 error 1.281013
-Result 1000.256223 original 999.327000 error 0.929223
-Result 1000.251562 original 1000.290000 error 0.038438
-Result 1000.247029 original 1000.990000 error 0.742971
-Result 1000.242621 original 1000.780000 error 0.537379
-Result 1000.238336 original 999.850000 error 0.388336
-Result 1000.234171 original 999.062000 error 1.172171
-Result 1000.274397 original 1001.040000 error 0.765603
-Result 1000.269120 original 1000.560000 error 0.290880
-Result 1000.263975 original 999.567000 error 0.696975
-Result 1000.258963 original 998.970000 error 1.288963
-Result 1000.254081 original 999.320000 error 0.934081
-Result 1000.249328 original 1000.290000 error 0.040672
-Result 1000.244703 original 1001.000000 error 0.755297
-Result 1000.240203 original 1000.780000 error 0.539797
-Result 1000.235828 original 999.849000 error 0.386828
-Result 1000.231574 original 999.052000 error 1.179574
-Result 1000.273291 original 1001.050000 error 0.776709
-Result 1000.267928 original 1000.570000 error 0.302072
-Result 1000.262697 original 999.563000 error 0.699697
-Result 1000.257595 original 998.961000 error 1.296595
-Result 1000.252623 original 999.314000 error 0.938623
-Result 1000.247779 original 1000.300000 error 0.052221
-Result 1000.243063 original 1001.010000 error 0.766937
-Result 1000.238472 original 1000.790000 error 0.551528
-Result 1000.234004 original 999.847000 error 0.387004
-Result 1000.229659 original 999.043000 error 1.186659
-Result 1000.272865 original 1001.060000 error 0.787135
-Result 1000.267423 original 1000.570000 error 0.302577
-Result 1000.262108 original 999.559000 error 0.703108
-Result 1000.256920 original 998.951000 error 1.305920
-Result 1000.251860 original 999.307000 error 0.944860
-Result 1000.246926 original 1000.300000 error 0.053074
-Result 1000.242119 original 1001.020000 error 0.777881
-Result 1000.237435 original 1000.800000 error 0.562565
-Result 1000.232876 original 999.846000 error 0.386876
-Result 1000.228438 original 999.034000 error 1.194438
-Result 1000.273119 original 1001.070000 error 0.796881
-Result 1000.267601 original 1000.580000 error 0.312399
-Result 1000.262207 original 999.555000 error 0.707207
-Result 1000.256937 original 998.941000 error 1.315937
-Result 1000.251791 original 999.301000 error 0.950791
-Result 1000.246769 original 1000.300000 error 0.053231
-Result 1000.241871 original 1001.030000 error 0.788129
-Result 1000.237096 original 1000.810000 error 0.572904
-Result 1000.232444 original 999.844000 error 0.388444
-Result 1000.227912 original 999.025000 error 1.202912
-Result 1000.274040 original 1001.080000 error 0.805960
-Result 1000.268454 original 1000.580000 error 0.311546
-Result 1000.262986 original 999.551000 error 0.711986
-Result 1000.257637 original 998.931000 error 1.326637
-Result 1000.252408 original 999.294000 error 0.958408
-Result 1000.247300 original 1000.310000 error 0.062700
-Result 1000.242313 original 1001.040000 error 0.797687
-Result 1000.237447 original 1000.810000 error 0.572553
-Result 1000.232701 original 999.843000 error 0.389701
-Result 1000.228075 original 999.016000 error 1.212075
-Result 1000.275610 original 1001.090000 error 0.814390
-Result 1000.269961 original 1000.590000 error 0.320039
-Result 1000.264425 original 999.546000 error 0.718425
-Result 1000.259002 original 998.921000 error 1.338002
-Result 1000.253694 original 999.288000 error 0.965694
-Result 1000.248503 original 1000.310000 error 0.061497
-Result 1000.243429 original 1001.050000 error 0.806571
-Result 1000.238473 original 1000.820000 error 0.581527
-Result 1000.233634 original 999.841000 error 0.392634
-Result 1000.228913 original 999.007000 error 1.221913
-Result 1000.301398 original 1001.100000 error 0.798602
-Result 1000.296328 original 1000.640000 error 0.343672
-Result 1000.291395 original 999.684000 error 0.607395
-Result 1000.286596 original 999.110000 error 1.176596
-Result 1000.281929 original 999.446000 error 0.835929
-Result 1000.277391 original 1000.380000 error 0.102609
-Result 1000.272978 original 1001.060000 error 0.787022
-Result 1000.268689 original 1000.850000 error 0.581311
-Result 1000.264519 original 999.954000 error 0.310519
-Result 1000.260467 original 999.189000 error 1.071467
-Result 1000.297381 original 1001.110000 error 0.812619
-Result 1000.292200 original 1000.650000 error 0.357800
-Result 1000.287158 original 999.680000 error 0.607158
-Result 1000.282252 original 999.100000 error 1.182252
-Result 1000.277479 original 999.440000 error 0.837479
-Result 1000.272838 original 1000.390000 error 0.117162
-Result 1000.268324 original 1001.070000 error 0.801676
-Result 1000.263937 original 1000.860000 error 0.596063
-Result 1000.259672 original 999.953000 error 0.306672
-Result 1000.255526 original 999.180000 error 1.075526
-Result 1000.293882 original 1001.120000 error 0.826118
-Result 1000.288597 original 1000.650000 error 0.361403
-Result 1000.283451 original 999.675000 error 0.608451
-Result 1000.278442 original 999.090000 error 1.188442
-Result 1000.273568 original 999.433000 error 0.840568
-Result 1000.268826 original 1000.390000 error 0.121174
-Result 1000.264215 original 1001.080000 error 0.815785
-Result 1000.259731 original 1000.870000 error 0.610269
-Result 1000.255372 original 999.952000 error 0.303372
-Result 1000.251135 original 999.171000 error 1.080135
-Result 1000.290953 original 1001.130000 error 0.839047
-Result 1000.285571 original 1000.660000 error 0.374429
-Result 1000.280326 original 999.671000 error 0.609326
-Result 1000.275219 original 999.080000 error 1.195219
-Result 1000.270247 original 999.427000 error 0.843247
-Result 1000.265408 original 1000.390000 error 0.124592
-Result 1000.260700 original 1001.090000 error 0.829300
-Result 1000.256122 original 1000.880000 error 0.623878
-Result 1000.251670 original 999.950000 error 0.301670
-Result 1000.247342 original 999.161000 error 1.086342
-Result 1000.288638 original 1001.140000 error 0.851362
-Result 1000.283163 original 1000.660000 error 0.376837
-Result 1000.277825 original 999.667000 error 0.610825
-Result 1000.272624 original 999.070000 error 1.202624
-Result 1000.267557 original 999.420000 error 0.847557
-Result 1000.262624 original 1000.390000 error 0.127376
-Result 1000.257822 original 1001.100000 error 0.842178
-Result 1000.253150 original 1000.880000 error 0.626850
-Result 1000.248606 original 999.949000 error 0.299606
-Result 1000.244187 original 999.152000 error 1.092187
-Result 1000.286966 original 1001.150000 error 0.863034
-Result 1000.281405 original 1000.670000 error 0.388595
-Result 1000.275979 original 999.663000 error 0.612979
-Result 1000.270688 original 999.060000 error 1.210688
-Result 1000.265530 original 999.414000 error 0.851530
-Result 1000.260505 original 1000.400000 error 0.139495
-Result 1000.255611 original 1001.110000 error 0.854389
-Result 1000.250846 original 1000.890000 error 0.639154
-Result 1000.246210 original 999.947000 error 0.299210
-Result 1000.241699 original 999.143000 error 1.098699
-Result 1000.285957 original 1001.160000 error 0.874043
-Result 1000.280317 original 1000.670000 error 0.389683
-Result 1000.274808 original 999.659000 error 0.615808
-Result 1000.269431 original 999.051000 error 1.218431
-Result 1000.264185 original 999.407000 error 0.857185
-Result 1000.259070 original 1000.400000 error 0.140930
-Result 1000.254086 original 1001.120000 error 0.865914
-Result 1000.249230 original 1000.900000 error 0.650770
-Result 1000.244502 original 999.946000 error 0.298502
-Result 1000.239900 original 999.134000 error 1.105900
-Result 1000.285621 original 1001.170000 error 0.884379
-Result 1000.279907 original 1000.680000 error 0.400093
-Result 1000.274320 original 999.655000 error 0.619320
-Result 1000.268862 original 999.041000 error 1.227862
-Result 1000.263532 original 999.401000 error 0.862532
-Result 1000.258331 original 1000.400000 error 0.141669
-Result 1000.253258 original 1001.130000 error 0.876742
-Result 1000.248312 original 1000.910000 error 0.661688
-Result 1000.243492 original 999.944000 error 0.299492
-Result 1000.238798 original 999.125000 error 1.113798
-Result 1000.285953 original 1001.180000 error 0.894047
-Result 1000.280173 original 1000.680000 error 0.399827
-Result 1000.274515 original 999.651000 error 0.623515
-Result 1000.268981 original 999.031000 error 1.237981
-Result 1000.263571 original 999.394000 error 0.869571
-Result 1000.258287 original 1000.410000 error 0.151713
-Result 1000.253127 original 1001.140000 error 0.886873
-Result 1000.248092 original 1000.910000 error 0.661908
-Result 1000.243182 original 999.943000 error 0.300182
-Result 1000.238395 original 999.116000 error 1.122395
-Result 1000.286944 original 1001.190000 error 0.903056
-Result 1000.281105 original 1000.690000 error 0.408895
-Result 1000.275382 original 999.646000 error 0.629382
-Result 1000.269778 original 999.021000 error 1.248778
-Result 1000.264293 original 999.388000 error 0.876293
-Result 1000.258928 original 1000.410000 error 0.151072
-Result 1000.253685 original 1001.150000 error 0.896315
-Result 1000.248563 original 1000.920000 error 0.671437
-Result 1000.243563 original 999.941000 error 0.302563
-Result 1000.238685 original 999.107000 error 1.131685
-Result 1000.318350 original 1001.200000 error 0.881650
-Result 1000.313106 original 1000.740000 error 0.426894
-Result 1000.308002 original 999.784000 error 0.524002
-Result 1000.303035 original 999.210000 error 1.093035
-Result 1000.298204 original 999.546000 error 0.752204
-Result 1000.293504 original 1000.480000 error 0.186496
-Result 1000.288933 original 1001.160000 error 0.871067
-Result 1000.284489 original 1000.950000 error 0.665511
-Result 1000.280167 original 1000.050000 error 0.230167
-Result 1000.275965 original 999.289000 error 0.986965
-Result 1000.314036 original 1001.210000 error 0.895964
-Result 1000.308672 original 1000.750000 error 0.441328
-Result 1000.303449 original 999.780000 error 0.523449
-Result 1000.298366 original 999.200000 error 1.098366
-Result 1000.293420 original 999.540000 error 0.753420
-Result 1000.288608 original 1000.490000 error 0.201392
-Result 1000.283928 original 1001.170000 error 0.886072
-Result 1000.279377 original 1000.960000 error 0.680623
-Result 1000.274952 original 1000.050000 error 0.224952
-Result 1000.270650 original 999.280000 error 0.990650
-Result 1000.310167 original 1001.220000 error 0.909833
-Result 1000.304690 original 1000.750000 error 0.445310
-Result 1000.299356 original 999.776000 error 0.523356
-Result 1000.294162 original 999.190000 error 1.104162
-Result 1000.289106 original 999.533000 error 0.756106
-Result 1000.284187 original 1000.490000 error 0.205813
-Result 1000.279402 original 1001.180000 error 0.900598
-Result 1000.274748 original 1000.970000 error 0.695252
-Result 1000.270222 original 1000.050000 error 0.220222
-Result 1000.265822 original 999.271000 error 0.994822
-Result 1000.306804 original 1001.230000 error 0.923196
-Result 1000.301222 original 1000.760000 error 0.458778
-Result 1000.295782 original 999.771000 error 0.524782
-Result 1000.290484 original 999.180000 error 1.110484
-Result 1000.285324 original 999.527000 error 0.758324
-Result 1000.280302 original 1000.490000 error 0.209698
-Result 1000.275415 original 1001.190000 error 0.914585
-Result 1000.270661 original 1000.980000 error 0.709339
-Result 1000.266037 original 1000.050000 error 0.216037
-Result 1000.261541 original 999.262000 error 0.999541
-Result 1000.303998 original 1001.240000 error 0.936002
-Result 1000.298319 original 1000.760000 error 0.461681
-Result 1000.292782 original 999.767000 error 0.525782
-Result 1000.287384 original 999.170000 error 1.117384
-Result 1000.282126 original 999.520000 error 0.762126
-Result 1000.277006 original 1000.490000 error 0.212994
-Result 1000.272020 original 1001.200000 error 0.927980
-Result 1000.267169 original 1000.980000 error 0.712831
-Result 1000.262449 original 1000.050000 error 0.212449
-Result 1000.257859 original 999.252000 error 1.005859
-Result 1000.301794 original 1001.250000 error 0.948206
-Result 1000.296025 original 1000.770000 error 0.473975
-Result 1000.290397 original 999.763000 error 0.527397
-Result 1000.284907 original 999.161000 error 1.123907
-Result 1000.279554 original 999.514000 error 0.765554
-Result 1000.274339 original 1000.500000 error 0.225661
-Result 1000.269259 original 1001.210000 error 0.940741
-Result 1000.264313 original 1000.990000 error 0.725687
-Result 1000.259499 original 1000.050000 error 0.209499
-Result 1000.254815 original 999.243000 error 1.011815
-Result 1000.300221 original 1001.260000 error 0.959779
-Result 1000.294371 original 1000.770000 error 0.475629
-Result 1000.288658 original 999.759000 error 0.529658
-Result 1000.283081 original 999.151000 error 1.132081
-Result 1000.277640 original 999.507000 error 0.770640
-Result 1000.272334 original 1000.500000 error 0.227666
-Result 1000.267163 original 1001.220000 error 0.952837
-Result 1000.262124 original 1001.000000 error 0.737876
-Result 1000.257218 original 1000.050000 error 0.207218
-Result 1000.252441 original 999.234000 error 1.018441
-Result 1000.299299 original 1001.270000 error 0.970701
-Result 1000.293376 original 1000.780000 error 0.486624
-Result 1000.287586 original 999.755000 error 0.532586
-Result 1000.281928 original 999.141000 error 1.140928
-Result 1000.276403 original 999.501000 error 0.775403
-Result 1000.271011 original 1000.500000 error 0.228989
-Result 1000.265751 original 1001.230000 error 0.964249
-Result 1000.260623 original 1001.010000 error 0.749377
-Result 1000.255625 original 1000.040000 error 0.215625
-Result 1000.250757 original 999.225000 error 1.025757
-Result 1000.299037 original 1001.280000 error 0.980963
-Result 1000.293049 original 1000.780000 error 0.486951
-Result 1000.287189 original 999.751000 error 0.536189
-Result 1000.281457 original 999.131000 error 1.150457
-Result 1000.275854 original 999.494000 error 0.781854
-Result 1000.270379 original 1000.510000 error 0.239621
-Result 1000.265035 original 1001.240000 error 0.974965
-Result 1000.259819 original 1001.010000 error 0.750181
-Result 1000.254732 original 1000.040000 error 0.214732
-Result 1000.249773 original 999.216000 error 1.033773
-Result 1000.299431 original 1001.290000 error 0.990569
-Result 1000.293388 original 1000.790000 error 0.496612
-Result 1000.287466 original 999.746000 error 0.541466
-Result 1000.281666 original 999.121000 error 1.160666
-Result 1000.275990 original 999.488000 error 0.787990
-Result 1000.270439 original 1000.510000 error 0.239561
-Result 1000.265013 original 1001.250000 error 0.984987
-Result 1000.259713 original 1001.020000 error 0.760287
-Result 1000.254539 original 1000.040000 error 0.214539
-Result 1000.249491 original 999.207000 error 1.042491
-Result 1000.336036 original 1001.300000 error 0.963964
-Result 1000.330623 original 1000.840000 error 0.509377
-Result 1000.325354 original 999.884000 error 0.441354
-Result 1000.320224 original 999.310000 error 1.010224
-Result 1000.315232 original 999.646000 error 0.669232
-Result 1000.310376 original 1000.580000 error 0.269624
-Result 1000.305651 original 1001.260000 error 0.954349
-Result 1000.301054 original 1001.050000 error 0.748946
-Result 1000.296584 original 1000.150000 error 0.146584
-Result 1000.292236 original 999.389000 error 0.903236
-Result 1000.331532 original 1001.310000 error 0.978468
-Result 1000.325987 original 1000.850000 error 0.524013
-Result 1000.320587 original 999.880000 error 0.440587
-Result 1000.315329 original 999.300000 error 1.015329
-Result 1000.310212 original 999.640000 error 0.670212
-Result 1000.305232 original 1000.590000 error 0.284768
-Result 1000.300387 original 1001.270000 error 0.969613
-Result 1000.295674 original 1001.060000 error 0.764326
-Result 1000.291091 original 1000.150000 error 0.141091
-Result 1000.286633 original 999.380000 error 0.906633
-Result 1000.327387 original 1001.320000 error 0.992613
-Result 1000.321719 original 1000.850000 error 0.528281
-Result 1000.316196 original 999.875000 error 0.441196
-Result 1000.310818 original 999.290000 error 1.020818
-Result 1000.305581 original 999.633000 error 0.672581
-Result 1000.300485 original 1000.590000 error 0.289515
-Result 1000.295525 original 1001.280000 error 0.984475
-Result 1000.290701 original 1001.070000 error 0.779299
-Result 1000.286008 original 1000.150000 error 0.136008
-Result 1000.281444 original 999.371000 error 0.910444
-Result 1000.323670 original 1001.330000 error 1.006330
-Result 1000.317888 original 1000.860000 error 0.542112
-Result 1000.312251 original 999.871000 error 0.441251
-Result 1000.306760 original 999.280000 error 1.026760
-Result 1000.301411 original 999.627000 error 0.674411
-Result 1000.296204 original 1000.590000 error 0.293796
-Result 1000.291135 original 1001.290000 error 0.998865
-Result 1000.286203 original 1001.080000 error 0.793797
-Result 1000.281404 original 1000.150000 error 0.131404
-Result 1000.276737 original 999.362000 error 0.914737
-Result 1000.320443 original 1001.340000 error 1.019557
-Result 1000.314556 original 1000.860000 error 0.545444
-Result 1000.308814 original 999.867000 error 0.441814
-Result 1000.303217 original 999.270000 error 1.033217
-Result 1000.297763 original 999.620000 error 0.677763
-Result 1000.292451 original 1000.590000 error 0.297549
-Result 1000.287278 original 1001.300000 error 1.012722
-Result 1000.282242 original 1001.080000 error 0.797758
-Result 1000.277342 original 1000.150000 error 0.127342
-Result 1000.272575 original 999.352000 error 0.920575
-Result 1000.317757 original 1001.350000 error 1.032243
-Result 1000.311776 original 1000.870000 error 0.558224
-Result 1000.305938 original 999.863000 error 0.442938
-Result 1000.300243 original 999.260000 error 1.040243
-Result 1000.294690 original 999.614000 error 0.680690
-Result 1000.289279 original 1000.600000 error 0.310721
-Result 1000.284006 original 1001.310000 error 1.025994
-Result 1000.278872 original 1001.090000 error 0.811128
-Result 1000.273874 original 1000.150000 error 0.123874
-Result 1000.269009 original 999.343000 error 0.926009
-Result 1000.315657 original 1001.360000 error 1.044343
-Result 1000.309591 original 1000.870000 error 0.560409
-Result 1000.303665 original 999.859000 error 0.444665
-Result 1000.297880 original 999.251000 error 1.046880
-Result 1000.292235 original 999.607000 error 0.685235
-Result 1000.286730 original 1000.600000 error 0.313270
-Result 1000.281363 original 1001.320000 error 1.038637
-Result 1000.276134 original 1001.100000 error 0.823866
-Result 1000.271040 original 1000.150000 error 0.121040
-Result 1000.266081 original 999.334000 error 0.932081
-Result 1000.314172 original 1001.370000 error 1.055828
-Result 1000.308032 original 1000.880000 error 0.571968
-Result 1000.302027 original 999.855000 error 0.447027
-Result 1000.296160 original 999.241000 error 1.055160
-Result 1000.290430 original 999.601000 error 0.689430
-Result 1000.284837 original 1000.600000 error 0.315163
-Result 1000.279380 original 1001.330000 error 1.050620
-Result 1000.274060 original 1001.110000 error 0.835940
-Result 1000.268874 original 1000.140000 error 0.128874
-Result 1000.263823 original 999.325000 error 0.938823
-Result 1000.313323 original 1001.380000 error 1.066677
-Result 1000.307118 original 1000.880000 error 0.572882
-Result 1000.301044 original 999.851000 error 0.450044
-Result 1000.295102 original 999.231000 error 1.064102
-Result 1000.289294 original 999.594000 error 0.695294
-Result 1000.283619 original 1000.610000 error 0.326381
-Result 1000.278078 original 1001.340000 error 1.061922
-Result 1000.272670 original 1001.110000 error 0.837330
-Result 1000.267396 original 1000.140000 error 0.127396
-Result 1000.262254 original 999.316000 error 0.946254
-Result 1000.313118 original 1001.390000 error 1.076882
-Result 1000.306859 original 1000.890000 error 0.583141
-Result 1000.300724 original 999.846000 error 0.454724
-Result 1000.294717 original 999.221000 error 1.073717
-Result 1000.288837 original 999.588000 error 0.700837
-Result 1000.283086 original 1000.610000 error 0.326914
-Result 1000.277466 original 1001.350000 error 1.072534
-Result 1000.271975 original 1001.120000 error 0.848025
-Result 1000.266615 original 1000.140000 error 0.126615
-Result 1000.261385 original 999.307000 error 0.954385
-Result 1000.354329 original 1001.400000 error 1.045671
-Result 1000.348755 original 1000.940000 error 0.591245
-Result 1000.343328 original 999.984000 error 0.359328
-Result 1000.338043 original 999.410000 error 0.928043
-Result 1000.332898 original 999.746000 error 0.586898
-Result 1000.327891 original 1000.680000 error 0.352109
-Result 1000.323018 original 1001.360000 error 1.036982
-Result 1000.318276 original 1001.150000 error 0.831724
-Result 1000.313663 original 1000.250000 error 0.063663
-Result 1000.309175 original 999.489000 error 0.820175
-Result 1000.349750 original 1001.410000 error 1.060250
-Result 1000.344030 original 1000.950000 error 0.605970
-Result 1000.338459 original 999.980000 error 0.358459
-Result 1000.333032 original 999.400000 error 0.933032
-Result 1000.327749 original 999.740000 error 0.587749
-Result 1000.322607 original 1000.690000 error 0.367393
-Result 1000.317602 original 1001.370000 error 1.052398
-Result 1000.312732 original 1001.160000 error 0.847268
-Result 1000.307993 original 1000.250000 error 0.057993
-Result 1000.303384 original 999.480000 error 0.823384
-Result 1000.345439 original 1001.420000 error 1.074561
-Result 1000.339583 original 1000.950000 error 0.610417
-Result 1000.333877 original 999.976000 error 0.357877
-Result 1000.328318 original 999.390000 error 0.938318
-Result 1000.322904 original 999.733000 error 0.589904
-Result 1000.317633 original 1000.690000 error 0.372367
-Result 1000.312502 original 1001.380000 error 1.067498
-Result 1000.307509 original 1001.170000 error 0.862491
-Result 1000.302651 original 1000.250000 error 0.052651
-Result 1000.297925 original 999.471000 error 0.826925
-Result 1000.341468 original 1001.430000 error 1.088532
-Result 1000.335487 original 1000.960000 error 0.624513
-Result 1000.329656 original 999.971000 error 0.358656
-Result 1000.323973 original 999.380000 error 0.943973
-Result 1000.318436 original 999.727000 error 0.591436
-Result 1000.313044 original 1000.690000 error 0.376956
-Result 1000.307794 original 1001.390000 error 1.082206
-Result 1000.302684 original 1001.180000 error 0.877316
-Result 1000.297711 original 1000.250000 error 0.047711
-Result 1000.292873 original 999.462000 error 0.830873
-Result 1000.337905 original 1001.440000 error 1.102095
-Result 1000.331810 original 1000.960000 error 0.628190
-Result 1000.325865 original 999.967000 error 0.358865
-Result 1000.320067 original 999.370000 error 0.950067
-Result 1000.314416 original 999.720000 error 0.594416
-Result 1000.308910 original 1000.700000 error 0.391090
-Result 1000.303547 original 1001.400000 error 1.096453
-Result 1000.298326 original 1001.180000 error 0.881674
-Result 1000.293244 original 1000.250000 error 0.043244
-Result 1000.288298 original 999.452000 error 0.836298
-Result 1000.334812 original 1001.450000 error 1.115188
-Result 1000.328615 original 1000.970000 error 0.641385
-Result 1000.322565 original 999.963000 error 0.359565
-Result 1000.316662 original 999.361000 error 0.955662
-Result 1000.310905 original 999.714000 error 0.596905
-Result 1000.305293 original 1000.700000 error 0.394707
-Result 1000.299824 original 1001.410000 error 1.110176
-Result 1000.294498 original 1001.190000 error 0.895502
-Result 1000.289311 original 1000.250000 error 0.039311
-Result 1000.284262 original 999.443000 error 0.841262
-Result 1000.332242 original 1001.460000 error 1.127758
-Result 1000.325954 original 1000.970000 error 0.644046
-Result 1000.319811 original 999.959000 error 0.360811
-Result 1000.313812 original 999.351000 error 0.962812
-Result 1000.307958 original 999.707000 error 0.600958
-Result 1000.302247 original 1000.700000 error 0.397753
-Result 1000.296679 original 1001.420000 error 1.123321
-Result 1000.291252 original 1001.200000 error 0.908748
-Result 1000.285966 original 1000.250000 error 0.035966
-Result 1000.280818 original 999.434000 error 0.846818
-Result 1000.330236 original 1001.470000 error 1.139764
-Result 1000.323870 original 1000.980000 error 0.656130
-Result 1000.317644 original 999.955000 error 0.362644
-Result 1000.311560 original 999.341000 error 0.970560
-Result 1000.305617 original 999.701000 error 0.604617
-Result 1000.299815 original 1000.700000 error 0.400185
-Result 1000.294154 original 1001.430000 error 1.135846
-Result 1000.288633 original 1001.210000 error 0.921367
-Result 1000.283252 original 1000.240000 error 0.043252
-Result 1000.278008 original 999.425000 error 0.853008
-Result 1000.328827 original 1001.480000 error 1.151173
-Result 1000.322395 original 1000.980000 error 0.657605
-Result 1000.316097 original 999.951000 error 0.365097
-Result 1000.309937 original 999.331000 error 0.978937
-Result 1000.303914 original 999.694000 error 0.609914
-Result 1000.298029 original 1000.710000 error 0.411971
-Result 1000.292281 original 1001.440000 error 1.147719
-Result 1000.286672 original 1001.210000 error 0.923328
-Result 1000.281200 original 1000.240000 error 0.041200
-Result 1000.275865 original 999.416000 error 0.859865
-Result 1000.328033 original 1001.490000 error 1.161967
-Result 1000.321547 original 1000.990000 error 0.668453
-Result 1000.315190 original 999.946000 error 0.369190
-Result 1000.308963 original 999.321000 error 0.987963
-Result 1000.302869 original 999.688000 error 0.614869
-Result 1000.296908 original 1000.710000 error 0.413092
-Result 1000.291081 original 1001.450000 error 1.158919
-Result 1000.285389 original 1001.220000 error 0.934611
-Result 1000.279832 original 1000.240000 error 0.039832
-Result 1000.274408 original 999.407000 error 0.867408
-Result 1000.373080 original 1001.500000 error 1.126920
-Result 1000.367358 original 1001.040000 error 0.672642
-Result 1000.361783 original 1000.080000 error 0.281783
-Result 1000.356353 original 999.510000 error 0.846353
-Result 1000.351065 original 999.846000 error 0.505065
-Result 1000.345917 original 1000.780000 error 0.434083
-Result 1000.340905 original 1001.460000 error 1.119095
-Result 1000.336027 original 1001.250000 error 0.913973
-Result 1000.331279 original 1000.350000 error 0.018721
-Result 1000.326659 original 999.589000 error 0.737659
-Result 1000.368550 original 1001.510000 error 1.141450
-Result 1000.362666 original 1001.050000 error 0.687334
-Result 1000.356932 original 1000.080000 error 0.276932
-Result 1000.351346 original 999.500000 error 0.851346
-Result 1000.345906 original 999.840000 error 0.505906
-Result 1000.340609 original 1000.790000 error 0.449391
-Result 1000.335451 original 1001.470000 error 1.134549
-Result 1000.330431 original 1001.260000 error 0.929569
-Result 1000.325546 original 1000.350000 error 0.024454
-Result 1000.320791 original 999.580000 error 0.740791
-Result 1000.364194 original 1001.520000 error 1.155806
-Result 1000.358159 original 1001.050000 error 0.691841
-Result 1000.352277 original 1000.080000 error 0.272277
-Result 1000.346544 original 999.490000 error 0.856544
-Result 1000.340959 original 999.833000 error 0.507959
-Result 1000.335520 original 1000.790000 error 0.454480
-Result 1000.330224 original 1001.480000 error 1.149776
-Result 1000.325068 original 1001.270000 error 0.944932
-Result 1000.320050 original 1000.350000 error 0.029950
-Result 1000.315167 original 999.571000 error 0.744167
-Result 1000.360084 original 1001.530000 error 1.169916
-Result 1000.353911 original 1001.060000 error 0.706089
-Result 1000.347890 original 1000.070000 error 0.277890
-Result 1000.342020 original 999.480000 error 0.862020
-Result 1000.336300 original 999.827000 error 0.509300
-Result 1000.330727 original 1000.790000 error 0.459273
-Result 1000.325300 original 1001.490000 error 1.164700
-Result 1000.320016 original 1001.280000 error 0.959984
-Result 1000.314872 original 1000.350000 error 0.035128
-Result 1000.309866 original 999.562000 error 0.747866
-Result 1000.356291 original 1001.540000 error 1.183709
-Result 1000.349992 original 1001.060000 error 0.710008
-Result 1000.343845 original 1000.070000 error 0.273845
-Result 1000.337849 original 999.470000 error 0.867849
-Result 1000.332003 original 999.820000 error 0.512003
-Result 1000.326306 original 1000.790000 error 0.463694
-Result 1000.320755 original 1001.500000 error 1.179245
-Result 1000.315349 original 1001.280000 error 0.964651
-Result 1000.310086 original 1000.350000 error 0.039914
-Result 1000.304962 original 999.552000 error 0.752962
-Result 1000.352883 original 1001.550000 error 1.197117
-Result 1000.346471 original 1001.070000 error 0.723529
-Result 1000.340210 original 1000.060000 error 0.280210
-Result 1000.334099 original 999.461000 error 0.873099
-Result 1000.328138 original 999.814000 error 0.514138
-Result 1000.322325 original 1000.800000 error 0.477675
-Result 1000.316659 original 1001.510000 error 1.193341
-Result 1000.311139 original 1001.290000 error 0.978861
-Result 1000.305763 original 1000.350000 error 0.044237
-Result 1000.300527 original 999.543000 error 0.757527
-Result 1000.349921 original 1001.560000 error 1.210079
-Result 1000.343410 original 1001.070000 error 0.726590
-Result 1000.337048 original 1000.060000 error 0.277048
-Result 1000.330833 original 999.451000 error 0.879833
-Result 1000.324767 original 999.807000 error 0.517767
-Result 1000.318848 original 1000.800000 error 0.481152
-Result 1000.313075 original 1001.520000 error 1.206925
-Result 1000.307448 original 1001.300000 error 0.992552
-Result 1000.301965 original 1000.350000 error 0.048035
-Result 1000.296624 original 999.534000 error 0.762624
-Result 1000.347457 original 1001.570000 error 1.222543
-Result 1000.340862 original 1001.080000 error 0.739138
-Result 1000.334411 original 1000.050000 error 0.284411
-Result 1000.328105 original 999.441000 error 0.887105
-Result 1000.321944 original 999.801000 error 0.520944
-Result 1000.315928 original 1000.800000 error 0.484072
-Result 1000.310057 original 1001.530000 error 1.219943
-Result 1000.304330 original 1001.310000 error 1.005670
-Result 1000.298747 original 1000.340000 error 0.041253
-Result 1000.293306 original 999.525000 error 0.768306
-Result 1000.345534 original 1001.580000 error 1.234466
-Result 1000.338869 original 1001.080000 error 0.741131
-Result 1000.332342 original 1000.050000 error 0.282342
-Result 1000.325956 original 999.431000 error 0.894956
-Result 1000.319711 original 999.794000 error 0.525711
-Result 1000.313608 original 1000.810000 error 0.496392
-Result 1000.307648 original 1001.540000 error 1.232352
-Result 1000.301829 original 1001.310000 error 1.008171
-Result 1000.296152 original 1000.340000 error 0.043848
-Result 1000.290616 original 999.516000 error 0.774616
-Result 1000.344184 original 1001.590000 error 1.245816
-Result 1000.337463 original 1001.090000 error 0.752537
-Result 1000.330874 original 1000.050000 error 0.280874
-Result 1000.324420 original 999.421000 error 0.903420
-Result 1000.318102 original 999.788000 error 0.530102
-Result 1000.311922 original 1000.810000 error 0.498078
-Result 1000.305880 original 1001.550000 error 1.244120
-Result 1000.299976 original 1001.320000 error 1.020024
-Result 1000.294212 original 1000.340000 error 0.045788
-Result 1000.288586 original 999.507000 error 0.781586
-Result 1000.392134 original 1001.600000 error 1.207866
-Result 1000.386276 original 1001.140000 error 0.753724
-Result 1000.380567 original 1000.180000 error 0.200567
-Result 1000.375005 original 999.610000 error 0.765005
-Result 1000.369586 original 999.946000 error 0.423586
-Result 1000.364309 original 1000.880000 error 0.515691
-Result 1000.359170 original 1001.560000 error 1.200830
-Result 1000.354167 original 1001.350000 error 0.995833
-Result 1000.349295 original 1000.450000 error 0.100705
-Result 1000.344553 original 999.689000 error 0.655553
-Result 1000.387777 original 1001.610000 error 1.222223
-Result 1000.381742 original 1001.150000 error 0.768258
-Result 1000.375858 original 1000.180000 error 0.195858
-Result 1000.370124 original 999.600000 error 0.770124
-Result 1000.364538 original 999.940000 error 0.424538
-Result 1000.359097 original 1000.890000 error 0.530903
-Result 1000.353797 original 1001.570000 error 1.216203
-Result 1000.348637 original 1001.360000 error 1.011363
-Result 1000.343614 original 1000.450000 error 0.106386
-Result 1000.338724 original 999.680000 error 0.658724
-Result 1000.383502 original 1001.620000 error 1.236498
-Result 1000.377300 original 1001.150000 error 0.772700
-Result 1000.371253 original 1000.180000 error 0.191253
-Result 1000.365357 original 999.590000 error 0.775357
-Result 1000.359611 original 999.933000 error 0.426611
-Result 1000.354013 original 1000.890000 error 0.535987
-Result 1000.348560 original 1001.580000 error 1.231440
-Result 1000.343251 original 1001.370000 error 1.026749
-Result 1000.338081 original 1000.450000 error 0.111919
-Result 1000.333049 original 999.671000 error 0.662049
-Result 1000.379378 original 1001.630000 error 1.250622
-Result 1000.373023 original 1001.160000 error 0.786977
-Result 1000.366822 original 1000.170000 error 0.196822
-Result 1000.360774 original 999.580000 error 0.780774
-Result 1000.354879 original 999.927000 error 0.427879
-Result 1000.349133 original 1000.890000 error 0.540867
-Result 1000.343536 original 1001.590000 error 1.246464
-Result 1000.338084 original 1001.380000 error 1.041916
-Result 1000.332775 original 1000.450000 error 0.117225
-Result 1000.327607 original 999.661000 error 0.666607
-Result 1000.375476 original 1001.640000 error 1.264524
-Result 1000.368980 original 1001.160000 error 0.791020
-Result 1000.362639 original 1000.170000 error 0.192639
-Result 1000.356452 original 999.570000 error 0.786452
-Result 1000.350417 original 999.920000 error 0.430417
-Result 1000.344534 original 1000.890000 error 0.545466
-Result 1000.338800 original 1001.600000 error 1.261200
-Result 1000.333214 original 1001.380000 error 1.046786
-Result 1000.327774 original 1000.450000 error 0.122226
-Result 1000.322476 original 999.652000 error 0.670476
-Result 1000.371863 original 1001.650000 error 1.278137
-Result 1000.365243 original 1001.170000 error 0.804757
-Result 1000.358775 original 1000.160000 error 0.198775
-Result 1000.352460 original 999.560000 error 0.792460
-Result 1000.346298 original 999.914000 error 0.432298
-Result 1000.340288 original 1000.900000 error 0.559712
-Result 1000.334428 original 1001.610000 error 1.275572
-Result 1000.328717 original 1001.390000 error 1.061283
-Result 1000.323152 original 1000.450000 error 0.126848
-Result 1000.317733 original 999.643000 error 0.674733
-Result 1000.368608 original 1001.660000 error 1.291392
-Result 1000.361878 original 1001.170000 error 0.808122
-Result 1000.355298 original 1000.160000 error 0.195298
-Result 1000.348869 original 999.551000 error 0.797869
-Result 1000.342592 original 999.907000 error 0.435592
-Result 1000.336466 original 1000.900000 error 0.563534
-Result 1000.330489 original 1001.620000 error 1.289511
-Result 1000.324661 original 1001.400000 error 1.075339
-Result 1000.318981 original 1000.450000 error 0.131019
-Result 1000.313447 original 999.634000 error 0.679447
-Result 1000.365770 original 1001.670000 error 1.304230
-Result 1000.358946 original 1001.180000 error 0.821054
-Result 1000.352270 original 1000.150000 error 0.202270
-Result 1000.345741 original 999.541000 error 0.804741
-Result 1000.339361 original 999.901000 error 0.438361
-Result 1000.333129 original 1000.900000 error 0.566871
-Result 1000.327046 original 1001.630000 error 1.302954
-Result 1000.321111 original 1001.410000 error 1.088889
-Result 1000.315324 original 1000.440000 error 0.124676
-Result 1000.309682 original 999.625000 error 0.684682
-Result 1000.363402 original 1001.680000 error 1.316598
-Result 1000.356502 original 1001.180000 error 0.823498
-Result 1000.349743 original 1000.150000 error 0.199743
-Result 1000.343128 original 999.531000 error 0.812128
-Result 1000.336657 original 999.894000 error 0.442657
-Result 1000.330333 original 1000.910000 error 0.579667
-Result 1000.324154 original 1001.640000 error 1.315846
-Result 1000.318121 original 1001.410000 error 1.091879
-Result 1000.312234 original 1000.440000 error 0.127766
-Result 1000.306492 original 999.616000 error 0.690492
-Result 1000.361547 original 1001.690000 error 1.328453
-Result 1000.354586 original 1001.190000 error 0.835414
-Result 1000.347761 original 1000.150000 error 0.197761
-Result 1000.341074 original 999.521000 error 0.820074
-Result 1000.334526 original 999.888000 error 0.446526
-Result 1000.328120 original 1000.910000 error 0.581880
-Result 1000.321856 original 1001.650000 error 1.328144
-Result 1000.315735 original 1001.420000 error 1.104265
-Result 1000.309757 original 1000.440000 error 0.130243
-Result 1000.303921 original 999.607000 error 0.696921
-Result 1000.411327 original 1001.700000 error 1.288673
-Result 1000.405350 original 1001.240000 error 0.834650
-Result 1000.399523 original 1000.280000 error 0.119523
-Result 1000.393843 original 999.710000 error 0.683843
-Result 1000.388308 original 1000.050000 error 0.338308
-Result 1000.382916 original 1000.980000 error 0.597084
-Result 1000.377663 original 1001.660000 error 1.282337
-Result 1000.372547 original 1001.450000 error 1.077453
-Result 1000.367565 original 1000.550000 error 0.182435
-Result 1000.362713 original 999.789000 error 0.573713
-Result 1000.407263 original 1001.710000 error 1.302737
-Result 1000.401092 original 1001.250000 error 0.848908
-Result 1000.395074 original 1000.280000 error 0.115074
-Result 1000.389207 original 999.700000 error 0.689207
-Result 1000.383489 original 1000.040000 error 0.343489
-Result 1000.377917 original 1000.990000 error 0.612083
-Result 1000.372489 original 1001.670000 error 1.297511
-Result 1000.367202 original 1001.460000 error 1.092798
-Result 1000.362052 original 1000.550000 error 0.187948
-Result 1000.357038 original 999.780000 error 0.577038
-Result 1000.403197 original 1001.720000 error 1.316803
-Result 1000.396844 original 1001.250000 error 0.853156
-Result 1000.390645 original 1000.280000 error 0.110645
-Result 1000.384599 original 999.690000 error 0.694599
-Result 1000.378706 original 1000.030000 error 0.348706
-Result 1000.372962 original 1000.990000 error 0.617038
-Result 1000.367365 original 1001.680000 error 1.312635
-Result 1000.361913 original 1001.470000 error 1.108087
-Result 1000.356602 original 1000.550000 error 0.193398
-Result 1000.351431 original 999.771000 error 0.580431
-Result 1000.399190 original 1001.730000 error 1.330810
-Result 1000.392666 original 1001.260000 error 0.867334
-Result 1000.386298 original 1000.270000 error 0.116298
-Result 1000.380085 original 999.680000 error 0.700085
-Result 1000.374026 original 1000.030000 error 0.344026
-Result 1000.368119 original 1000.990000 error 0.621881
-Result 1000.362362 original 1001.690000 error 1.327638
-Result 1000.356752 original 1001.480000 error 1.123248
-Result 1000.351288 original 1000.550000 error 0.198712
-Result 1000.345967 original 999.762000 error 0.583967
-Result 1000.395307 original 1001.740000 error 1.344693
-Result 1000.388627 original 1001.260000 error 0.871373
-Result 1000.382103 original 1000.270000 error 0.112103
-Result 1000.375735 original 999.670000 error 0.705735
-Result 1000.369522 original 1000.020000 error 0.349522
-Result 1000.363462 original 1000.990000 error 0.626538
-Result 1000.357554 original 1001.700000 error 1.342446
-Result 1000.351797 original 1001.480000 error 1.128203
-Result 1000.346187 original 1000.550000 error 0.203813
-Result 1000.340723 original 999.752000 error 0.588723
-Result 1000.391616 original 1001.750000 error 1.358384
-Result 1000.384796 original 1001.270000 error 0.885204
-Result 1000.378131 original 1000.260000 error 0.118131
-Result 1000.371621 original 999.661000 error 0.710621
-Result 1000.365266 original 1000.010000 error 0.355266
-Result 1000.359066 original 1001.000000 error 0.640934
-Result 1000.353018 original 1001.710000 error 1.356982
-Result 1000.347122 original 1001.490000 error 1.142878
-Result 1000.341375 original 1000.550000 error 0.208625
-Result 1000.335776 original 999.743000 error 0.592776
-Result 1000.388184 original 1001.760000 error 1.371816
-Result 1000.381241 original 1001.270000 error 0.888759
-Result 1000.374451 original 1000.260000 error 0.114451
-Result 1000.367815 original 999.651000 error 0.716815
-Result 1000.361332 original 1000.010000 error 0.351332
-Result 1000.355003 original 1001.000000 error 0.644997
-Result 1000.348826 original 1001.720000 error 1.371174
-Result 1000.342802 original 1001.500000 error 1.157198
-Result 1000.336928 original 1000.550000 error 0.213072
-Result 1000.331203 original 999.734000 error 0.597203
-Result 1000.385077 original 1001.770000 error 1.384923
-Result 1000.378029 original 1001.280000 error 0.901971
-Result 1000.371131 original 1000.250000 error 0.121131
-Result 1000.364383 original 999.641000 error 0.723383
-Result 1000.357787 original 1000.000000 error 0.357787
-Result 1000.351342 original 1001.000000 error 0.648658
-Result 1000.345049 original 1001.730000 error 1.384951
-Result 1000.338907 original 1001.510000 error 1.171093
-Result 1000.332915 original 1000.540000 error 0.207085
-Result 1000.327073 original 999.725000 error 0.602073
-Result 1000.382354 original 1001.780000 error 1.397646
-Result 1000.375220 original 1001.280000 error 0.904780
-Result 1000.368231 original 1000.250000 error 0.118231
-Result 1000.361388 original 999.631000 error 0.730388
-Result 1000.354693 original 999.994000 error 0.360693
-Result 1000.348146 original 1001.010000 error 0.661854
-Result 1000.341749 original 1001.740000 error 1.398251
-Result 1000.335501 original 1001.510000 error 1.174499
-Result 1000.329402 original 1000.540000 error 0.210598
-Result 1000.323451 original 999.716000 error 0.607451
-Result 1000.380068 original 1001.790000 error 1.409932
-Result 1000.372867 original 1001.290000 error 0.917133
-Result 1000.365805 original 1000.250000 error 0.115805
-Result 1000.358883 original 999.621000 error 0.737883
-Result 1000.352104 original 999.988000 error 0.364104
-Result 1000.345469 original 1001.010000 error 0.664531
-Result 1000.338980 original 1001.750000 error 1.411020
-Result 1000.332637 original 1001.520000 error 1.187363
-Result 1000.326441 original 1000.540000 error 0.213559
-Result 1000.320392 original 999.707000 error 0.613392
-Result 1000.430500 original 1001.800000 error 1.369500
-Result 1000.424421 original 1001.340000 error 0.915579
-Result 1000.418492 original 1000.380000 error 0.038492
-Result 1000.412712 original 999.810000 error 0.602712
-Result 1000.407077 original 1000.150000 error 0.257077
-Result 1000.401585 original 1001.080000 error 0.678415
-Result 1000.396234 original 1001.760000 error 1.363766
-Result 1000.391020 original 1001.550000 error 1.158980
-Result 1000.385940 original 1000.650000 error 0.264060
-Result 1000.380992 original 999.889000 error 0.491992
-Result 1000.426839 original 1001.810000 error 1.383161
-Result 1000.420551 original 1001.350000 error 0.929449
-Result 1000.414416 original 1000.380000 error 0.034416
-Result 1000.408432 original 999.800000 error 0.608432
-Result 1000.402598 original 1000.140000 error 0.262598
-Result 1000.396911 original 1001.090000 error 0.693089
-Result 1000.391369 original 1001.770000 error 1.378631
-Result 1000.385969 original 1001.560000 error 1.174031
-Result 1000.380708 original 1000.650000 error 0.269292
-Result 1000.375583 original 999.880000 error 0.495583
-Result 1000.423104 original 1001.820000 error 1.396896
-Result 1000.416615 original 1001.350000 error 0.933385
-Result 1000.410283 original 1000.380000 error 0.030283
-Result 1000.404104 original 999.790000 error 0.614104
-Result 1000.398079 original 1000.130000 error 0.268079
-Result 1000.392204 original 1001.090000 error 0.697796
-Result 1000.386477 original 1001.780000 error 1.393523
-Result 1000.380896 original 1001.570000 error 1.189104
-Result 1000.375459 original 1000.650000 error 0.274541
-Result 1000.370162 original 999.871000 error 0.499162
-Result 1000.419343 original 1001.830000 error 1.410657
-Result 1000.412667 original 1001.360000 error 0.947333
-Result 1000.406148 original 1000.370000 error 0.036148
-Result 1000.399786 original 999.780000 error 0.619786
-Result 1000.393578 original 1000.130000 error 0.263578
-Result 1000.387523 original 1001.090000 error 0.702477
-Result 1000.381620 original 1001.790000 error 1.408380
-Result 1000.375867 original 1001.580000 error 1.204133
-Result 1000.370260 original 1000.650000 error 0.279740
-Result 1000.364798 original 999.862000 error 0.502798
-Result 1000.415613 original 1001.840000 error 1.424387
-Result 1000.408765 original 1001.360000 error 0.951235
-Result 1000.402073 original 1000.370000 error 0.032073
-Result 1000.395539 original 999.770000 error 0.625539
-Result 1000.389160 original 1000.120000 error 0.269160
-Result 1000.382937 original 1001.090000 error 0.707063
-Result 1000.376868 original 1001.800000 error 1.423132
-Result 1000.370950 original 1001.580000 error 1.209050
-Result 1000.365182 original 1000.650000 error 0.284818
-Result 1000.359562 original 999.852000 error 0.507562
-Result 1000.411977 original 1001.850000 error 1.438023
-Result 1000.404972 original 1001.370000 error 0.965028
-Result 1000.398123 original 1000.360000 error 0.038123
-Result 1000.391431 original 999.760000 error 0.631431
-Result 1000.384896 original 1000.110000 error 0.274896
-Result 1000.378516 original 1001.100000 error 0.721484
-Result 1000.372291 original 1001.810000 error 1.437709
-Result 1000.366219 original 1001.590000 error 1.223781
-Result 1000.360300 original 1000.650000 error 0.289700
-Result 1000.354531 original 999.843000 error 0.511531
-Result 1000.408498 original 1001.860000 error 1.451502
-Result 1000.401356 original 1001.370000 error 0.968644
-Result 1000.394367 original 1000.360000 error 0.034367
-Result 1000.387533 original 999.751000 error 0.636533
-Result 1000.380855 original 1000.110000 error 0.270855
-Result 1000.374332 original 1001.100000 error 0.725668
-Result 1000.367964 original 1001.820000 error 1.452036
-Result 1000.361750 original 1001.600000 error 1.238250
-Result 1000.355690 original 1000.650000 error 0.294310
-Result 1000.349781 original 999.834000 error 0.515781
-Result 1000.405244 original 1001.870000 error 1.464756
-Result 1000.397983 original 1001.380000 error 0.982017
-Result 1000.390872 original 1000.350000 error 0.040872
-Result 1000.383914 original 999.741000 error 0.642914
-Result 1000.377108 original 1000.100000 error 0.277108
-Result 1000.370457 original 1001.100000 error 0.729543
-Result 1000.363959 original 1001.830000 error 1.466041
-Result 1000.357616 original 1001.610000 error 1.252384
-Result 1000.351426 original 1000.640000 error 0.288574
-Result 1000.345388 original 999.825000 error 0.520388
-Result 1000.402277 original 1001.880000 error 1.477723
-Result 1000.394918 original 1001.380000 error 0.985082
-Result 1000.387705 original 1000.350000 error 0.037705
-Result 1000.380639 original 999.731000 error 0.649639
-Result 1000.373724 original 1000.090000 error 0.283724
-Result 1000.366959 original 1001.110000 error 0.743041
-Result 1000.360347 original 1001.840000 error 1.479653
-Result 1000.353886 original 1001.610000 error 1.256114
-Result 1000.347578 original 1000.640000 error 0.292422
-Result 1000.341421 original 999.816000 error 0.525421
-Result 1000.399657 original 1001.890000 error 1.490343
-Result 1000.392221 original 1001.390000 error 0.997779
-Result 1000.384925 original 1000.350000 error 0.034925
-Result 1000.377771 original 999.721000 error 0.656771
-Result 1000.370763 original 1000.090000 error 0.280763
-Result 1000.363901 original 1001.110000 error 0.746099
-Result 1000.357188 original 1001.850000 error 1.492812
-Result 1000.350624 original 1001.620000 error 1.269376
-Result 1000.344210 original 1000.640000 error 0.295790
-Result 1000.337946 original 999.807000 error 0.530946
-Result 1000.449498 original 1001.900000 error 1.450502
-Result 1000.443336 original 1001.440000 error 0.996664
-Result 1000.437325 original 1000.480000 error 0.042675
-Result 1000.431461 original 999.910000 error 0.521461
-Result 1000.425743 original 1000.250000 error 0.175743
-Result 1000.420168 original 1001.180000 error 0.759832
-Result 1000.414734 original 1001.860000 error 1.445266
-Result 1000.409438 original 1001.650000 error 1.240562
-Result 1000.404277 original 1000.750000 error 0.345723
-Result 1000.399248 original 999.989000 error 0.410248
-Result 1000.446337 original 1001.910000 error 1.463663
-Result 1000.439950 original 1001.450000 error 1.010050
-Result 1000.433717 original 1000.480000 error 0.046283
-Result 1000.427635 original 999.900000 error 0.527635
-Result 1000.421703 original 1000.240000 error 0.181703
-Result 1000.415918 original 1001.190000 error 0.774082
-Result 1000.410279 original 1001.870000 error 1.459721
-Result 1000.404782 original 1001.660000 error 1.255218
-Result 1000.399425 original 1000.750000 error 0.350575
-Result 1000.394205 original 999.980000 error 0.414205
-Result 1000.443042 original 1001.920000 error 1.476958
-Result 1000.436439 original 1001.450000 error 1.013561
-Result 1000.429992 original 1000.480000 error 0.050008
-Result 1000.423700 original 999.890000 error 0.533700
-Result 1000.417560 original 1000.230000 error 0.187560
-Result 1000.411571 original 1001.190000 error 0.778429
-Result 1000.405731 original 1001.880000 error 1.474269
-Result 1000.400039 original 1001.670000 error 1.269961
-Result 1000.394490 original 1000.750000 error 0.355510
-Result 1000.389083 original 999.971000 error 0.418083
-Result 1000.439650 original 1001.930000 error 1.490350
-Result 1000.432843 original 1001.460000 error 1.027157
-Result 1000.426192 original 1000.470000 error 0.043808
-Result 1000.419699 original 999.880000 error 0.539699
-Result 1000.413360 original 1000.230000 error 0.183360
-Result 1000.407175 original 1001.190000 error 0.782825
-Result 1000.401143 original 1001.890000 error 1.488857
-Result 1000.395261 original 1001.680000 error 1.284739
-Result 1000.389527 original 1000.750000 error 0.360473
-Result 1000.383939 original 999.962000 error 0.421939
-Result 1000.436205 original 1001.940000 error 1.503795
-Result 1000.429208 original 1001.460000 error 1.030792
-Result 1000.422368 original 1000.470000 error 0.047632
-Result 1000.415685 original 999.870000 error 0.545685
-Result 1000.409158 original 1000.220000 error 0.189158
-Result 1000.402788 original 1001.200000 error 0.797212
-Result 1000.396572 original 1001.900000 error 1.503428
-Result 1000.390510 original 1001.680000 error 1.289490
-Result 1000.384598 original 1000.750000 error 0.365402
-Result 1000.378836 original 999.952000 error 0.426836
-Result 1000.432760 original 1001.950000 error 1.517240
-Result 1000.425590 original 1001.470000 error 1.044410
-Result 1000.418575 original 1000.460000 error 0.041425
-Result 1000.411717 original 999.861000 error 0.550717
-Result 1000.405017 original 1000.210000 error 0.195017
-Result 1000.398473 original 1001.200000 error 0.801527
-Result 1000.392085 original 1001.910000 error 1.517915
-Result 1000.385853 original 1001.690000 error 1.304147
-Result 1000.379774 original 1000.750000 error 0.370226
-Result 1000.373846 original 999.943000 error 0.430846
-Result 1000.429374 original 1001.960000 error 1.530626
-Result 1000.422048 original 1001.470000 error 1.047952
-Result 1000.414877 original 1000.460000 error 0.045123
-Result 1000.407861 original 999.851000 error 0.556861
-Result 1000.401001 original 1000.210000 error 0.191001
-Result 1000.394298 original 1001.200000 error 0.805702
-Result 1000.387751 original 1001.920000 error 1.532249
-Result 1000.381361 original 1001.700000 error 1.318639
-Result 1000.375125 original 1000.750000 error 0.374875
-Result 1000.369043 original 999.934000 error 0.435043
-Result 1000.426108 original 1001.970000 error 1.543892
-Result 1000.418648 original 1001.480000 error 1.061352
-Result 1000.411339 original 1000.450000 error 0.038661
-Result 1000.404182 original 999.841000 error 0.563182
-Result 1000.397181 original 1000.200000 error 0.197181
-Result 1000.390334 original 1001.200000 error 0.809666
-Result 1000.383643 original 1001.930000 error 1.546357
-Result 1000.377108 original 1001.710000 error 1.332892
-Result 1000.370728 original 1000.740000 error 0.369272
-Result 1000.364502 original 999.925000 error 0.439502
-Result 1000.423025 original 1001.980000 error 1.556975
-Result 1000.415453 original 1001.480000 error 1.064547
-Result 1000.408027 original 1000.450000 error 0.041973
-Result 1000.400750 original 999.831000 error 0.569750
-Result 1000.393624 original 1000.190000 error 0.203624
-Result 1000.386651 original 1001.210000 error 0.823349
-Result 1000.379831 original 1001.940000 error 1.560169
-Result 1000.373165 original 1001.710000 error 1.336835
-Result 1000.366655 original 1000.740000 error 0.373345
-Result 1000.360298 original 999.916000 error 0.444298
-Result 1000.420187 original 1001.990000 error 1.569813
-Result 1000.412527 original 1001.490000 error 1.077473
-Result 1000.405006 original 1000.450000 error 0.044994
-Result 1000.397629 original 999.821000 error 0.576629
-Result 1000.390398 original 1000.190000 error 0.200398
-Result 1000.383315 original 1001.210000 error 0.826685
-Result 1000.376383 original 1001.950000 error 1.573617
-Result 1000.369603 original 1001.720000 error 1.350397
-Result 1000.362975 original 1000.740000 error 0.377025
-Result 1000.356500 original 999.907000 error 0.449500
+Result 999.240472 original 1001.000000 error 1.759528
+Result 999.218104 original 1000.540000 error 1.321896
+Result 999.211245 original 999.584000 error 0.372755
+Result 999.223397 original 999.010000 error 0.213397
+Result 999.256598 original 999.346000 error 0.089402
+Result 999.309843 original 1000.280000 error 0.970157
+Result 999.378143 original 1000.960000 error 1.581857
+Result 999.453282 original 1000.750000 error 1.296718
+Result 999.526244 original 999.854000 error 0.327756
+Result 999.589927 original 999.089000 error 0.500927
+Result 999.243196 original 1001.010000 error 1.766804
+Result 999.221455 original 1000.550000 error 1.328545
+Result 999.215349 original 999.580000 error 0.364651
+Result 999.228331 original 999.000000 error 0.228331
+Result 999.262340 original 999.340000 error 0.077660
+Result 999.316210 original 1000.290000 error 0.973790
+Result 999.384782 original 1000.970000 error 1.585218
+Result 999.459738 original 1000.760000 error 1.300262
+Result 999.532097 original 999.853000 error 0.320903
+Result 999.594909 original 999.080000 error 0.514909
+Result 999.245956 original 1001.020000 error 1.774044
+Result 999.224854 original 1000.550000 error 1.325146
+Result 999.219508 original 999.576000 error 0.356492
+Result 999.233325 original 998.990000 error 0.243325
+Result 999.268137 original 999.333000 error 0.064863
+Result 999.322615 original 1000.290000 error 0.967385
+Result 999.391431 original 1000.980000 error 1.588569
+Result 999.466176 original 1000.770000 error 1.303824
+Result 999.537910 original 999.852000 error 0.314090
+Result 999.599838 original 999.071000 error 0.528838
+Result 999.248755 original 1001.030000 error 1.781245
+Result 999.228300 original 1000.560000 error 1.331700
+Result 999.223723 original 999.571000 error 0.347277
+Result 999.238378 original 998.980000 error 0.258378
+Result 999.273986 original 999.327000 error 0.053014
+Result 999.329056 original 1000.290000 error 0.960944
+Result 999.398090 original 1000.990000 error 1.591910
+Result 999.472593 original 1000.780000 error 1.307407
+Result 999.543680 original 999.850000 error 0.306320
+Result 999.604714 original 999.062000 error 0.542714
+Result 999.251592 original 1001.040000 error 1.788408
+Result 999.231795 original 1000.560000 error 1.328205
+Result 999.227995 original 999.567000 error 0.339005
+Result 999.243490 original 998.970000 error 0.273490
+Result 999.279889 original 999.320000 error 0.040111
+Result 999.335532 original 1000.290000 error 0.954468
+Result 999.404756 original 1001.000000 error 1.595244
+Result 999.478989 original 1000.780000 error 1.301011
+Result 999.549408 original 999.849000 error 0.299592
+Result 999.609537 original 999.052000 error 0.557537
+Result 999.254468 original 1001.050000 error 1.795532
+Result 999.235338 original 1000.570000 error 1.334662
+Result 999.232323 original 999.563000 error 0.330677
+Result 999.248662 original 998.961000 error 0.287662
+Result 999.285844 original 999.314000 error 0.028156
+Result 999.342040 original 1000.300000 error 0.957960
+Result 999.411427 original 1001.010000 error 1.598573
+Result 999.485362 original 1000.790000 error 1.304638
+Result 999.555091 original 999.847000 error 0.291909
+Result 999.614306 original 999.043000 error 0.571306
+Result 999.257384 original 1001.060000 error 1.802616
+Result 999.238931 original 1000.570000 error 1.331069
+Result 999.236709 original 999.559000 error 0.322291
+Result 999.253893 original 998.951000 error 0.302893
+Result 999.291850 original 999.307000 error 0.015150
+Result 999.348581 original 1000.300000 error 0.951419
+Result 999.418101 original 1001.020000 error 1.601899
+Result 999.491710 original 1000.800000 error 1.308290
+Result 999.560729 original 999.846000 error 0.285271
+Result 999.619022 original 999.034000 error 0.585022
+Result 999.260341 original 1001.070000 error 1.809659
+Result 999.242574 original 1000.580000 error 1.337426
+Result 999.241152 original 999.555000 error 0.313848
+Result 999.259183 original 998.941000 error 0.318183
+Result 999.297907 original 999.301000 error 0.003093
+Result 999.355151 original 1000.300000 error 0.944849
+Result 999.424778 original 1001.030000 error 1.605222
+Result 999.498032 original 1000.810000 error 1.311968
+Result 999.566321 original 999.844000 error 0.277679
+Result 999.623683 original 999.025000 error 0.598683
+Result 999.263338 original 1001.080000 error 1.816662
+Result 999.246268 original 1000.580000 error 1.333732
+Result 999.245653 original 999.551000 error 0.305347
+Result 999.264532 original 998.931000 error 0.333532
+Result 999.304014 original 999.294000 error 0.010014
+Result 999.361751 original 1000.310000 error 0.948249
+Result 999.431455 original 1001.040000 error 1.608545
+Result 999.504327 original 1000.810000 error 1.305673
+Result 999.571866 original 999.843000 error 0.271134
+Result 999.628290 original 999.016000 error 0.612290
+Result 999.266377 original 1001.090000 error 1.823623
+Result 999.250012 original 1000.590000 error 1.339988
+Result 999.250211 original 999.546000 error 0.295789
+Result 999.269940 original 998.921000 error 0.348940
+Result 999.310169 original 999.288000 error 0.022169
+Result 999.368377 original 1000.310000 error 0.941623
+Result 999.438130 original 1001.050000 error 1.611870
+Result 999.510592 original 1000.820000 error 1.309408
+Result 999.577364 original 999.841000 error 0.263636
+Result 999.632843 original 999.007000 error 0.625843
+Result 999.266044 original 1001.100000 error 1.833956
+Result 999.243852 original 1000.640000 error 1.396148
+Result 999.237307 original 999.684000 error 0.446693
+Result 999.249863 original 999.110000 error 0.139863
+Result 999.283402 original 999.446000 error 0.162598
+Result 999.336639 original 1000.380000 error 1.043361
+Result 999.404271 original 1001.060000 error 1.655729
+Result 999.477894 original 1000.850000 error 1.372106
+Result 999.548567 original 999.954000 error 0.405433
+Result 999.609490 original 999.189000 error 0.420490
+Result 999.268872 original 1001.110000 error 1.841128
+Result 999.247335 original 1000.650000 error 1.402665
+Result 999.241566 original 999.680000 error 0.438434
+Result 999.254966 original 999.100000 error 0.154966
+Result 999.289304 original 999.440000 error 0.150696
+Result 999.343132 original 1000.390000 error 1.046868
+Result 999.410977 original 1001.070000 error 1.659023
+Result 999.484354 original 1000.860000 error 1.375646
+Result 999.554373 original 999.953000 error 0.398627
+Result 999.614394 original 999.180000 error 0.434394
+Result 999.271738 original 1001.120000 error 1.848262
+Result 999.250867 original 1000.650000 error 1.399133
+Result 999.245882 original 999.675000 error 0.429118
+Result 999.260128 original 999.090000 error 0.170128
+Result 999.295260 original 999.433000 error 0.137740
+Result 999.349659 original 1000.390000 error 1.040341
+Result 999.417691 original 1001.080000 error 1.662309
+Result 999.490792 original 1000.870000 error 1.379208
+Result 999.560135 original 999.952000 error 0.391865
+Result 999.619246 original 999.171000 error 0.448246
+Result 999.274644 original 1001.130000 error 1.855356
+Result 999.254447 original 1000.660000 error 1.405553
+Result 999.250254 original 999.671000 error 0.420746
+Result 999.265349 original 999.080000 error 0.185349
+Result 999.301267 original 999.427000 error 0.125733
+Result 999.356220 original 1000.390000 error 1.033780
+Result 999.424410 original 1001.090000 error 1.665590
+Result 999.497206 original 1000.880000 error 1.382794
+Result 999.565853 original 999.950000 error 0.384147
+Result 999.624043 original 999.161000 error 0.463043
+Result 999.277590 original 1001.140000 error 1.862410
+Result 999.258077 original 1000.660000 error 1.401923
+Result 999.254684 original 999.667000 error 0.412316
+Result 999.270630 original 999.070000 error 0.200630
+Result 999.307326 original 999.420000 error 0.112674
+Result 999.362812 original 1000.390000 error 1.027188
+Result 999.431133 original 1001.100000 error 1.668867
+Result 999.503596 original 1000.880000 error 1.376404
+Result 999.571526 original 999.949000 error 0.377474
+Result 999.628787 original 999.152000 error 0.476787
+Result 999.280576 original 1001.150000 error 1.869424
+Result 999.261757 original 1000.670000 error 1.408243
+Result 999.259172 original 999.663000 error 0.403828
+Result 999.275971 original 999.060000 error 0.215971
+Result 999.313436 original 999.414000 error 0.100564
+Result 999.369435 original 1000.400000 error 1.030565
+Result 999.437857 original 1001.110000 error 1.672143
+Result 999.509960 original 1000.890000 error 1.380040
+Result 999.577153 original 999.947000 error 0.369847
+Result 999.633476 original 999.143000 error 0.490476
+Result 999.283604 original 1001.160000 error 1.876396
+Result 999.265488 original 1000.670000 error 1.404512
+Result 999.263717 original 999.659000 error 0.395283
+Result 999.281370 original 999.051000 error 0.230370
+Result 999.319595 original 999.407000 error 0.087405
+Result 999.376087 original 1000.400000 error 1.023913
+Result 999.444582 original 1001.120000 error 1.675418
+Result 999.516296 original 1000.900000 error 1.383704
+Result 999.582733 original 999.946000 error 0.363267
+Result 999.638112 original 999.134000 error 0.504112
+Result 999.286673 original 1001.170000 error 1.883327
+Result 999.269271 original 1000.680000 error 1.410729
+Result 999.268321 original 999.655000 error 0.386679
+Result 999.286828 original 999.041000 error 0.245828
+Result 999.325804 original 999.401000 error 0.075196
+Result 999.382765 original 1000.400000 error 1.017235
+Result 999.451305 original 1001.130000 error 1.678695
+Result 999.522602 original 1000.910000 error 1.387398
+Result 999.588265 original 999.944000 error 0.355735
+Result 999.642692 original 999.125000 error 0.517692
+Result 999.289785 original 1001.180000 error 1.890215
+Result 999.273105 original 1000.680000 error 1.406895
+Result 999.272984 original 999.651000 error 0.378016
+Result 999.292345 original 999.031000 error 0.261345
+Result 999.332060 original 999.394000 error 0.061940
+Result 999.389470 original 1000.410000 error 1.020530
+Result 999.458024 original 1001.140000 error 1.681976
+Result 999.528878 original 1000.910000 error 1.381122
+Result 999.593749 original 999.943000 error 0.349251
+Result 999.647219 original 999.116000 error 0.531219
+Result 999.292939 original 1001.190000 error 1.897061
+Result 999.276991 original 1000.690000 error 1.413009
+Result 999.277705 original 999.646000 error 0.368295
+Result 999.297920 original 999.021000 error 0.276920
+Result 999.338363 original 999.388000 error 0.049637
+Result 999.396198 original 1000.410000 error 1.013802
+Result 999.464738 original 1001.150000 error 1.685262
+Result 999.535122 original 1000.920000 error 1.384878
+Result 999.599184 original 999.941000 error 0.341816
+Result 999.651690 original 999.107000 error 0.544690
+Result 999.292311 original 1001.200000 error 1.907689
+Result 999.270420 original 1000.740000 error 1.469580
+Result 999.264289 original 999.784000 error 0.519711
+Result 999.277307 original 999.210000 error 0.067307
+Result 999.311177 original 999.546000 error 0.234823
+Result 999.364326 original 1000.480000 error 1.115674
+Result 999.431147 original 1001.160000 error 1.728853
+Result 999.503089 original 1000.950000 error 1.446911
+Result 999.571327 original 1000.050000 error 0.478673
+Result 999.629385 original 999.289000 error 0.340385
+Result 999.295245 original 1001.210000 error 1.914755
+Result 999.274037 original 1000.750000 error 1.475963
+Result 999.268706 original 999.780000 error 0.511294
+Result 999.282579 original 999.200000 error 0.082579
+Result 999.317238 original 999.540000 error 0.222762
+Result 999.370940 original 1000.490000 error 1.119060
+Result 999.437915 original 1001.170000 error 1.732085
+Result 999.509547 original 1000.960000 error 1.450453
+Result 999.577081 original 1000.050000 error 0.472919
+Result 999.634212 original 999.280000 error 0.354212
+Result 999.298220 original 1001.220000 error 1.921780
+Result 999.277704 original 1000.750000 error 1.472296
+Result 999.273180 original 999.776000 error 0.502820
+Result 999.287910 original 999.190000 error 0.097910
+Result 999.323351 original 999.533000 error 0.209649
+Result 999.377585 original 1000.490000 error 1.112415
+Result 999.444687 original 1001.180000 error 1.735313
+Result 999.515979 original 1000.970000 error 1.454021
+Result 999.582789 original 1000.050000 error 0.467211
+Result 999.638985 original 999.271000 error 0.367985
+Result 999.301235 original 1001.230000 error 1.928765
+Result 999.281421 original 1000.760000 error 1.478579
+Result 999.277712 original 999.771000 error 0.493288
+Result 999.293300 original 999.180000 error 0.113300
+Result 999.329514 original 999.527000 error 0.197486
+Result 999.384261 original 1000.490000 error 1.105739
+Result 999.451461 original 1001.190000 error 1.738539
+Result 999.522386 original 1000.980000 error 1.457614
+Result 999.588452 original 1000.050000 error 0.461548
+Result 999.643703 original 999.262000 error 0.381703
+Result 999.304292 original 1001.240000 error 1.935708
+Result 999.285189 original 1000.760000 error 1.474811
+Result 999.282302 original 999.767000 error 0.484698
+Result 999.298750 original 999.170000 error 0.128750
+Result 999.335727 original 999.520000 error 0.184273
+Result 999.390966 original 1000.490000 error 1.099034
+Result 999.458234 original 1001.200000 error 1.741766
+Result 999.528764 original 1000.980000 error 1.451236
+Result 999.594067 original 1000.050000 error 0.455933
+Result 999.648368 original 999.252000 error 0.396368
+Result 999.307390 original 1001.250000 error 1.942610
+Result 999.289008 original 1000.770000 error 1.480992
+Result 999.286950 original 999.763000 error 0.476050
+Result 999.304259 original 999.161000 error 0.143259
+Result 999.341990 original 999.514000 error 0.172010
+Result 999.397698 original 1000.500000 error 1.102302
+Result 999.465006 original 1001.210000 error 1.744994
+Result 999.535113 original 1000.990000 error 1.454887
+Result 999.599635 original 1000.050000 error 0.450365
+Result 999.652977 original 999.243000 error 0.409977
+Result 999.310531 original 1001.260000 error 1.949469
+Result 999.292880 original 1000.770000 error 1.477120
+Result 999.291658 original 999.759000 error 0.467342
+Result 999.309827 original 999.151000 error 0.158827
+Result 999.348300 original 999.507000 error 0.158700
+Result 999.404455 original 1000.500000 error 1.095545
+Result 999.471775 original 1001.220000 error 1.748225
+Result 999.541432 original 1001.000000 error 1.458568
+Result 999.605155 original 1000.050000 error 0.444845
+Result 999.657532 original 999.234000 error 0.423532
+Result 999.313715 original 1001.270000 error 1.956285
+Result 999.296804 original 1000.780000 error 1.483196
+Result 999.296424 original 999.755000 error 0.458576
+Result 999.315453 original 999.141000 error 0.174453
+Result 999.354657 original 999.501000 error 0.146343
+Result 999.411237 original 1000.500000 error 1.088763
+Result 999.478538 original 1001.230000 error 1.751462
+Result 999.547718 original 1001.010000 error 1.462282
+Result 999.610625 original 1000.040000 error 0.429375
+Result 999.662033 original 999.225000 error 0.437033
+Result 999.316943 original 1001.280000 error 1.963057
+Result 999.300780 original 1000.780000 error 1.479220
+Result 999.301250 original 999.751000 error 0.449750
+Result 999.321137 original 999.131000 error 0.190137
+Result 999.361060 original 999.494000 error 0.132940
+Result 999.418041 original 1000.510000 error 1.091959
+Result 999.485294 original 1001.240000 error 1.754706
+Result 999.553971 original 1001.010000 error 1.456029
+Result 999.616045 original 1000.040000 error 0.423955
+Result 999.666478 original 999.216000 error 0.450478
+Result 999.320215 original 1001.290000 error 1.969785
+Result 999.304811 original 1000.790000 error 1.485189
+Result 999.306134 original 999.746000 error 0.439866
+Result 999.326879 original 999.121000 error 0.205879
+Result 999.367508 original 999.488000 error 0.120492
+Result 999.424866 original 1000.510000 error 1.085134
+Result 999.492041 original 1001.250000 error 1.757959
+Result 999.560190 original 1001.020000 error 1.459810
+Result 999.621415 original 1000.040000 error 0.418585
+Result 999.670869 original 999.207000 error 0.463869
+Result 999.319251 original 1001.300000 error 1.980749
+Result 999.297795 original 1000.840000 error 1.542205
+Result 999.292186 original 999.884000 error 0.591814
+Result 999.305728 original 999.310000 error 0.004272
+Result 999.339926 original 999.646000 error 0.306074
+Result 999.392906 original 1000.580000 error 1.187094
+Result 999.458774 original 1001.260000 error 1.801226
+Result 999.528872 original 1001.050000 error 1.521128
+Result 999.594532 original 1000.150000 error 0.555468
+Result 999.649629 original 999.389000 error 0.260629
+Result 999.322294 original 1001.310000 error 1.987706
+Result 999.301548 original 1000.850000 error 1.548452
+Result 999.296762 original 999.880000 error 0.583238
+Result 999.311170 original 999.300000 error 0.011170
+Result 999.346144 original 999.640000 error 0.293856
+Result 999.399636 original 1000.590000 error 1.190364
+Result 999.465598 original 1001.270000 error 1.804402
+Result 999.535322 original 1001.060000 error 1.524678
+Result 999.600231 original 1000.150000 error 0.549769
+Result 999.654377 original 999.380000 error 0.274377
+Result 999.325378 original 1001.320000 error 1.994622
+Result 999.305352 original 1000.850000 error 1.544648
+Result 999.301396 original 999.875000 error 0.573604
+Result 999.316670 original 999.290000 error 0.026670
+Result 999.352411 original 999.633000 error 0.280589
+Result 999.406395 original 1000.590000 error 1.183605
+Result 999.472422 original 1001.280000 error 1.807578
+Result 999.541744 original 1001.070000 error 1.528256
+Result 999.605883 original 1000.150000 error 0.544117
+Result 999.659071 original 999.371000 error 0.288071
+Result 999.328505 original 1001.330000 error 2.001495
+Result 999.309208 original 1000.860000 error 1.550792
+Result 999.306089 original 999.871000 error 0.564911
+Result 999.322230 original 999.280000 error 0.042230
+Result 999.358728 original 999.627000 error 0.268272
+Result 999.413181 original 1000.590000 error 1.176819
+Result 999.479244 original 1001.290000 error 1.810756
+Result 999.548137 original 1001.080000 error 1.531863
+Result 999.611487 original 1000.150000 error 0.538513
+Result 999.663711 original 999.362000 error 0.301711
+Result 999.331674 original 1001.340000 error 2.008326
+Result 999.313116 original 1000.860000 error 1.546884
+Result 999.310841 original 999.867000 error 0.556159
+Result 999.327849 original 999.270000 error 0.057849
+Result 999.365093 original 999.620000 error 0.254907
+Result 999.419992 original 1000.590000 error 1.170008
+Result 999.486062 original 1001.300000 error 1.813938
+Result 999.554499 original 1001.080000 error 1.525501
+Result 999.617043 original 1000.150000 error 0.532957
+Result 999.668296 original 999.352000 error 0.316296
+Result 999.334886 original 1001.350000 error 2.015114
+Result 999.317076 original 1000.870000 error 1.552924
+Result 999.315652 original 999.863000 error 0.547348
+Result 999.333526 original 999.260000 error 0.073526
+Result 999.371505 original 999.614000 error 0.242495
+Result 999.426828 original 1000.600000 error 1.173172
+Result 999.492875 original 1001.310000 error 1.817125
+Result 999.560828 original 1001.090000 error 1.529172
+Result 999.622550 original 1000.150000 error 0.527450
+Result 999.672825 original 999.343000 error 0.329825
+Result 999.338142 original 1001.360000 error 2.021858
+Result 999.321090 original 1000.870000 error 1.548910
+Result 999.320523 original 999.859000 error 0.538477
+Result 999.339262 original 999.251000 error 0.088262
+Result 999.377963 original 999.607000 error 0.229037
+Result 999.433686 original 1000.600000 error 1.166314
+Result 999.499681 original 1001.320000 error 1.820319
+Result 999.567125 original 1001.100000 error 1.532875
+Result 999.628006 original 1000.150000 error 0.521994
+Result 999.677301 original 999.334000 error 0.343301
+Result 999.341443 original 1001.370000 error 2.028557
+Result 999.325158 original 1000.880000 error 1.554842
+Result 999.325453 original 999.855000 error 0.529547
+Result 999.345055 original 999.241000 error 0.104055
+Result 999.384465 original 999.601000 error 0.216535
+Result 999.440565 original 1000.600000 error 1.159435
+Result 999.506478 original 1001.330000 error 1.823522
+Result 999.573386 original 1001.110000 error 1.536614
+Result 999.633412 original 1000.140000 error 0.506588
+Result 999.681721 original 999.325000 error 0.356721
+Result 999.344788 original 1001.380000 error 2.035212
+Result 999.329279 original 1000.880000 error 1.550721
+Result 999.330442 original 999.851000 error 0.520558
+Result 999.350906 original 999.231000 error 0.119906
+Result 999.391012 original 999.594000 error 0.202988
+Result 999.447463 original 1000.610000 error 1.162537
+Result 999.513265 original 1001.340000 error 1.826735
+Result 999.579611 original 1001.110000 error 1.530389
+Result 999.638767 original 1000.140000 error 0.501233
+Result 999.686086 original 999.316000 error 0.370086
+Result 999.348179 original 1001.390000 error 2.041821
+Result 999.333455 original 1000.890000 error 1.556545
+Result 999.335492 original 999.846000 error 0.510508
+Result 999.356814 original 999.221000 error 0.135814
+Result 999.397601 original 999.588000 error 0.190399
+Result 999.454378 original 1000.610000 error 1.155622
+Result 999.520039 original 1001.350000 error 1.829961
+Result 999.585799 original 1001.120000 error 1.534201
+Result 999.644070 original 1000.140000 error 0.495930
+Result 999.690397 original 999.307000 error 0.383397
+Result 999.346837 original 1001.400000 error 2.053163
+Result 999.325959 original 1000.940000 error 1.614041
+Result 999.320989 original 999.984000 error 0.663011
+Result 999.335124 original 999.410000 error 0.074876
+Result 999.369647 original 999.746000 error 0.376353
+Result 999.422378 original 1000.680000 error 1.257622
+Result 999.487153 original 1001.360000 error 1.872847
+Result 999.555245 original 1001.150000 error 1.594755
+Result 999.618192 original 1000.250000 error 0.631808
+Result 999.670236 original 999.489000 error 0.181236
+Result 999.349991 original 1001.410000 error 2.060009
+Result 999.329850 original 1000.950000 error 1.620150
+Result 999.325725 original 999.980000 error 0.654275
+Result 999.340735 original 999.400000 error 0.059265
+Result 999.376019 original 999.740000 error 0.363981
+Result 999.429219 original 1000.690000 error 1.260781
+Result 999.494026 original 1001.370000 error 1.875974
+Result 999.561683 original 1001.160000 error 1.598317
+Result 999.623834 original 1000.250000 error 0.626166
+Result 999.674906 original 999.480000 error 0.194906
+Result 999.353186 original 1001.420000 error 2.066814
+Result 999.333794 original 1000.950000 error 1.616206
+Result 999.330521 original 999.976000 error 0.645479
+Result 999.346404 original 999.390000 error 0.043596
+Result 999.382438 original 999.733000 error 0.350562
+Result 999.436085 original 1000.690000 error 1.253915
+Result 999.500895 original 1001.380000 error 1.879105
+Result 999.568089 original 1001.170000 error 1.601911
+Result 999.629427 original 1000.250000 error 0.620573
+Result 999.679521 original 999.471000 error 0.208521
+Result 999.356426 original 1001.430000 error 2.073574
+Result 999.337790 original 1000.960000 error 1.622210
+Result 999.335376 original 999.971000 error 0.635624
+Result 999.352133 original 999.380000 error 0.027867
+Result 999.388905 original 999.727000 error 0.338095
+Result 999.442976 original 1000.690000 error 1.247024
+Result 999.507759 original 1001.390000 error 1.882241
+Result 999.574463 original 1001.180000 error 1.605537
+Result 999.634970 original 1000.250000 error 0.615030
+Result 999.684081 original 999.462000 error 0.222081
+Result 999.359709 original 1001.440000 error 2.080291
+Result 999.341840 original 1000.960000 error 1.618160
+Result 999.340291 original 999.967000 error 0.626709
+Result 999.357920 original 999.370000 error 0.012080
+Result 999.395418 original 999.720000 error 0.324582
+Result 999.449889 original 1000.700000 error 1.250111
+Result 999.514615 original 1001.400000 error 1.885385
+Result 999.580804 original 1001.180000 error 1.599196
+Result 999.640464 original 1000.250000 error 0.609536
+Result 999.688587 original 999.452000 error 0.236587
+Result 999.363037 original 1001.450000 error 2.086963
+Result 999.345943 original 1000.970000 error 1.624057
+Result 999.345266 original 999.963000 error 0.617734
+Result 999.363765 original 999.361000 error 0.002765
+Result 999.401976 original 999.714000 error 0.312024
+Result 999.456822 original 1000.700000 error 1.243178
+Result 999.521463 original 1001.410000 error 1.888537
+Result 999.587109 original 1001.190000 error 1.602891
+Result 999.645907 original 1000.250000 error 0.604093
+Result 999.693037 original 999.443000 error 0.250037
+Result 999.366410 original 1001.460000 error 2.093590
+Result 999.350101 original 1000.970000 error 1.619899
+Result 999.350300 original 999.959000 error 0.608700
+Result 999.369667 original 999.351000 error 0.018667
+Result 999.408578 original 999.707000 error 0.298422
+Result 999.463775 original 1000.700000 error 1.236225
+Result 999.528300 original 1001.420000 error 1.891700
+Result 999.593378 original 1001.200000 error 1.606622
+Result 999.651298 original 1000.250000 error 0.598702
+Result 999.697433 original 999.434000 error 0.263433
+Result 999.369829 original 1001.470000 error 2.100171
+Result 999.354313 original 1000.980000 error 1.625687
+Result 999.355394 original 999.955000 error 0.599606
+Result 999.375626 original 999.341000 error 0.034626
+Result 999.415222 original 999.701000 error 0.285778
+Result 999.470745 original 1000.700000 error 1.229255
+Result 999.535124 original 1001.430000 error 1.894876
+Result 999.599610 original 1001.210000 error 1.610390
+Result 999.656638 original 1000.240000 error 0.583362
+Result 999.701773 original 999.425000 error 0.276773
+Result 999.373294 original 1001.480000 error 2.106706
+Result 999.358581 original 1000.980000 error 1.621419
+Result 999.360549 original 999.951000 error 0.590451
+Result 999.381642 original 999.331000 error 0.050642
+Result 999.421908 original 999.694000 error 0.272092
+Result 999.477731 original 1000.710000 error 1.232269
+Result 999.541935 original 1001.440000 error 1.898065
+Result 999.605803 original 1001.210000 error 1.604197
+Result 999.661926 original 1000.240000 error 0.578074
+Result 999.706059 original 999.416000 error 0.290059
+Result 999.376806 original 1001.490000 error 2.113194
+Result 999.362905 original 1000.990000 error 1.627095
+Result 999.365763 original 999.946000 error 0.580237
+Result 999.387714 original 999.321000 error 0.066714
+Result 999.428633 original 999.688000 error 0.259367
+Result 999.484730 original 1000.710000 error 1.225270
+Result 999.548729 original 1001.450000 error 1.901271
+Result 999.611956 original 1001.220000 error 1.608044
+Result 999.667161 original 1000.240000 error 0.572839
+Result 999.710291 original 999.407000 error 0.303291
+Result 999.375041 original 1001.500000 error 2.124959
+Result 999.354891 original 1001.040000 error 1.685109
+Result 999.350682 original 1000.080000 error 0.729318
+Result 999.365485 original 999.510000 error 0.144515
+Result 999.400335 original 999.846000 error 0.445665
+Result 999.452737 original 1000.780000 error 1.327263
+Result 999.516279 original 1001.460000 error 1.943721
+Result 999.582213 original 1001.250000 error 1.667787
+Result 999.642317 original 1000.350000 error 0.707683
+Result 999.691221 original 999.589000 error 0.102221
+Result 999.378306 original 1001.510000 error 2.131694
+Result 999.358922 original 1001.050000 error 1.691078
+Result 999.355581 original 1000.080000 error 0.724419
+Result 999.371264 original 999.500000 error 0.128736
+Result 999.406857 original 999.840000 error 0.433143
+Result 999.459683 original 1000.790000 error 1.330317
+Result 999.523195 original 1001.470000 error 1.946805
+Result 999.588633 original 1001.260000 error 1.671367
+Result 999.647899 original 1000.350000 error 0.702101
+Result 999.695813 original 999.580000 error 0.115813
+Result 999.381614 original 1001.520000 error 2.138386
+Result 999.363006 original 1001.050000 error 1.686994
+Result 999.360539 original 1000.080000 error 0.719461
+Result 999.377102 original 999.490000 error 0.112898
+Result 999.413425 original 999.833000 error 0.419575
+Result 999.466651 original 1000.790000 error 1.323349
+Result 999.530103 original 1001.480000 error 1.949897
+Result 999.595018 original 1001.270000 error 1.674982
+Result 999.653431 original 1000.350000 error 0.696569
+Result 999.700350 original 999.571000 error 0.129350
+Result 999.384968 original 1001.530000 error 2.145032
+Result 999.367144 original 1001.060000 error 1.692856
+Result 999.365558 original 1000.070000 error 0.704442
+Result 999.382998 original 999.480000 error 0.097002
+Result 999.420038 original 999.827000 error 0.406962
+Result 999.473640 original 1000.790000 error 1.316360
+Result 999.537002 original 1001.490000 error 1.952998
+Result 999.601369 original 1001.280000 error 1.678631
+Result 999.658911 original 1000.350000 error 0.691089
+Result 999.704831 original 999.562000 error 0.142831
+Result 999.388367 original 1001.540000 error 2.151633
+Result 999.371337 original 1001.060000 error 1.688663
+Result 999.370636 original 1000.070000 error 0.699364
+Result 999.388952 original 999.470000 error 0.081048
+Result 999.426696 original 999.820000 error 0.393304
+Result 999.480648 original 1000.790000 error 1.309352
+Result 999.543890 original 1001.500000 error 1.956110
+Result 999.607683 original 1001.280000 error 1.672317
+Result 999.664340 original 1000.350000 error 0.685660
+Result 999.709258 original 999.552000 error 0.157258
+Result 999.391812 original 1001.550000 error 2.158188
+Result 999.375585 original 1001.070000 error 1.694415
+Result 999.375774 original 1000.060000 error 0.684226
+Result 999.394962 original 999.461000 error 0.066038
+Result 999.433395 original 999.814000 error 0.380605
+Result 999.487673 original 1000.800000 error 1.312327
+Result 999.550766 original 1001.510000 error 1.959234
+Result 999.613959 original 1001.290000 error 1.676041
+Result 999.669718 original 1000.350000 error 0.680282
+Result 999.713629 original 999.543000 error 0.170629
+Result 999.395303 original 1001.560000 error 2.164697
+Result 999.379888 original 1001.070000 error 1.690112
+Result 999.380973 original 1000.060000 error 0.679027
+Result 999.401030 original 999.451000 error 0.049970
+Result 999.440136 original 999.807000 error 0.366864
+Result 999.494714 original 1000.800000 error 1.305286
+Result 999.557628 original 1001.520000 error 1.962372
+Result 999.620197 original 1001.300000 error 1.679803
+Result 999.675042 original 1000.350000 error 0.674958
+Result 999.717946 original 999.534000 error 0.183946
+Result 999.398842 original 1001.570000 error 2.171158
+Result 999.384247 original 1001.080000 error 1.695753
+Result 999.386232 original 1000.050000 error 0.663768
+Result 999.407153 original 999.441000 error 0.033847
+Result 999.446917 original 999.801000 error 0.354083
+Result 999.501768 original 1000.800000 error 1.298232
+Result 999.564473 original 1001.530000 error 1.965527
+Result 999.626394 original 1001.310000 error 1.683606
+Result 999.680314 original 1000.340000 error 0.659686
+Result 999.722208 original 999.525000 error 0.197208
+Result 999.402428 original 1001.580000 error 2.177572
+Result 999.388662 original 1001.080000 error 1.691338
+Result 999.391551 original 1000.050000 error 0.658449
+Result 999.413331 original 999.431000 error 0.017669
+Result 999.453737 original 999.794000 error 0.340263
+Result 999.508834 original 1000.810000 error 1.301166
+Result 999.571301 original 1001.540000 error 1.968699
+Result 999.632551 original 1001.310000 error 1.677449
+Result 999.685533 original 1000.340000 error 0.654467
+Result 999.726415 original 999.516000 error 0.210415
+Result 999.406062 original 1001.590000 error 2.183938
+Result 999.393134 original 1001.090000 error 1.696866
+Result 999.396930 original 1000.050000 error 0.653070
+Result 999.419565 original 999.421000 error 0.001435
+Result 999.460594 original 999.788000 error 0.327406
+Result 999.515911 original 1000.810000 error 1.294089
+Result 999.578109 original 1001.550000 error 1.971891
+Result 999.638665 original 1001.320000 error 1.681335
+Result 999.690698 original 1000.340000 error 0.649302
+Result 999.730568 original 999.507000 error 0.223568
+Result 999.403827 original 1001.600000 error 2.196173
+Result 999.384565 original 1001.140000 error 1.755435
+Result 999.381249 original 1000.180000 error 0.798751
+Result 999.396798 original 999.610000 error 0.213202
+Result 999.431978 original 999.946000 error 0.514022
+Result 999.483974 original 1000.880000 error 1.396026
+Result 999.546149 original 1001.560000 error 2.013851
+Result 999.609776 original 1001.350000 error 1.740224
+Result 999.666917 original 1000.450000 error 0.783083
+Result 999.712602 original 999.689000 error 0.023602
+Result 999.407205 original 1001.610000 error 2.202795
+Result 999.388737 original 1001.150000 error 1.761263
+Result 999.386310 original 1000.180000 error 0.793690
+Result 999.402744 original 999.600000 error 0.197256
+Result 999.438646 original 999.940000 error 0.501354
+Result 999.491019 original 1000.890000 error 1.398981
+Result 999.553101 original 1001.570000 error 2.016899
+Result 999.616173 original 1001.360000 error 1.743827
+Result 999.672436 original 1000.450000 error 0.777564
+Result 999.717115 original 999.680000 error 0.037115
+Result 999.410628 original 1001.620000 error 2.209372
+Result 999.392963 original 1001.150000 error 1.757037
+Result 999.391431 original 1000.180000 error 0.788569
+Result 999.408748 original 999.590000 error 0.181252
+Result 999.445359 original 999.933000 error 0.487641
+Result 999.498082 original 1000.890000 error 1.391918
+Result 999.560041 original 1001.580000 error 2.019959
+Result 999.622533 original 1001.370000 error 1.747467
+Result 999.677903 original 1000.450000 error 0.772097
+Result 999.721573 original 999.671000 error 0.050573
+Result 999.414097 original 1001.630000 error 2.215903
+Result 999.397244 original 1001.160000 error 1.762756
+Result 999.396613 original 1000.170000 error 0.773387
+Result 999.414810 original 999.580000 error 0.165190
+Result 999.452114 original 999.927000 error 0.474886
+Result 999.505163 original 1000.890000 error 1.384837
+Result 999.566969 original 1001.590000 error 2.023031
+Result 999.628854 original 1001.380000 error 1.751146
+Result 999.683319 original 1000.450000 error 0.766681
+Result 999.725976 original 999.661000 error 0.064976
+Result 999.417613 original 1001.640000 error 2.222387
+Result 999.401581 original 1001.160000 error 1.758419
+Result 999.401854 original 1000.170000 error 0.768146
+Result 999.420928 original 999.570000 error 0.149072
+Result 999.458910 original 999.920000 error 0.461090
+Result 999.512259 original 1000.890000 error 1.377741
+Result 999.573882 original 1001.600000 error 2.026118
+Result 999.635137 original 1001.380000 error 1.744863
+Result 999.688682 original 1000.450000 error 0.761318
+Result 999.730324 original 999.652000 error 0.078324
+Result 999.421176 original 1001.650000 error 2.228824
+Result 999.405974 original 1001.170000 error 1.764026
+Result 999.407157 original 1000.160000 error 0.752843
+Result 999.427102 original 999.560000 error 0.132898
+Result 999.465747 original 999.914000 error 0.448253
+Result 999.519369 original 1000.900000 error 1.380631
+Result 999.580779 original 1001.610000 error 2.029221
+Result 999.641380 original 1001.390000 error 1.748620
+Result 999.693992 original 1000.450000 error 0.756008
+Result 999.734617 original 999.643000 error 0.091617
+Result 999.424787 original 1001.660000 error 2.235213
+Result 999.410424 original 1001.170000 error 1.759576
+Result 999.412519 original 1000.160000 error 0.747481
+Result 999.433332 original 999.551000 error 0.117668
+Result 999.472622 original 999.907000 error 0.434378
+Result 999.526491 original 1000.900000 error 1.373509
+Result 999.587658 original 1001.620000 error 2.032342
+Result 999.647581 original 1001.400000 error 1.752419
+Result 999.699248 original 1000.450000 error 0.750752
+Result 999.738856 original 999.634000 error 0.104856
+Result 999.428447 original 1001.670000 error 2.241553
+Result 999.414930 original 1001.180000 error 1.765070
+Result 999.417942 original 1000.150000 error 0.732058
+Result 999.439616 original 999.541000 error 0.101384
+Result 999.479534 original 999.901000 error 0.421466
+Result 999.533622 original 1000.900000 error 1.366378
+Result 999.594518 original 1001.630000 error 2.035482
+Result 999.653740 original 1001.410000 error 1.756260
+Result 999.704451 original 1000.440000 error 0.735549
+Result 999.743040 original 999.625000 error 0.118040
+Result 999.432155 original 1001.680000 error 2.247845
+Result 999.419494 original 1001.180000 error 1.760506
+Result 999.423425 original 1000.150000 error 0.726575
+Result 999.445955 original 999.531000 error 0.085045
+Result 999.486482 original 999.894000 error 0.407518
+Result 999.540762 original 1000.910000 error 1.369238
+Result 999.601356 original 1001.640000 error 2.038644
+Result 999.659856 original 1001.410000 error 1.750144
+Result 999.709599 original 1000.440000 error 0.730401
+Result 999.747169 original 999.616000 error 0.131169
+Result 999.435913 original 1001.690000 error 2.254087
+Result 999.424115 original 1001.190000 error 1.765885
+Result 999.428968 original 1000.150000 error 0.721032
+Result 999.452346 original 999.521000 error 0.068654
+Result 999.493464 original 999.888000 error 0.394536
+Result 999.547908 original 1000.910000 error 1.362092
+Result 999.608172 original 1001.650000 error 2.041828
+Result 999.665927 original 1001.420000 error 1.754073
+Result 999.714693 original 1000.440000 error 0.725307
+Result 999.751245 original 999.607000 error 0.144245
+Result 999.433160 original 1001.700000 error 2.266840
+Result 999.414950 original 1001.240000 error 1.825050
+Result 999.412665 original 1000.280000 error 0.867335
+Result 999.429043 original 999.710000 error 0.280957
+Result 999.464560 original 1000.050000 error 0.585440
+Result 999.516076 original 1000.980000 error 1.463924
+Result 999.576755 original 1001.660000 error 2.083245
+Result 999.637935 original 1001.450000 error 1.812065
+Result 999.691997 original 1000.550000 error 0.858003
+Result 999.734391 original 999.789000 error 0.054609
+Result 999.436652 original 1001.710000 error 2.273348
+Result 999.419264 original 1001.250000 error 1.830736
+Result 999.417888 original 1000.280000 error 0.862112
+Result 999.435154 original 999.700000 error 0.264846
+Result 999.471371 original 1000.040000 error 0.568629
+Result 999.523213 original 1000.990000 error 1.466787
+Result 999.583735 original 1001.670000 error 2.086265
+Result 999.644303 original 1001.460000 error 1.815697
+Result 999.697452 original 1000.550000 error 0.852548
+Result 999.738826 original 999.780000 error 0.041174
+Result 999.440190 original 1001.720000 error 2.279810
+Result 999.423633 original 1001.250000 error 1.826367
+Result 999.423172 original 1000.280000 error 0.856828
+Result 999.441323 original 999.690000 error 0.248677
+Result 999.478222 original 1000.030000 error 0.551778
+Result 999.530365 original 1000.990000 error 1.459635
+Result 999.590700 original 1001.680000 error 2.089300
+Result 999.650632 original 1001.470000 error 1.819368
+Result 999.702854 original 1000.550000 error 0.847146
+Result 999.743206 original 999.771000 error 0.027794
+Result 999.443776 original 1001.730000 error 2.286224
+Result 999.428059 original 1001.260000 error 1.831941
+Result 999.428516 original 1000.270000 error 0.841484
+Result 999.447547 original 999.680000 error 0.232453
+Result 999.485114 original 1000.030000 error 0.544886
+Result 999.537530 original 1000.990000 error 1.452470
+Result 999.597650 original 1001.690000 error 2.092350
+Result 999.656920 original 1001.480000 error 1.823080
+Result 999.708202 original 1000.550000 error 0.841798
+Result 999.747531 original 999.762000 error 0.014469
+Result 999.447410 original 1001.740000 error 2.292590
+Result 999.432541 original 1001.260000 error 1.827459
+Result 999.433921 original 1000.270000 error 0.836079
+Result 999.453827 original 999.670000 error 0.216173
+Result 999.492044 original 1000.020000 error 0.527956
+Result 999.544708 original 1000.990000 error 1.445292
+Result 999.604581 original 1001.700000 error 2.095419
+Result 999.663167 original 1001.480000 error 1.816833
+Result 999.713497 original 1000.550000 error 0.836503
+Result 999.751802 original 999.752000 error 0.000198
+Result 999.451093 original 1001.750000 error 2.298907
+Result 999.437080 original 1001.270000 error 1.832920
+Result 999.439386 original 1000.260000 error 0.820614
+Result 999.460162 original 999.661000 error 0.200838
+Result 999.499011 original 1000.010000 error 0.510989
+Result 999.551895 original 1001.000000 error 1.448105
+Result 999.611492 original 1001.710000 error 2.098508
+Result 999.669372 original 1001.490000 error 1.820628
+Result 999.718738 original 1000.550000 error 0.831262
+Result 999.756018 original 999.743000 error 0.013018
+Result 999.454824 original 1001.760000 error 2.305176
+Result 999.441676 original 1001.270000 error 1.828324
+Result 999.444911 original 1000.260000 error 0.815089
+Result 999.466550 original 999.651000 error 0.184450
+Result 999.506014 original 1000.010000 error 0.503986
+Result 999.559090 original 1001.000000 error 1.440910
+Result 999.618382 original 1001.720000 error 2.101618
+Result 999.675533 original 1001.500000 error 1.824467
+Result 999.723925 original 1000.550000 error 0.826075
+Result 999.760179 original 999.734000 error 0.026179
+Result 999.458605 original 1001.770000 error 2.311395
+Result 999.446330 original 1001.280000 error 1.833670
+Result 999.450497 original 1000.250000 error 0.799503
+Result 999.472992 original 999.641000 error 0.168008
+Result 999.513051 original 1000.000000 error 0.486949
+Result 999.566291 original 1001.000000 error 1.433709
+Result 999.625249 original 1001.730000 error 2.104751
+Result 999.681649 original 1001.510000 error 1.828351
+Result 999.729057 original 1000.540000 error 0.810943
+Result 999.764286 original 999.725000 error 0.039286
+Result 999.462437 original 1001.780000 error 2.317563
+Result 999.451042 original 1001.280000 error 1.828958
+Result 999.456143 original 1000.250000 error 0.793857
+Result 999.479486 original 999.631000 error 0.151514
+Result 999.520121 original 999.994000 error 0.473879
+Result 999.573496 original 1001.010000 error 1.436504
+Result 999.632091 original 1001.740000 error 2.107909
+Result 999.687719 original 1001.510000 error 1.822281
+Result 999.734135 original 1000.540000 error 0.805865
+Result 999.768339 original 999.716000 error 0.052339
+Result 999.466319 original 1001.790000 error 2.323681
+Result 999.455813 original 1001.290000 error 1.834187
+Result 999.461849 original 1000.250000 error 0.788151
+Result 999.486032 original 999.621000 error 0.134968
+Result 999.527222 original 999.988000 error 0.460778
+Result 999.580704 original 1001.010000 error 1.429296
+Result 999.638908 original 1001.750000 error 2.111092
+Result 999.693744 original 1001.520000 error 1.826256
+Result 999.739157 original 1000.540000 error 0.800843
+Result 999.772338 original 999.707000 error 0.065338
+Result 999.462999 original 1001.800000 error 2.337001
+Result 999.446013 original 1001.340000 error 1.893987
+Result 999.444900 original 1000.380000 error 0.935100
+Result 999.462196 original 999.810000 error 0.347804
+Result 999.498061 original 1000.150000 error 0.651939
+Result 999.549027 original 1001.080000 error 1.530973
+Result 999.608085 original 1001.760000 error 2.151915
+Result 999.666686 original 1001.550000 error 1.883314
+Result 999.717567 original 1000.650000 error 0.932433
+Result 999.756603 original 999.889000 error 0.132397
+Result 999.466606 original 1001.810000 error 2.343394
+Result 999.450469 original 1001.350000 error 1.899531
+Result 999.450285 original 1000.380000 error 0.929715
+Result 999.468470 original 999.800000 error 0.331530
+Result 999.505008 original 1000.140000 error 0.634992
+Result 999.556248 original 1001.090000 error 1.533752
+Result 999.615086 original 1001.770000 error 2.154914
+Result 999.673021 original 1001.560000 error 1.886979
+Result 999.722955 original 1000.650000 error 0.927045
+Result 999.760961 original 999.880000 error 0.119039
+Result 999.470261 original 1001.820000 error 2.349739
+Result 999.454982 original 1001.350000 error 1.895018
+Result 999.455731 original 1000.380000 error 0.924269
+Result 999.474799 original 999.790000 error 0.315201
+Result 999.511992 original 1000.130000 error 0.618008
+Result 999.563480 original 1001.090000 error 1.526520
+Result 999.622070 original 1001.780000 error 2.157930
+Result 999.679314 original 1001.570000 error 1.890686
+Result 999.728289 original 1000.650000 error 0.921711
+Result 999.765264 original 999.871000 error 0.105736
+Result 999.473964 original 1001.830000 error 2.356036
+Result 999.459552 original 1001.360000 error 1.900448
+Result 999.461237 original 1000.370000 error 0.908763
+Result 999.481183 original 999.780000 error 0.298817
+Result 999.519014 original 1000.130000 error 0.610986
+Result 999.570723 original 1001.090000 error 1.519277
+Result 999.629033 original 1001.790000 error 2.160967
+Result 999.685565 original 1001.580000 error 1.894435
+Result 999.733569 original 1000.650000 error 0.916431
+Result 999.769512 original 999.862000 error 0.092488
+Result 999.477717 original 1001.840000 error 2.362283
+Result 999.464179 original 1001.360000 error 1.895821
+Result 999.466803 original 1000.370000 error 0.903197
+Result 999.487621 original 999.770000 error 0.282379
+Result 999.526071 original 1000.120000 error 0.593929
+Result 999.577973 original 1001.090000 error 1.512027
+Result 999.635975 original 1001.800000 error 2.164025
+Result 999.691771 original 1001.580000 error 1.888229
+Result 999.738795 original 1000.650000 error 0.911205
+Result 999.773706 original 999.852000 error 0.078294
+Result 999.481520 original 1001.850000 error 2.368480
+Result 999.468865 original 1001.370000 error 1.901135
+Result 999.472430 original 1000.360000 error 0.887570
+Result 999.494112 original 999.760000 error 0.265888
+Result 999.533163 original 1000.110000 error 0.576837
+Result 999.585229 original 1001.100000 error 1.514771
+Result 999.642894 original 1001.810000 error 2.167106
+Result 999.697933 original 1001.590000 error 1.892067
+Result 999.743966 original 1000.650000 error 0.906034
+Result 999.777845 original 999.843000 error 0.065155
+Result 999.485373 original 1001.860000 error 2.374627
+Result 999.473608 original 1001.370000 error 1.896392
+Result 999.478117 original 1000.360000 error 0.881883
+Result 999.500656 original 999.751000 error 0.250344
+Result 999.540287 original 1000.110000 error 0.569713
+Result 999.592489 original 1001.100000 error 1.507511
+Result 999.649788 original 1001.820000 error 2.170212
+Result 999.704049 original 1001.600000 error 1.895951
+Result 999.749081 original 1000.650000 error 0.900919
+Result 999.781930 original 999.834000 error 0.052070
+Result 999.489277 original 1001.870000 error 2.380723
+Result 999.478410 original 1001.380000 error 1.901590
+Result 999.483864 original 1000.350000 error 0.866136
+Result 999.507251 original 999.741000 error 0.233749
+Result 999.547442 original 1000.100000 error 0.552558
+Result 999.599752 original 1001.100000 error 1.500248
+Result 999.656655 original 1001.830000 error 2.173345
+Result 999.710118 original 1001.610000 error 1.899882
+Result 999.754142 original 1000.640000 error 0.885858
+Result 999.785962 original 999.825000 error 0.039038
+Result 999.493232 original 1001.880000 error 2.386768
+Result 999.483271 original 1001.380000 error 1.896729
+Result 999.489671 original 1000.350000 error 0.860329
+Result 999.513896 original 999.731000 error 0.217104
+Result 999.554627 original 1000.090000 error 0.535373
+Result 999.607015 original 1001.110000 error 1.502985
+Result 999.663495 original 1001.840000 error 2.176505
+Result 999.716140 original 1001.610000 error 1.893860
+Result 999.759147 original 1000.640000 error 0.880853
+Result 999.789939 original 999.816000 error 0.026061
+Result 999.497239 original 1001.890000 error 2.392761
+Result 999.488190 original 1001.390000 error 1.901810
+Result 999.495538 original 1000.350000 error 0.854462
+Result 999.520591 original 999.721000 error 0.200409
+Result 999.561839 original 1000.090000 error 0.528161
+Result 999.614277 original 1001.110000 error 1.495723
+Result 999.670305 original 1001.850000 error 2.179695
+Result 999.722114 original 1001.620000 error 1.897886
+Result 999.764097 original 1000.640000 error 0.875903
+Result 999.793864 original 999.807000 error 0.013136
+Result 999.493301 original 1001.900000 error 2.406699
+Result 999.477714 original 1001.440000 error 1.962286
+Result 999.477922 original 1000.480000 error 1.002078
+Result 999.496228 original 999.910000 error 0.413772
+Result 999.532454 original 1000.250000 error 0.717546
+Result 999.582802 original 1001.180000 error 1.597198
+Result 999.640125 original 1001.860000 error 2.219875
+Result 999.696026 original 1001.650000 error 1.953974
+Result 999.743631 original 1000.750000 error 1.006369
+Result 999.779252 original 999.989000 error 0.209748
+Result 999.497024 original 1001.910000 error 2.412976
+Result 999.482313 original 1001.450000 error 1.967687
+Result 999.483467 original 1000.480000 error 0.996533
+Result 999.502660 original 999.900000 error 0.397340
+Result 999.539529 original 1000.240000 error 0.700471
+Result 999.590100 original 1001.190000 error 1.599900
+Result 999.647140 original 1001.870000 error 2.222860
+Result 999.702323 original 1001.660000 error 1.957677
+Result 999.748951 original 1000.750000 error 1.001049
+Result 999.783534 original 999.980000 error 0.196466
+Result 999.500796 original 1001.920000 error 2.419204
+Result 999.486970 original 1001.450000 error 1.963030
+Result 999.489073 original 1000.480000 error 0.990927
+Result 999.509146 original 999.890000 error 0.380854
+Result 999.546640 original 1000.230000 error 0.683360
+Result 999.597405 original 1001.190000 error 1.592595
+Result 999.654134 original 1001.880000 error 2.225866
+Result 999.708575 original 1001.670000 error 1.961425
+Result 999.754216 original 1000.750000 error 0.995784
+Result 999.787760 original 999.971000 error 0.183240
+Result 999.504619 original 1001.930000 error 2.425381
+Result 999.491684 original 1001.460000 error 1.968316
+Result 999.494739 original 1000.470000 error 0.975261
+Result 999.515685 original 999.880000 error 0.364315
+Result 999.553785 original 1000.230000 error 0.676215
+Result 999.604716 original 1001.190000 error 1.585284
+Result 999.661105 original 1001.890000 error 2.228895
+Result 999.714783 original 1001.680000 error 1.965217
+Result 999.759426 original 1000.750000 error 0.990574
+Result 999.791932 original 999.962000 error 0.170068
+Result 999.508491 original 1001.940000 error 2.431509
+Result 999.496457 original 1001.460000 error 1.963543
+Result 999.500466 original 1000.470000 error 0.969534
+Result 999.522276 original 999.870000 error 0.347724
+Result 999.560963 original 1000.220000 error 0.659037
+Result 999.612031 original 1001.200000 error 1.587969
+Result 999.668050 original 1001.900000 error 2.231950
+Result 999.720945 original 1001.680000 error 1.959055
+Result 999.764581 original 1000.750000 error 0.985419
+Result 999.796050 original 999.952000 error 0.155950
+Result 999.512415 original 1001.950000 error 2.437585
+Result 999.501289 original 1001.470000 error 1.968711
+Result 999.506253 original 1000.460000 error 0.953747
+Result 999.528920 original 999.861000 error 0.332080
+Result 999.568172 original 1000.210000 error 0.641828
+Result 999.619348 original 1001.200000 error 1.580652
+Result 999.674969 original 1001.910000 error 2.235031
+Result 999.727060 original 1001.690000 error 1.962940
+Result 999.769680 original 1000.750000 error 0.980320
+Result 999.800114 original 999.943000 error 0.142886
+Result 999.516390 original 1001.960000 error 2.443610
+Result 999.506179 original 1001.470000 error 1.963821
+Result 999.512099 original 1000.460000 error 0.947901
+Result 999.535613 original 999.851000 error 0.315387
+Result 999.575410 original 1000.210000 error 0.634590
+Result 999.626665 original 1001.200000 error 1.573335
+Result 999.681859 original 1001.920000 error 2.238141
+Result 999.733127 original 1001.700000 error 1.966873
+Result 999.774724 original 1000.750000 error 0.975276
+Result 999.804124 original 999.934000 error 0.129876
+Result 999.520417 original 1001.970000 error 2.449583
+Result 999.511128 original 1001.480000 error 1.968872
+Result 999.518005 original 1000.450000 error 0.931995
+Result 999.542356 original 999.841000 error 0.298644
+Result 999.582675 original 1000.200000 error 0.617325
+Result 999.633981 original 1001.200000 error 1.566019
+Result 999.688720 original 1001.930000 error 2.241280
+Result 999.739145 original 1001.710000 error 1.970855
+Result 999.779712 original 1000.740000 error 0.960288
+Result 999.808081 original 999.925000 error 0.116919
+Result 999.524496 original 1001.980000 error 2.455504
+Result 999.516137 original 1001.480000 error 1.963863
+Result 999.523970 original 1000.450000 error 0.926030
+Result 999.549148 original 999.831000 error 0.281852
+Result 999.589967 original 1000.190000 error 0.600033
+Result 999.641293 original 1001.210000 error 1.568707
+Result 999.695550 original 1001.940000 error 2.244450
+Result 999.745115 original 1001.710000 error 1.964885
+Result 999.784644 original 1000.740000 error 0.955356
+Result 999.811985 original 999.916000 error 0.104015
+Result 999.528629 original 1001.990000 error 2.461371
+Result 999.521205 original 1001.490000 error 1.968795
+Result 999.529995 original 1000.450000 error 0.920005
+Result 999.555986 original 999.821000 error 0.265014
+Result 999.597282 original 1000.190000 error 0.592718
+Result 999.648600 original 1001.210000 error 1.561400
+Result 999.702348 original 1001.950000 error 2.247652
+Result 999.751034 original 1001.720000 error 1.968966
+Result 999.789521 original 1000.740000 error 0.950479
+Result 999.815836 original 999.907000 error 0.091164
 Cleaning up.
- 
-
-scaling_train
-node scaling_train.js
-Max epochs     5000. Desired error: 0.0001000000.
-Epochs            1. Current error: 1.0024662476. Bit fail 836.
-Epochs         1000. Current error: 0.0122312841. Bit fail 0.
-Epochs         2000. Current error: 0.0104869328. Bit fail 0.
-Epochs         3000. Current error: 0.0035082421. Bit fail 0.
-Epochs         4000. Current error: 0.0036367857. Bit fail 0.
-Epochs         5000. Current error: 0.0039704776. Bit fail 0.
  

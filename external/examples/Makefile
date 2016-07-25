@@ -55,12 +55,12 @@ runtest:
 	node cascade_train.js
 
 	@echo
-	@echo scaling_test
-	node scaling_test.js
-
-	@echo
 	@echo scaling_train
 	node scaling_train.js
+
+	@echo
+	@echo scaling_test
+	node scaling_test.js
 
 #below this line is only for debugging the fann library
 

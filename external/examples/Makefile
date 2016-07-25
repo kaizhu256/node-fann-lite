@@ -9,10 +9,10 @@ DEBUG_TARGETS = xor_train_debug xor_test_debug xor_test_fixed_debug cascade_trai
 all: $(TARGETS)
 
 %: %.c Makefile
-	$(GCC) -O3 $< -o $@.js -lm
+	$(GCC) -O0 $< -o $@.js -lm
 
 %_fixed: %.c Makefile
-	$(GCC) -O3 -DFIXEDFANN $< -o $@ -lm
+	$(GCC) -O0 -DFIXEDFANN $< -o $@ -lm
 
 clean:
 	rm -f $(TARGETS) $(DEBUG_TARGETS) xor_fixed.data *.js *.mem *.net *~ *.obj *.exe *.tds noscale.txt withscale.txt scale_test_results.txt

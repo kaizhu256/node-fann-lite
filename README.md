@@ -9,6 +9,7 @@ pure javascript version of [fann](http://leenissen.dk/fann/) (fast artificial ne
 # documentation (original c-api)
 [http://leenissen.dk/fann/html/files2/gettingstarted-txt.html](http://leenissen.dk/fann/html/files2/gettingstarted-txt.html)
 - currently only tested to work in chrome browser
+- built from https://github.com/libfann/fann/tree/2.2.0
 
 
 
@@ -83,7 +84,7 @@ instruction
 
 
 /* jslint-ignore-begin */
-'<!DOCTYPE html>\n' +
+'<!doctype html>\n' +
 '<html>\n' +
 '<head>\n' +
     '<meta charset="UTF-8">\n' +
@@ -97,7 +98,7 @@ instruction
     '}\n' +
     'body {\n' +
         'background-color: #fff;\n' +
-        'font-family: Helvetical Neue, Helvetica, Arial, sans-serif;\n' +
+        'font-family: Helvetica Neue, Helvetica, Arial, sans-serif;\n' +
     '}\n' +
     'body > div {\n' +
         'margin-top: 20px;\n' +
@@ -297,9 +298,9 @@ instruction
     "main": "fann.js",
     "name": "fann-lite",
     "os": ["darwin", "linux"],
-    "repository" : {
-        "type" : "git",
-        "url" : "https://github.com/kaizhu256/node-fann-lite.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kaizhu256/node-fann-lite.git"
     },
     "scripts": {
         "build-ci": "node_modules/.bin/utility2 shRun shReadmeBuild",
@@ -361,7 +362,7 @@ shBuild() {
     MODE_BUILD=npmTest shRunScreenCapture npm test || return $?
 
     # if running legacy-node, then do not continue
-    [ "$(node --version)" \< "v0.12" ] && return
+    [ "$(node --version)" \< "v4.0" ] && return
 
     # deploy app to heroku
     shRun shHerokuDeploy hrku01-$npm_package_name-$CI_BRANCH || return $?
@@ -375,7 +376,7 @@ MODE_BUILD=gitLsTree shRunScreenCapture shGitLsTree || exit $?
 # create recent changelog of last 50 commits
 MODE_BUILD=gitLog shRunScreenCapture git log -50 --pretty="%ai\u000a%B" || exit $?
 # if running legacy-node, then do not continue
-[ "$(node --version)" \< "v0.12" ] && exit $EXIT_CODE
+[ "$(node --version)" \< "v4.0" ] && exit $EXIT_CODE
 # upload build-artifacts to github, and if number of commits > 16, then squash older commits
 COMMIT_LIMIT=16 shBuildGithubUpload || exit $?
 exit $EXIT_CODE

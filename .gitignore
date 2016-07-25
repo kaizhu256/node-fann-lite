@@ -5,6 +5,6 @@
 .*
 core
 example.js
-external
+# external
 node_modules
 tmp

@@ -33,7 +33,7 @@ this directoy contains pre-compiled javascript binaries of the fann examples @ h
 27      2016-07-25 15:20:44 +0200      940458 bytes    xor_train.js
 ```
 
-# to run the examples
+# to run the pre-compiled examples
 - install nodejs
 - clone this branch
 ```
@@ -42,7 +42,7 @@ git clone git@github.com:kaizhu256/node-fann-lite.git --single-branch --branch=e
 - and type:
 ```
 cd external/examples
-make runtest
+make runtest # there is no compiling - it simply runs tests with the pre-compiled binaries
 ```
 
 # output-log from running "make runtest"

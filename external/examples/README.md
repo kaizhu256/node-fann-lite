@@ -37,7 +37,7 @@ this directoy contains pre-compiled javascript binaries of the fann examples @ h
 - install nodejs
 - clone this branch
 ```
-git clone git@github.com:kaizhu256/node-fann-lite.git --single-branch --branch=examples
+git clone https://github.com/kaizhu256/node-fann-lite --single-branch --branch=examples
 ```
 - and type:
 ```
